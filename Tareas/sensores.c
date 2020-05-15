@@ -248,7 +248,7 @@ void Sensores_Calibracion_Line(void)
 			min_sens[is]     = 10000;
 		}
 
-	 for(int ind=0; ind < 2000 ; ind ++)
+	 for(int ind=0; ind < 1500 ; ind ++)
 				 {
 					  for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar el maximo, el minimo y promedio
 				      {

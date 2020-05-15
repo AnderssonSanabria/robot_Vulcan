@@ -16334,7 +16334,7 @@ void Sensores_Calibracion_Line(void)
  8005eac:	dde8      	ble.n	8005e80 <Sensores_Calibracion_Line+0xc>
 		}
 
-	 for(int ind=0; ind < 2000 ; ind ++)
+	 for(int ind=0; ind < 1500 ; ind ++)
  8005eae:	2300      	movs	r3, #0
  8005eb0:	60bb      	str	r3, [r7, #8]
  8005eb2:	e039      	b.n	8005f28 <Sensores_Calibracion_Line+0xb4>
@@ -16397,71 +16397,71 @@ void Sensores_Calibracion_Line(void)
 						 osDelay(2);
  8005f1c:	2002      	movs	r0, #2
  8005f1e:	f7fe f8cc 	bl	80040ba <osDelay>
-	 for(int ind=0; ind < 2000 ; ind ++)
+	 for(int ind=0; ind < 1500 ; ind ++)
  8005f22:	68bb      	ldr	r3, [r7, #8]
  8005f24:	3301      	adds	r3, #1
  8005f26:	60bb      	str	r3, [r7, #8]
  8005f28:	68bb      	ldr	r3, [r7, #8]
- 8005f2a:	f5b3 6ffa 	cmp.w	r3, #2000	; 0x7d0
- 8005f2e:	dbc1      	blt.n	8005eb4 <Sensores_Calibracion_Line+0x40>
+ 8005f2a:	f240 52db 	movw	r2, #1499	; 0x5db
+ 8005f2e:	4293      	cmp	r3, r2
+ 8005f30:	ddc0      	ble.n	8005eb4 <Sensores_Calibracion_Line+0x40>
 				}
 
 		//definir color de PISTA
 				if ((vel.fondo_pista[0] > vel.tr_sens[0]) && (vel.fondo_pista[NUM_SENSORES-1] > vel.tr_sens[NUM_SENSORES-1]))
- 8005f30:	4b13      	ldr	r3, [pc, #76]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f32:	6d9a      	ldr	r2, [r3, #88]	; 0x58
- 8005f34:	4b12      	ldr	r3, [pc, #72]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f36:	6b9b      	ldr	r3, [r3, #56]	; 0x38
- 8005f38:	429a      	cmp	r2, r3
- 8005f3a:	d909      	bls.n	8005f50 <Sensores_Calibracion_Line+0xdc>
- 8005f3c:	4b10      	ldr	r3, [pc, #64]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f3e:	6f5a      	ldr	r2, [r3, #116]	; 0x74
- 8005f40:	4b0f      	ldr	r3, [pc, #60]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f42:	6d5b      	ldr	r3, [r3, #84]	; 0x54
- 8005f44:	429a      	cmp	r2, r3
- 8005f46:	d903      	bls.n	8005f50 <Sensores_Calibracion_Line+0xdc>
+ 8005f32:	4b13      	ldr	r3, [pc, #76]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f34:	6d9a      	ldr	r2, [r3, #88]	; 0x58
+ 8005f36:	4b12      	ldr	r3, [pc, #72]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f38:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 8005f3a:	429a      	cmp	r2, r3
+ 8005f3c:	d909      	bls.n	8005f52 <Sensores_Calibracion_Line+0xde>
+ 8005f3e:	4b10      	ldr	r3, [pc, #64]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f40:	6f5a      	ldr	r2, [r3, #116]	; 0x74
+ 8005f42:	4b0f      	ldr	r3, [pc, #60]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f44:	6d5b      	ldr	r3, [r3, #84]	; 0x54
+ 8005f46:	429a      	cmp	r2, r3
+ 8005f48:	d903      	bls.n	8005f52 <Sensores_Calibracion_Line+0xde>
 				{
 				     vel_setup.tipopista = 1; // pista < negro
- 8005f48:	4b11      	ldr	r3, [pc, #68]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f4a:	2201      	movs	r2, #1
- 8005f4c:	619a      	str	r2, [r3, #24]
- 8005f4e:	e012      	b.n	8005f76 <Sensores_Calibracion_Line+0x102>
+ 8005f4a:	4b11      	ldr	r3, [pc, #68]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
+ 8005f4c:	2201      	movs	r2, #1
+ 8005f4e:	619a      	str	r2, [r3, #24]
+ 8005f50:	e012      	b.n	8005f78 <Sensores_Calibracion_Line+0x104>
 				}
 
 				else if ((vel.fondo_pista[0] < vel.tr_sens[0]) && (vel.fondo_pista[NUM_SENSORES-1] < vel.tr_sens[NUM_SENSORES-1]))
- 8005f50:	4b0b      	ldr	r3, [pc, #44]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f52:	6d9a      	ldr	r2, [r3, #88]	; 0x58
- 8005f54:	4b0a      	ldr	r3, [pc, #40]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f56:	6b9b      	ldr	r3, [r3, #56]	; 0x38
- 8005f58:	429a      	cmp	r2, r3
- 8005f5a:	d209      	bcs.n	8005f70 <Sensores_Calibracion_Line+0xfc>
- 8005f5c:	4b08      	ldr	r3, [pc, #32]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f5e:	6f5a      	ldr	r2, [r3, #116]	; 0x74
- 8005f60:	4b07      	ldr	r3, [pc, #28]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f62:	6d5b      	ldr	r3, [r3, #84]	; 0x54
- 8005f64:	429a      	cmp	r2, r3
- 8005f66:	d203      	bcs.n	8005f70 <Sensores_Calibracion_Line+0xfc>
+ 8005f52:	4b0b      	ldr	r3, [pc, #44]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f54:	6d9a      	ldr	r2, [r3, #88]	; 0x58
+ 8005f56:	4b0a      	ldr	r3, [pc, #40]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f58:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 8005f5a:	429a      	cmp	r2, r3
+ 8005f5c:	d209      	bcs.n	8005f72 <Sensores_Calibracion_Line+0xfe>
+ 8005f5e:	4b08      	ldr	r3, [pc, #32]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f60:	6f5a      	ldr	r2, [r3, #116]	; 0x74
+ 8005f62:	4b07      	ldr	r3, [pc, #28]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
+ 8005f64:	6d5b      	ldr	r3, [r3, #84]	; 0x54
+ 8005f66:	429a      	cmp	r2, r3
+ 8005f68:	d203      	bcs.n	8005f72 <Sensores_Calibracion_Line+0xfe>
 				{
 				     vel_setup.tipopista = 2; // pista > Blanco
- 8005f68:	4b09      	ldr	r3, [pc, #36]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f6a:	2202      	movs	r2, #2
- 8005f6c:	619a      	str	r2, [r3, #24]
- 8005f6e:	e002      	b.n	8005f76 <Sensores_Calibracion_Line+0x102>
+ 8005f6a:	4b09      	ldr	r3, [pc, #36]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
+ 8005f6c:	2202      	movs	r2, #2
+ 8005f6e:	619a      	str	r2, [r3, #24]
+ 8005f70:	e002      	b.n	8005f78 <Sensores_Calibracion_Line+0x104>
 				}
 	      else
 				{
 					vel_setup.tipopista = 2; //SET MANUAL
- 8005f70:	4b07      	ldr	r3, [pc, #28]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f72:	2202      	movs	r2, #2
- 8005f74:	619a      	str	r2, [r3, #24]
+ 8005f72:	4b07      	ldr	r3, [pc, #28]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
+ 8005f74:	2202      	movs	r2, #2
+ 8005f76:	619a      	str	r2, [r3, #24]
 				}
 
 }
- 8005f76:	bf00      	nop
- 8005f78:	3710      	adds	r7, #16
- 8005f7a:	46bd      	mov	sp, r7
- 8005f7c:	bd80      	pop	{r7, pc}
- 8005f7e:	bf00      	nop
+ 8005f78:	bf00      	nop
+ 8005f7a:	3710      	adds	r7, #16
+ 8005f7c:	46bd      	mov	sp, r7
+ 8005f7e:	bd80      	pop	{r7, pc}
  8005f80:	200010fc 	.word	0x200010fc
  8005f84:	20001210 	.word	0x20001210
  8005f88:	20001290 	.word	0x20001290
