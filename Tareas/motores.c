@@ -2,9 +2,12 @@
  * motores.c
  *
  *  Created on: May 10, 2020
- *      Author: Grupo 13 sistemas embebidos 2020 II
+ *  Author: Usuario
  */
 
+/*---------------------------------------------------------------------------*
+ *      				TAREA MOTORES										 *
+ *---------------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
 #include "leds.h"
@@ -12,11 +15,11 @@
 #include <stdlib.h>
 extern TIM_HandleTypeDef htim1;
 
-/*----------------------------------------------------------------------------
- *      FUNCION DE CONTROL MOTORES
- *---------------------------------------------------------------------------*/
 
-/*Funcion principal*/
+
+/*---------------------------------------------------------------------------*
+ *      		FUNCION PRINCIPAL: motores									 *
+ *---------------------------------------------------------------------------*/
 
 void motores (int mi, int md)
 {
@@ -38,24 +41,28 @@ void motores (int mi, int md)
 
 }
 
-/*Inicicializar motores*/
+/*---------------------------------------------------------------------------*
+ *      		FUNCION : Inicializacion de motores							 *
+ *---------------------------------------------------------------------------*/
 
 void motores_Init (void)
 {
-	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_1);// activar pwm motores
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_4);
 
 	TIM1->CCR1 = 0;//duty1 0 motor izquierdo
 	TIM1->CCR2 = 0;//duty2 0 motor izquierdo
-	TIM1->CCR3 = 0;
-	TIM1->CCR4 = 0;
+	TIM1->CCR3 = 0;//duty2 0 motor derecho
+	TIM1->CCR4 = 0;//duty1 0 motor derecho
     osDelay(1);
 
 }
 
-/*Funcion por motor*/
+/*---------------------------------------------------------------------------*
+ *      		FUNCION : linealizar pwm pr motor 							 *
+ *---------------------------------------------------------------------------*/
 
 void motor(int pwm_motor,int *duty1,int *duty2){
 

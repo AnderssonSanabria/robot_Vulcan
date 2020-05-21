@@ -2,7 +2,7 @@
  * api.h
  *
  *  Created on: May 10, 2020
- *      Author: Grupo 13 sistemas embebidos 2020 II
+ *  Author: Usuario
  */
 
 #ifndef API_H_

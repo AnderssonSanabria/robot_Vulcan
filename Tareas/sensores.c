@@ -2,15 +2,21 @@
  * sensores.c
  *
  *  Created on: 14/05/2020
- *      Author:Author: Grupo 13 sistemas embebidos 2020 II
+ *  Author: Usuario
  */
+
+/*---------------------------------------------------------------------------*
+ *      				TAREA SENSORES										 *
+ *---------------------------------------------------------------------------*/
+
+
 #include "sensores.h"
 #include "cmsis_os.h"                                           // CMSIS RTOS header file
 #include <stdlib.h>
 #include "VELOCISTA.h"
 #include "main.h"
 
-extern TIM_HandleTypeDef htim15;
+extern TIM_HandleTypeDef htim15;// instancia timer
 
 extern velocista_st vel;
 extern velocista_setup_st vel_setup;
@@ -214,9 +220,13 @@ void sensores(void const * argument)
 
     osDelay(1);
   }
-  /* USER CODE END sensores */
+
 }
 
+
+/*---------------------------------------------------------------------------*
+ *      			Funcion	Calibracion: FONDO PISTA  						 *
+ *---------------------------------------------------------------------------*/
 
 void Sensores_Calibracion_Backgound(void)
 {
@@ -236,6 +246,12 @@ for(int ind=0; ind < 100 ; ind ++)
 	  }
 
 }
+
+
+
+/*---------------------------------------------------------------------------*
+ *      			Funcion	Calibracion: LINEA		  						 *
+ *---------------------------------------------------------------------------*/
 
 
 void Sensores_Calibracion_Line(void)

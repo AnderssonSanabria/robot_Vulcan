@@ -2,7 +2,7 @@
  * leds.h
  *
  *  Created on: May 11, 2020
- *      Author: Grupo 13 sistemas embebidos 2020 II
+ *  Author: Usuario
  */
 
 #ifndef LEDS_H_

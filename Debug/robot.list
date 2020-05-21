@@ -5,45 +5,45 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   0000018c  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00005e74  08000190  08000190  00010190  2**4
+  1 .text         00005e64  08000190  08000190  00010190  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000000d0  08006004  08006004  00016004  2**2
+  2 .rodata       000000d0  08005ff4  08005ff4  00015ff4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080060d4  080060d4  00020030  2**0
+  3 .ARM.extab    00000000  080060c4  080060c4  00020030  2**0
                   CONTENTS
-  4 .ARM          00000008  080060d4  080060d4  000160d4  2**2
+  4 .ARM          00000008  080060c4  080060c4  000160c4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  080060dc  080060dc  00020030  2**0
+  5 .preinit_array 00000000  080060cc  080060cc  00020030  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080060dc  080060dc  000160dc  2**2
+  6 .init_array   00000004  080060cc  080060cc  000160cc  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  080060e0  080060e0  000160e0  2**2
+  7 .fini_array   00000004  080060d0  080060d0  000160d0  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000030  20000000  080060e4  00020000  2**2
+  8 .data         00000030  20000000  080060d4  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000012a4  20000030  08006114  00020030  2**2
+  9 .bss          000012a4  20000030  08006104  00020030  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  200012d4  08006114  000212d4  2**0
+ 10 ._user_heap_stack 00000604  200012d4  08006104  000212d4  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020030  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000179e9  00000000  00000000  00020060  2**0
+ 12 .debug_info   00017e36  00000000  00000000  00020060  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00003285  00000000  00000000  00037a49  2**0
+ 13 .debug_abbrev 000032f8  00000000  00000000  00037e96  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00001358  00000000  00000000  0003acd0  2**3
+ 14 .debug_aranges 00001348  00000000  00000000  0003b190  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 000011c0  00000000  00000000  0003c028  2**3
+ 15 .debug_ranges 000011b0  00000000  00000000  0003c4d8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0001ceb6  00000000  00000000  0003d1e8  2**0
+ 16 .debug_macro  0001cebf  00000000  00000000  0003d688  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00010ce4  00000000  00000000  0005a09e  2**0
+ 17 .debug_line   00010cc1  00000000  00000000  0005a547  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000b276f  00000000  00000000  0006ad82  2**0
+ 18 .debug_str    000b2759  00000000  00000000  0006b208  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0011d4f1  2**0
+ 19 .comment      0000007b  00000000  00000000  0011d961  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004e9c  00000000  00000000  0011d56c  2**2
+ 20 .debug_frame  00004e64  00000000  00000000  0011d9dc  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  80001a6:	bd10      	pop	{r4, pc}
  80001a8:	20000030 	.word	0x20000030
  80001ac:	00000000 	.word	0x00000000
- 80001b0:	08005fec 	.word	0x08005fec
+ 80001b0:	08005fdc 	.word	0x08005fdc
 
 080001b4 <frame_dummy>:
  80001b4:	b508      	push	{r3, lr}
@@ -74,7 +74,7 @@ Disassembly of section .text:
  80001c2:	bd08      	pop	{r3, pc}
  80001c4:	00000000 	.word	0x00000000
  80001c8:	20000034 	.word	0x20000034
- 80001cc:	08005fec 	.word	0x08005fec
+ 80001cc:	08005fdc 	.word	0x08005fdc
 
 080001d0 <__aeabi_uldivmod>:
  80001d0:	b953      	cbnz	r3, 80001e8 <__aeabi_uldivmod+0x18>
@@ -497,11 +497,11 @@ int main(void)
   while (1)
  8000594:	e7fe      	b.n	8000594 <main+0x90>
  8000596:	bf00      	nop
- 8000598:	08006014 	.word	0x08006014
+ 8000598:	08006004 	.word	0x08006004
  800059c:	200010b0 	.word	0x200010b0
- 80005a0:	08006040 	.word	0x08006040
+ 80005a0:	08006030 	.word	0x08006030
  80005a4:	200010b4 	.word	0x200010b4
- 80005a8:	08006068 	.word	0x08006068
+ 80005a8:	08006058 	.word	0x08006058
  80005ac:	20000fac 	.word	0x20000fac
 
 080005b0 <SystemClock_Config>:
@@ -519,7 +519,7 @@ void SystemClock_Config(void)
  80005ba:	2244      	movs	r2, #68	; 0x44
  80005bc:	2100      	movs	r1, #0
  80005be:	4618      	mov	r0, r3
- 80005c0:	f005 fd0c 	bl	8005fdc <memset>
+ 80005c0:	f005 fd04 	bl	8005fcc <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
  80005c4:	f107 0338 	add.w	r3, r7, #56	; 0x38
  80005c8:	2200      	movs	r2, #0
@@ -533,7 +533,7 @@ void SystemClock_Config(void)
  80005d6:	2234      	movs	r2, #52	; 0x34
  80005d8:	2100      	movs	r1, #0
  80005da:	4618      	mov	r0, r3
- 80005dc:	f005 fcfe 	bl	8005fdc <memset>
+ 80005dc:	f005 fcf6 	bl	8005fcc <memset>
 
   /** Configure the main internal regulator output voltage 
   */
@@ -688,7 +688,7 @@ static void MX_TIM1_Init(void)
  80006ba:	222c      	movs	r2, #44	; 0x2c
  80006bc:	2100      	movs	r1, #0
  80006be:	4618      	mov	r0, r3
- 80006c0:	f005 fc8c 	bl	8005fdc <memset>
+ 80006c0:	f005 fc84 	bl	8005fcc <memset>
 
   /* USER CODE BEGIN TIM1_Init 1 */
 
@@ -2009,7 +2009,7 @@ LoopFillZerobss:
  8000db6:	f7ff ffb3 	bl	8000d20 <SystemInit>
 /* Call static constructors */
     bl __libc_init_array
- 8000dba:	f005 f8eb 	bl	8005f94 <__libc_init_array>
+ 8000dba:	f005 f8e3 	bl	8005f84 <__libc_init_array>
 /* Call the application's entry point.*/
 	bl	main
  8000dbe:	f7ff fba1 	bl	8000504 <main>
@@ -2022,7 +2022,7 @@ LoopForever:
   ldr   sp, =_estack    /* Set stack pointer */
  8000dc4:	2000a000 	.word	0x2000a000
 	ldr	r3, =_sidata
- 8000dc8:	080060e4 	.word	0x080060e4
+ 8000dc8:	080060d4 	.word	0x080060d4
 	ldr	r0, =_sdata
  8000dcc:	20000000 	.word	0x20000000
 	ldr	r3, =_edata
@@ -3583,7 +3583,7 @@ HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)
         while(READ_BIT(RCC->CR, RCC_CR_HSERDY) == 0U)
  80016b6:	e010      	b.n	80016da <HAL_RCC_OscConfig+0x2be>
  80016b8:	40021000 	.word	0x40021000
- 80016bc:	0800608c 	.word	0x0800608c
+ 80016bc:	0800607c 	.word	0x0800607c
  80016c0:	20000000 	.word	0x20000000
  80016c4:	20000004 	.word	0x20000004
         {
@@ -5019,7 +5019,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8001e96:	bf00      	nop
  8001e98:	40022000 	.word	0x40022000
  8001e9c:	40021000 	.word	0x40021000
- 8001ea0:	0800608c 	.word	0x0800608c
+ 8001ea0:	0800607c 	.word	0x0800607c
  8001ea4:	20000000 	.word	0x20000000
  8001ea8:	20000004 	.word	0x20000004
 
@@ -5222,7 +5222,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8001faa:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001fae:	4770      	bx	lr
  8001fb0:	40021000 	.word	0x40021000
- 8001fb4:	080060a4 	.word	0x080060a4
+ 8001fb4:	08006094 	.word	0x08006094
  8001fb8:	00f42400 	.word	0x00f42400
  8001fbc:	007a1200 	.word	0x007a1200
 
@@ -5271,7 +5271,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  8001ff8:	4618      	mov	r0, r3
  8001ffa:	bd80      	pop	{r7, pc}
  8001ffc:	40021000 	.word	0x40021000
- 8002000:	0800609c 	.word	0x0800609c
+ 8002000:	0800608c 	.word	0x0800608c
 
 08002004 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -5298,7 +5298,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8002024:	4618      	mov	r0, r3
  8002026:	bd80      	pop	{r7, pc}
  8002028:	40021000 	.word	0x40021000
- 800202c:	0800609c 	.word	0x0800609c
+ 800202c:	0800608c 	.word	0x0800608c
 
 08002030 <HAL_RCC_GetClockConfig>:
   *         will be configured.
@@ -12246,7 +12246,7 @@ BaseType_t xReturn;
  800466e:	3718      	adds	r7, #24
  8004670:	46bd      	mov	sp, r7
  8004672:	bd80      	pop	{r7, pc}
- 8004674:	08006084 	.word	0x08006084
+ 8004674:	08006074 	.word	0x08006074
  8004678:	08004a05 	.word	0x08004a05
  800467c:	200003c4 	.word	0x200003c4
  8004680:	200003c0 	.word	0x200003c0
@@ -14713,8 +14713,8 @@ uint8_t *puc;
  800541c:	20000f94 	.word	0x20000f94
 
 08005420 <api>:
-#include "cmsis_os.h"
-#include "leds.h"
+#include "main.h"
+UART_HandleTypeDef huart3;
 
 /* USER CODE END Header_api */
 void api(void const * argument)
@@ -14723,10 +14723,11 @@ void api(void const * argument)
  8005422:	b082      	sub	sp, #8
  8005424:	af00      	add	r7, sp, #0
  8005426:	6078      	str	r0, [r7, #4]
-  /* USER CODE BEGIN api */
-  /* Infinite loop */
-  for(;;)
-  {
+    // {
+    //   sprintf((char*)uart_buffer_tx,"V%d -P%d -D%d -T%d\n\r",(int)vel_setup.vavg,(int)(10*vel_setup.kpg),(int)(10*vel_setup.kdg),vel_setup.pmw_t);
+    //   HAL_UART_Transmit(&huart2, uart_buffer_tx, strlen((char*)uart_buffer_tx),1000);
+    //   vel.flag_tx=0;
+    // }
     osDelay(1);
  8005428:	2001      	movs	r0, #1
  800542a:	f7fe fe46 	bl	80040ba <osDelay>
@@ -14743,1783 +14744,1782 @@ void control(void const * argument)
  8005432:	b08a      	sub	sp, #40	; 0x28
  8005434:	af00      	add	r7, sp, #0
  8005436:	6078      	str	r0, [r7, #4]
-	Default_Setup ();// cargar valores iniciales
- 8005438:	f000 f9e2 	bl	8005800 <Default_Setup>
+	Default_Setup ();					// cargar valores iniciales
+ 8005438:	f000 f9da 	bl	80057f0 <Default_Setup>
 
 	motores_Init();
- 800543c:	f000 fa68 	bl	8005910 <motores_Init>
+ 800543c:	f000 fa60 	bl	8005900 <motores_Init>
 	motores(0,0);
  8005440:	2100      	movs	r1, #0
  8005442:	2000      	movs	r0, #0
- 8005444:	f000 fa3c 	bl	80058c0 <motores>
+ 8005444:	f000 fa34 	bl	80058b0 <motores>
 	Sensores_Calibracion_Backgound();
- 8005448:	f000 fccc 	bl	8005de4 <Sensores_Calibracion_Backgound>
-	leds(1,1);//motores ok, calibracion fondo ok
+ 8005448:	f000 fcc4 	bl	8005dd4 <Sensores_Calibracion_Backgound>
+	leds(1,1);							//motores ok, calibracion fondo ok
  800544c:	2101      	movs	r1, #1
  800544e:	2001      	movs	r0, #1
- 8005450:	f000 fa0c 	bl	800586c <leds>
+ 8005450:	f000 fa04 	bl	800585c <leds>
 
-	osDelay(2000);// inicio calibracion de linea
+	osDelay(2000);						// inicio calibracion de linea
  8005454:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  8005458:	f7fe fe2f 	bl	80040ba <osDelay>
 	motores(30,-30);
  800545c:	f06f 011d 	mvn.w	r1, #29
  8005460:	201e      	movs	r0, #30
- 8005462:	f000 fa2d 	bl	80058c0 <motores>
+ 8005462:	f000 fa25 	bl	80058b0 <motores>
 	leds(1,1);
  8005466:	2101      	movs	r1, #1
  8005468:	2001      	movs	r0, #1
- 800546a:	f000 f9ff 	bl	800586c <leds>
+ 800546a:	f000 f9f7 	bl	800585c <leds>
 	osDelay(200);
  800546e:	20c8      	movs	r0, #200	; 0xc8
  8005470:	f7fe fe23 	bl	80040ba <osDelay>
 	Sensores_Calibracion_Line();
- 8005474:	f000 fcfe 	bl	8005e74 <Sensores_Calibracion_Line>
-	leds(0,0);//calibracion de linea finalizada
- 8005478:	2100      	movs	r1, #0
- 800547a:	2000      	movs	r0, #0
- 800547c:	f000 f9f6 	bl	800586c <leds>
-	motores(0,0);
- 8005480:	2100      	movs	r1, #0
- 8005482:	2000      	movs	r0, #0
- 8005484:	f000 fa1c 	bl	80058c0 <motores>
-	/************************************************************
-	// FIN CALIBRACION LISTA - TEST DE LINEA
-	*****************************************************************/
+ 8005474:	f000 fcf6 	bl	8005e64 <Sensores_Calibracion_Line>
+							//calibracion de linea ok
 	osDelay(2);
- 8005488:	2002      	movs	r0, #2
- 800548a:	f7fe fe16 	bl	80040ba <osDelay>
+ 8005478:	2002      	movs	r0, #2
+ 800547a:	f7fe fe1e 	bl	80040ba <osDelay>
+	leds(0,0);
+ 800547e:	2100      	movs	r1, #0
+ 8005480:	2000      	movs	r0, #0
+ 8005482:	f000 f9eb 	bl	800585c <leds>
+	/*---------------------------------------------------------------------------*
+	 *      				Fin calibracion										 *
+	 *---------------------------------------------------------------------------*/
 
-	 motores(0,0);
- 800548e:	2100      	movs	r1, #0
- 8005490:	2000      	movs	r0, #0
- 8005492:	f000 fa15 	bl	80058c0 <motores>
 
 	 vel.suma_i  = 0;
- 8005496:	4bbb      	ldr	r3, [pc, #748]	; (8005784 <control+0x354>)
- 8005498:	2200      	movs	r2, #0
- 800549a:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
-	 for (int i=1;i>=9;i++)		//valores de sensores en cero
- 800549e:	2301      	movs	r3, #1
- 80054a0:	627b      	str	r3, [r7, #36]	; 0x24
- 80054a2:	e00a      	b.n	80054ba <control+0x8a>
+ 8005486:	4bbb      	ldr	r3, [pc, #748]	; (8005774 <control+0x344>)
+ 8005488:	2200      	movs	r2, #0
+ 800548a:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+	 for (int i=1;i>=9;i++)				//valores de sensores en cero
+ 800548e:	2301      	movs	r3, #1
+ 8005490:	627b      	str	r3, [r7, #36]	; 0x24
+ 8005492:	e00a      	b.n	80054aa <control+0x7a>
 	 {
 		 vel.teta_b[i] = 0;
- 80054a4:	4ab7      	ldr	r2, [pc, #732]	; (8005784 <control+0x354>)
- 80054a6:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 80054a8:	3322      	adds	r3, #34	; 0x22
- 80054aa:	009b      	lsls	r3, r3, #2
- 80054ac:	4413      	add	r3, r2
- 80054ae:	f04f 0200 	mov.w	r2, #0
- 80054b2:	601a      	str	r2, [r3, #0]
-	 for (int i=1;i>=9;i++)		//valores de sensores en cero
- 80054b4:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 80054b6:	3301      	adds	r3, #1
- 80054b8:	627b      	str	r3, [r7, #36]	; 0x24
- 80054ba:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 80054bc:	2b08      	cmp	r3, #8
- 80054be:	dcf1      	bgt.n	80054a4 <control+0x74>
+ 8005494:	4ab7      	ldr	r2, [pc, #732]	; (8005774 <control+0x344>)
+ 8005496:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005498:	3322      	adds	r3, #34	; 0x22
+ 800549a:	009b      	lsls	r3, r3, #2
+ 800549c:	4413      	add	r3, r2
+ 800549e:	f04f 0200 	mov.w	r2, #0
+ 80054a2:	601a      	str	r2, [r3, #0]
+	 for (int i=1;i>=9;i++)				//valores de sensores en cero
+ 80054a4:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80054a6:	3301      	adds	r3, #1
+ 80054a8:	627b      	str	r3, [r7, #36]	; 0x24
+ 80054aa:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80054ac:	2b08      	cmp	r3, #8
+ 80054ae:	dcf1      	bgt.n	8005494 <control+0x64>
 	  }
 
-	 for (int i=9;i>0;i--)		// Carga de valores de los sensores
- 80054c0:	2309      	movs	r3, #9
- 80054c2:	623b      	str	r3, [r7, #32]
- 80054c4:	e00f      	b.n	80054e6 <control+0xb6>
+	 for (int i=9;i>0;i--)				// Carga de valores de los sensores
+ 80054b0:	2309      	movs	r3, #9
+ 80054b2:	623b      	str	r3, [r7, #32]
+ 80054b4:	e00f      	b.n	80054d6 <control+0xa6>
 	 {
 		 vel.teta_b[i] =vel.teta_b[i-1];
+ 80054b6:	6a3b      	ldr	r3, [r7, #32]
+ 80054b8:	3b01      	subs	r3, #1
+ 80054ba:	4aae      	ldr	r2, [pc, #696]	; (8005774 <control+0x344>)
+ 80054bc:	3322      	adds	r3, #34	; 0x22
+ 80054be:	009b      	lsls	r3, r3, #2
+ 80054c0:	4413      	add	r3, r2
+ 80054c2:	681a      	ldr	r2, [r3, #0]
+ 80054c4:	49ab      	ldr	r1, [pc, #684]	; (8005774 <control+0x344>)
  80054c6:	6a3b      	ldr	r3, [r7, #32]
- 80054c8:	3b01      	subs	r3, #1
- 80054ca:	4aae      	ldr	r2, [pc, #696]	; (8005784 <control+0x354>)
- 80054cc:	3322      	adds	r3, #34	; 0x22
- 80054ce:	009b      	lsls	r3, r3, #2
- 80054d0:	4413      	add	r3, r2
- 80054d2:	681a      	ldr	r2, [r3, #0]
- 80054d4:	49ab      	ldr	r1, [pc, #684]	; (8005784 <control+0x354>)
+ 80054c8:	3322      	adds	r3, #34	; 0x22
+ 80054ca:	009b      	lsls	r3, r3, #2
+ 80054cc:	440b      	add	r3, r1
+ 80054ce:	601a      	str	r2, [r3, #0]
+	 for (int i=9;i>0;i--)				// Carga de valores de los sensores
+ 80054d0:	6a3b      	ldr	r3, [r7, #32]
+ 80054d2:	3b01      	subs	r3, #1
+ 80054d4:	623b      	str	r3, [r7, #32]
  80054d6:	6a3b      	ldr	r3, [r7, #32]
- 80054d8:	3322      	adds	r3, #34	; 0x22
- 80054da:	009b      	lsls	r3, r3, #2
- 80054dc:	440b      	add	r3, r1
- 80054de:	601a      	str	r2, [r3, #0]
-	 for (int i=9;i>0;i--)		// Carga de valores de los sensores
- 80054e0:	6a3b      	ldr	r3, [r7, #32]
- 80054e2:	3b01      	subs	r3, #1
- 80054e4:	623b      	str	r3, [r7, #32]
- 80054e6:	6a3b      	ldr	r3, [r7, #32]
- 80054e8:	2b00      	cmp	r3, #0
- 80054ea:	dcec      	bgt.n	80054c6 <control+0x96>
+ 80054d8:	2b00      	cmp	r3, #0
+ 80054da:	dcec      	bgt.n	80054b6 <control+0x86>
 	  }
+
 	 vel.teta_b[0] = vel.sensores;
- 80054ec:	4ba5      	ldr	r3, [pc, #660]	; (8005784 <control+0x354>)
- 80054ee:	6b5b      	ldr	r3, [r3, #52]	; 0x34
- 80054f0:	ee07 3a90 	vmov	s15, r3
- 80054f4:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 80054f8:	4ba2      	ldr	r3, [pc, #648]	; (8005784 <control+0x354>)
- 80054fa:	edc3 7a22 	vstr	s15, [r3, #136]	; 0x88
+ 80054dc:	4ba5      	ldr	r3, [pc, #660]	; (8005774 <control+0x344>)
+ 80054de:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+ 80054e0:	ee07 3a90 	vmov	s15, r3
+ 80054e4:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 80054e8:	4ba2      	ldr	r3, [pc, #648]	; (8005774 <control+0x344>)
+ 80054ea:	edc3 7a22 	vstr	s15, [r3, #136]	; 0x88
 
      if(vel.teta_b[0] == 0 )
- 80054fe:	4ba1      	ldr	r3, [pc, #644]	; (8005784 <control+0x354>)
- 8005500:	edd3 7a22 	vldr	s15, [r3, #136]	; 0x88
- 8005504:	eef5 7a40 	vcmp.f32	s15, #0.0
- 8005508:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800550c:	d103      	bne.n	8005516 <control+0xe6>
+ 80054ee:	4ba1      	ldr	r3, [pc, #644]	; (8005774 <control+0x344>)
+ 80054f0:	edd3 7a22 	vldr	s15, [r3, #136]	; 0x88
+ 80054f4:	eef5 7a40 	vcmp.f32	s15, #0.0
+ 80054f8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80054fc:	d103      	bne.n	8005506 <control+0xd6>
      {
     	 vel.suma_i  = 0;
- 800550e:	4b9d      	ldr	r3, [pc, #628]	; (8005784 <control+0x354>)
- 8005510:	2200      	movs	r2, #0
- 8005512:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+ 80054fe:	4b9d      	ldr	r3, [pc, #628]	; (8005774 <control+0x344>)
+ 8005500:	2200      	movs	r2, #0
+ 8005502:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
      }
-     	 if(vel.suma_i >= CONTROL_INT_MAX)
- 8005516:	4b9b      	ldr	r3, [pc, #620]	; (8005784 <control+0x354>)
- 8005518:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
- 800551c:	f643 2297 	movw	r2, #14999	; 0x3a97
- 8005520:	4293      	cmp	r3, r2
- 8005522:	dd05      	ble.n	8005530 <control+0x100>
+     	 if(vel.suma_i >= CONTROL_INT_MAX) //limite maximo variables de control
+ 8005506:	4b9b      	ldr	r3, [pc, #620]	; (8005774 <control+0x344>)
+ 8005508:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
+ 800550c:	f643 2297 	movw	r2, #14999	; 0x3a97
+ 8005510:	4293      	cmp	r3, r2
+ 8005512:	dd05      	ble.n	8005520 <control+0xf0>
      		{
      		 vel.suma_i = CONTROL_INT_MAX;
- 8005524:	4b97      	ldr	r3, [pc, #604]	; (8005784 <control+0x354>)
- 8005526:	f643 2298 	movw	r2, #15000	; 0x3a98
- 800552a:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
- 800552e:	e01d      	b.n	800556c <control+0x13c>
+ 8005514:	4b97      	ldr	r3, [pc, #604]	; (8005774 <control+0x344>)
+ 8005516:	f643 2298 	movw	r2, #15000	; 0x3a98
+ 800551a:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+ 800551e:	e01d      	b.n	800555c <control+0x12c>
      		}
-     	else if(vel.suma_i <= -CONTROL_INT_MAX)
- 8005530:	4b94      	ldr	r3, [pc, #592]	; (8005784 <control+0x354>)
- 8005532:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
- 8005536:	4a94      	ldr	r2, [pc, #592]	; (8005788 <control+0x358>)
- 8005538:	4293      	cmp	r3, r2
- 800553a:	da04      	bge.n	8005546 <control+0x116>
+     	else if(vel.suma_i <= -CONTROL_INT_MAX)//limite minimo variables de control
+ 8005520:	4b94      	ldr	r3, [pc, #592]	; (8005774 <control+0x344>)
+ 8005522:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
+ 8005526:	4a94      	ldr	r2, [pc, #592]	; (8005778 <control+0x348>)
+ 8005528:	4293      	cmp	r3, r2
+ 800552a:	da04      	bge.n	8005536 <control+0x106>
      	{
      		vel.suma_i = -CONTROL_INT_MAX;
- 800553c:	4b91      	ldr	r3, [pc, #580]	; (8005784 <control+0x354>)
- 800553e:	4a93      	ldr	r2, [pc, #588]	; (800578c <control+0x35c>)
- 8005540:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
- 8005544:	e012      	b.n	800556c <control+0x13c>
+ 800552c:	4b91      	ldr	r3, [pc, #580]	; (8005774 <control+0x344>)
+ 800552e:	4a93      	ldr	r2, [pc, #588]	; (800577c <control+0x34c>)
+ 8005530:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+ 8005534:	e012      	b.n	800555c <control+0x12c>
      	}
      	else
      	{
      		vel.suma_i += (vel.teta_b[0]);
- 8005546:	4b8f      	ldr	r3, [pc, #572]	; (8005784 <control+0x354>)
- 8005548:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
- 800554c:	ee07 3a90 	vmov	s15, r3
- 8005550:	eeb8 7ae7 	vcvt.f32.s32	s14, s15
- 8005554:	4b8b      	ldr	r3, [pc, #556]	; (8005784 <control+0x354>)
- 8005556:	edd3 7a22 	vldr	s15, [r3, #136]	; 0x88
- 800555a:	ee77 7a27 	vadd.f32	s15, s14, s15
- 800555e:	eefd 7ae7 	vcvt.s32.f32	s15, s15
- 8005562:	ee17 2a90 	vmov	r2, s15
- 8005566:	4b87      	ldr	r3, [pc, #540]	; (8005784 <control+0x354>)
- 8005568:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
+ 8005536:	4b8f      	ldr	r3, [pc, #572]	; (8005774 <control+0x344>)
+ 8005538:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
+ 800553c:	ee07 3a90 	vmov	s15, r3
+ 8005540:	eeb8 7ae7 	vcvt.f32.s32	s14, s15
+ 8005544:	4b8b      	ldr	r3, [pc, #556]	; (8005774 <control+0x344>)
+ 8005546:	edd3 7a22 	vldr	s15, [r3, #136]	; 0x88
+ 800554a:	ee77 7a27 	vadd.f32	s15, s14, s15
+ 800554e:	eefd 7ae7 	vcvt.s32.f32	s15, s15
+ 8005552:	ee17 2a90 	vmov	r2, s15
+ 8005556:	4b87      	ldr	r3, [pc, #540]	; (8005774 <control+0x344>)
+ 8005558:	f8c3 20d8 	str.w	r2, [r3, #216]	; 0xd8
      	}
 
-     	int integral = (vel_setup.kig * vel.suma_i);
- 800556c:	4b88      	ldr	r3, [pc, #544]	; (8005790 <control+0x360>)
- 800556e:	ed93 7a04 	vldr	s14, [r3, #16]
- 8005572:	4b84      	ldr	r3, [pc, #528]	; (8005784 <control+0x354>)
- 8005574:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
- 8005578:	ee07 3a90 	vmov	s15, r3
- 800557c:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 8005580:	ee67 7a27 	vmul.f32	s15, s14, s15
- 8005584:	eefd 7ae7 	vcvt.s32.f32	s15, s15
- 8005588:	ee17 3a90 	vmov	r3, s15
- 800558c:	60fb      	str	r3, [r7, #12]
-     					vel.pwmd = (vel.teta_b[0]*vel_setup.kpg) +  (vel_setup.kdg*(vel.teta_b[0] - vel.teta_b[3])) + integral;
- 800558e:	4b7d      	ldr	r3, [pc, #500]	; (8005784 <control+0x354>)
- 8005590:	ed93 7a22 	vldr	s14, [r3, #136]	; 0x88
- 8005594:	4b7e      	ldr	r3, [pc, #504]	; (8005790 <control+0x360>)
- 8005596:	edd3 7a02 	vldr	s15, [r3, #8]
- 800559a:	ee27 7a27 	vmul.f32	s14, s14, s15
- 800559e:	4b7c      	ldr	r3, [pc, #496]	; (8005790 <control+0x360>)
- 80055a0:	edd3 6a03 	vldr	s13, [r3, #12]
- 80055a4:	4b77      	ldr	r3, [pc, #476]	; (8005784 <control+0x354>)
- 80055a6:	ed93 6a22 	vldr	s12, [r3, #136]	; 0x88
- 80055aa:	4b76      	ldr	r3, [pc, #472]	; (8005784 <control+0x354>)
- 80055ac:	edd3 7a25 	vldr	s15, [r3, #148]	; 0x94
- 80055b0:	ee76 7a67 	vsub.f32	s15, s12, s15
- 80055b4:	ee66 7aa7 	vmul.f32	s15, s13, s15
- 80055b8:	ee37 7a27 	vadd.f32	s14, s14, s15
- 80055bc:	68fb      	ldr	r3, [r7, #12]
- 80055be:	ee07 3a90 	vmov	s15, r3
- 80055c2:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 80055c6:	ee77 7a27 	vadd.f32	s15, s14, s15
- 80055ca:	4b6e      	ldr	r3, [pc, #440]	; (8005784 <control+0x354>)
- 80055cc:	edc3 7a0c 	vstr	s15, [r3, #48]	; 0x30
+     	int integral = (vel_setup.kig * vel.suma_i);//integral
+ 800555c:	4b88      	ldr	r3, [pc, #544]	; (8005780 <control+0x350>)
+ 800555e:	ed93 7a04 	vldr	s14, [r3, #16]
+ 8005562:	4b84      	ldr	r3, [pc, #528]	; (8005774 <control+0x344>)
+ 8005564:	f8d3 30d8 	ldr.w	r3, [r3, #216]	; 0xd8
+ 8005568:	ee07 3a90 	vmov	s15, r3
+ 800556c:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 8005570:	ee67 7a27 	vmul.f32	s15, s14, s15
+ 8005574:	eefd 7ae7 	vcvt.s32.f32	s15, s15
+ 8005578:	ee17 3a90 	vmov	r3, s15
+ 800557c:	60fb      	str	r3, [r7, #12]
+     					vel.pwmd = (vel.teta_b[0]*vel_setup.kpg) +  (vel_setup.kdg*(vel.teta_b[0] - vel.teta_b[3])) + integral;//PID
+ 800557e:	4b7d      	ldr	r3, [pc, #500]	; (8005774 <control+0x344>)
+ 8005580:	ed93 7a22 	vldr	s14, [r3, #136]	; 0x88
+ 8005584:	4b7e      	ldr	r3, [pc, #504]	; (8005780 <control+0x350>)
+ 8005586:	edd3 7a02 	vldr	s15, [r3, #8]
+ 800558a:	ee27 7a27 	vmul.f32	s14, s14, s15
+ 800558e:	4b7c      	ldr	r3, [pc, #496]	; (8005780 <control+0x350>)
+ 8005590:	edd3 6a03 	vldr	s13, [r3, #12]
+ 8005594:	4b77      	ldr	r3, [pc, #476]	; (8005774 <control+0x344>)
+ 8005596:	ed93 6a22 	vldr	s12, [r3, #136]	; 0x88
+ 800559a:	4b76      	ldr	r3, [pc, #472]	; (8005774 <control+0x344>)
+ 800559c:	edd3 7a25 	vldr	s15, [r3, #148]	; 0x94
+ 80055a0:	ee76 7a67 	vsub.f32	s15, s12, s15
+ 80055a4:	ee66 7aa7 	vmul.f32	s15, s13, s15
+ 80055a8:	ee37 7a27 	vadd.f32	s14, s14, s15
+ 80055ac:	68fb      	ldr	r3, [r7, #12]
+ 80055ae:	ee07 3a90 	vmov	s15, r3
+ 80055b2:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 80055b6:	ee77 7a27 	vadd.f32	s15, s14, s15
+ 80055ba:	4b6e      	ldr	r3, [pc, #440]	; (8005774 <control+0x344>)
+ 80055bc:	edc3 7a0c 	vstr	s15, [r3, #48]	; 0x30
 
 
      					if(vel.pwmd>20)
- 80055d0:	4b6c      	ldr	r3, [pc, #432]	; (8005784 <control+0x354>)
- 80055d2:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 80055d6:	eeb3 7a04 	vmov.f32	s14, #52	; 0x41a00000  20.0
- 80055da:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80055de:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80055e2:	dd02      	ble.n	80055ea <control+0x1ba>
+ 80055c0:	4b6c      	ldr	r3, [pc, #432]	; (8005774 <control+0x344>)
+ 80055c2:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 80055c6:	eeb3 7a04 	vmov.f32	s14, #52	; 0x41a00000  20.0
+ 80055ca:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80055ce:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80055d2:	dd02      	ble.n	80055da <control+0x1aa>
      						{
 
      							vel.pwmd = 20;
- 80055e4:	4b67      	ldr	r3, [pc, #412]	; (8005784 <control+0x354>)
- 80055e6:	4a6b      	ldr	r2, [pc, #428]	; (8005794 <control+0x364>)
- 80055e8:	631a      	str	r2, [r3, #48]	; 0x30
+ 80055d4:	4b67      	ldr	r3, [pc, #412]	; (8005774 <control+0x344>)
+ 80055d6:	4a6b      	ldr	r2, [pc, #428]	; (8005784 <control+0x354>)
+ 80055d8:	631a      	str	r2, [r3, #48]	; 0x30
      						}
      					if(vel.pwmd<-20)
- 80055ea:	4b66      	ldr	r3, [pc, #408]	; (8005784 <control+0x354>)
- 80055ec:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 80055f0:	eebb 7a04 	vmov.f32	s14, #180	; 0xc1a00000 -20.0
- 80055f4:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80055f8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80055fc:	d502      	bpl.n	8005604 <control+0x1d4>
+ 80055da:	4b66      	ldr	r3, [pc, #408]	; (8005774 <control+0x344>)
+ 80055dc:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 80055e0:	eebb 7a04 	vmov.f32	s14, #180	; 0xc1a00000 -20.0
+ 80055e4:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80055e8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80055ec:	d502      	bpl.n	80055f4 <control+0x1c4>
      						{
      							vel.pwmd = -20;
- 80055fe:	4b61      	ldr	r3, [pc, #388]	; (8005784 <control+0x354>)
- 8005600:	4a65      	ldr	r2, [pc, #404]	; (8005798 <control+0x368>)
- 8005602:	631a      	str	r2, [r3, #48]	; 0x30
+ 80055ee:	4b61      	ldr	r3, [pc, #388]	; (8005774 <control+0x344>)
+ 80055f0:	4a65      	ldr	r2, [pc, #404]	; (8005788 <control+0x358>)
+ 80055f2:	631a      	str	r2, [r3, #48]	; 0x30
      						}
 
      					vel.pmw_d = (int) - vel.pwmd;
- 8005604:	4b5f      	ldr	r3, [pc, #380]	; (8005784 <control+0x354>)
- 8005606:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 800560a:	eef1 7a67 	vneg.f32	s15, s15
- 800560e:	eefd 7ae7 	vcvt.s32.f32	s15, s15
- 8005612:	ee17 2a90 	vmov	r2, s15
- 8005616:	4b5b      	ldr	r3, [pc, #364]	; (8005784 <control+0x354>)
- 8005618:	629a      	str	r2, [r3, #40]	; 0x28
+ 80055f4:	4b5f      	ldr	r3, [pc, #380]	; (8005774 <control+0x344>)
+ 80055f6:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 80055fa:	eef1 7a67 	vneg.f32	s15, s15
+ 80055fe:	eefd 7ae7 	vcvt.s32.f32	s15, s15
+ 8005602:	ee17 2a90 	vmov	r2, s15
+ 8005606:	4b5b      	ldr	r3, [pc, #364]	; (8005774 <control+0x344>)
+ 8005608:	629a      	str	r2, [r3, #40]	; 0x28
      					vel.pmw_i = (int)  vel.pwmd;
- 800561a:	4b5a      	ldr	r3, [pc, #360]	; (8005784 <control+0x354>)
- 800561c:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 8005620:	eefd 7ae7 	vcvt.s32.f32	s15, s15
- 8005624:	ee17 2a90 	vmov	r2, s15
- 8005628:	4b56      	ldr	r3, [pc, #344]	; (8005784 <control+0x354>)
- 800562a:	62da      	str	r2, [r3, #44]	; 0x2c
+ 800560a:	4b5a      	ldr	r3, [pc, #360]	; (8005774 <control+0x344>)
+ 800560c:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 8005610:	eefd 7ae7 	vcvt.s32.f32	s15, s15
+ 8005614:	ee17 2a90 	vmov	r2, s15
+ 8005618:	4b56      	ldr	r3, [pc, #344]	; (8005774 <control+0x344>)
+ 800561a:	62da      	str	r2, [r3, #44]	; 0x2c
 
      					motores(vel.pmw_i,vel.pmw_d);
- 800562c:	4b55      	ldr	r3, [pc, #340]	; (8005784 <control+0x354>)
- 800562e:	6ada      	ldr	r2, [r3, #44]	; 0x2c
- 8005630:	4b54      	ldr	r3, [pc, #336]	; (8005784 <control+0x354>)
- 8005632:	6a9b      	ldr	r3, [r3, #40]	; 0x28
- 8005634:	4619      	mov	r1, r3
- 8005636:	4610      	mov	r0, r2
- 8005638:	f000 f942 	bl	80058c0 <motores>
+ 800561c:	4b55      	ldr	r3, [pc, #340]	; (8005774 <control+0x344>)
+ 800561e:	6ada      	ldr	r2, [r3, #44]	; 0x2c
+ 8005620:	4b54      	ldr	r3, [pc, #336]	; (8005774 <control+0x344>)
+ 8005622:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 8005624:	4619      	mov	r1, r3
+ 8005626:	4610      	mov	r0, r2
+ 8005628:	f000 f942 	bl	80058b0 <motores>
 
      					//Direccionales
      					if(vel.pwmd > 0)
- 800563c:	4b51      	ldr	r3, [pc, #324]	; (8005784 <control+0x354>)
- 800563e:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 8005642:	eef5 7ac0 	vcmpe.f32	s15, #0.0
- 8005646:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 800564a:	dd04      	ble.n	8005656 <control+0x226>
+ 800562c:	4b51      	ldr	r3, [pc, #324]	; (8005774 <control+0x344>)
+ 800562e:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 8005632:	eef5 7ac0 	vcmpe.f32	s15, #0.0
+ 8005636:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 800563a:	dd04      	ble.n	8005646 <control+0x216>
      						{
      						    leds(1, 0);
- 800564c:	2100      	movs	r1, #0
- 800564e:	2001      	movs	r0, #1
- 8005650:	f000 f90c 	bl	800586c <leds>
- 8005654:	e003      	b.n	800565e <control+0x22e>
+ 800563c:	2100      	movs	r1, #0
+ 800563e:	2001      	movs	r0, #1
+ 8005640:	f000 f90c 	bl	800585c <leds>
+ 8005644:	e003      	b.n	800564e <control+0x21e>
      						}
      					else
      						{
      						    leds(0, 1);
- 8005656:	2101      	movs	r1, #1
- 8005658:	2000      	movs	r0, #0
- 800565a:	f000 f907 	bl	800586c <leds>
+ 8005646:	2101      	movs	r1, #1
+ 8005648:	2000      	movs	r0, #0
+ 800564a:	f000 f907 	bl	800585c <leds>
      						}
      					osDelay(2);
- 800565e:	2002      	movs	r0, #2
- 8005660:	f7fe fd2b 	bl	80040ba <osDelay>
+ 800564e:	2002      	movs	r0, #2
+ 8005650:	f7fe fd33 	bl	80040ba <osDelay>
 
 	while(1)
 	{
 		float pwml,pwmr;
 
 		 for (int i=19;i>0;i--)		// Carga de valores de los sensores
- 8005664:	2313      	movs	r3, #19
- 8005666:	617b      	str	r3, [r7, #20]
- 8005668:	e00f      	b.n	800568a <control+0x25a>
+ 8005654:	2313      	movs	r3, #19
+ 8005656:	617b      	str	r3, [r7, #20]
+ 8005658:	e00f      	b.n	800567a <control+0x24a>
 		 {
 			 vel.teta_b[i] =vel.teta_b[i-1];
+ 800565a:	697b      	ldr	r3, [r7, #20]
+ 800565c:	3b01      	subs	r3, #1
+ 800565e:	4a45      	ldr	r2, [pc, #276]	; (8005774 <control+0x344>)
+ 8005660:	3322      	adds	r3, #34	; 0x22
+ 8005662:	009b      	lsls	r3, r3, #2
+ 8005664:	4413      	add	r3, r2
+ 8005666:	681a      	ldr	r2, [r3, #0]
+ 8005668:	4942      	ldr	r1, [pc, #264]	; (8005774 <control+0x344>)
  800566a:	697b      	ldr	r3, [r7, #20]
- 800566c:	3b01      	subs	r3, #1
- 800566e:	4a45      	ldr	r2, [pc, #276]	; (8005784 <control+0x354>)
- 8005670:	3322      	adds	r3, #34	; 0x22
- 8005672:	009b      	lsls	r3, r3, #2
- 8005674:	4413      	add	r3, r2
- 8005676:	681a      	ldr	r2, [r3, #0]
- 8005678:	4942      	ldr	r1, [pc, #264]	; (8005784 <control+0x354>)
- 800567a:	697b      	ldr	r3, [r7, #20]
- 800567c:	3322      	adds	r3, #34	; 0x22
- 800567e:	009b      	lsls	r3, r3, #2
- 8005680:	440b      	add	r3, r1
- 8005682:	601a      	str	r2, [r3, #0]
+ 800566c:	3322      	adds	r3, #34	; 0x22
+ 800566e:	009b      	lsls	r3, r3, #2
+ 8005670:	440b      	add	r3, r1
+ 8005672:	601a      	str	r2, [r3, #0]
 		 for (int i=19;i>0;i--)		// Carga de valores de los sensores
- 8005684:	697b      	ldr	r3, [r7, #20]
- 8005686:	3b01      	subs	r3, #1
- 8005688:	617b      	str	r3, [r7, #20]
- 800568a:	697b      	ldr	r3, [r7, #20]
- 800568c:	2b00      	cmp	r3, #0
- 800568e:	dcec      	bgt.n	800566a <control+0x23a>
+ 8005674:	697b      	ldr	r3, [r7, #20]
+ 8005676:	3b01      	subs	r3, #1
+ 8005678:	617b      	str	r3, [r7, #20]
+ 800567a:	697b      	ldr	r3, [r7, #20]
+ 800567c:	2b00      	cmp	r3, #0
+ 800567e:	dcec      	bgt.n	800565a <control+0x22a>
 		  }
 		vel.teta_b[0] = vel.sensores;
- 8005690:	4b3c      	ldr	r3, [pc, #240]	; (8005784 <control+0x354>)
- 8005692:	6b5b      	ldr	r3, [r3, #52]	; 0x34
- 8005694:	ee07 3a90 	vmov	s15, r3
- 8005698:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 800569c:	4b39      	ldr	r3, [pc, #228]	; (8005784 <control+0x354>)
- 800569e:	edc3 7a22 	vstr	s15, [r3, #136]	; 0x88
+ 8005680:	4b3c      	ldr	r3, [pc, #240]	; (8005774 <control+0x344>)
+ 8005682:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+ 8005684:	ee07 3a90 	vmov	s15, r3
+ 8005688:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 800568c:	4b39      	ldr	r3, [pc, #228]	; (8005774 <control+0x344>)
+ 800568e:	edc3 7a22 	vstr	s15, [r3, #136]	; 0x88
 
 		vel.detect_recta_ant = vel.detect_recta;
- 80056a2:	4b38      	ldr	r3, [pc, #224]	; (8005784 <control+0x354>)
- 80056a4:	f8d3 3080 	ldr.w	r3, [r3, #128]	; 0x80
- 80056a8:	4a36      	ldr	r2, [pc, #216]	; (8005784 <control+0x354>)
- 80056aa:	67d3      	str	r3, [r2, #124]	; 0x7c
+ 8005692:	4b38      	ldr	r3, [pc, #224]	; (8005774 <control+0x344>)
+ 8005694:	f8d3 3080 	ldr.w	r3, [r3, #128]	; 0x80
+ 8005698:	4a36      	ldr	r2, [pc, #216]	; (8005774 <control+0x344>)
+ 800569a:	67d3      	str	r3, [r2, #124]	; 0x7c
 		vel.detect_recta = 1;
- 80056ac:	4b35      	ldr	r3, [pc, #212]	; (8005784 <control+0x354>)
- 80056ae:	2201      	movs	r2, #1
- 80056b0:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
+ 800569c:	4b35      	ldr	r3, [pc, #212]	; (8005774 <control+0x344>)
+ 800569e:	2201      	movs	r2, #1
+ 80056a0:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
 
 		for(int i=0 ; i<20; i++)
- 80056b4:	2300      	movs	r3, #0
- 80056b6:	613b      	str	r3, [r7, #16]
- 80056b8:	e022      	b.n	8005700 <control+0x2d0>
+ 80056a4:	2300      	movs	r3, #0
+ 80056a6:	613b      	str	r3, [r7, #16]
+ 80056a8:	e022      	b.n	80056f0 <control+0x2c0>
 		{
 			if( vel.teta_b[i] > 8 || vel.teta_b[i] < -8)
- 80056ba:	4a32      	ldr	r2, [pc, #200]	; (8005784 <control+0x354>)
- 80056bc:	693b      	ldr	r3, [r7, #16]
- 80056be:	3322      	adds	r3, #34	; 0x22
- 80056c0:	009b      	lsls	r3, r3, #2
- 80056c2:	4413      	add	r3, r2
- 80056c4:	edd3 7a00 	vldr	s15, [r3]
- 80056c8:	eeb2 7a00 	vmov.f32	s14, #32	; 0x41000000  8.0
- 80056cc:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80056d0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80056d4:	dc0d      	bgt.n	80056f2 <control+0x2c2>
- 80056d6:	4a2b      	ldr	r2, [pc, #172]	; (8005784 <control+0x354>)
- 80056d8:	693b      	ldr	r3, [r7, #16]
- 80056da:	3322      	adds	r3, #34	; 0x22
- 80056dc:	009b      	lsls	r3, r3, #2
- 80056de:	4413      	add	r3, r2
- 80056e0:	edd3 7a00 	vldr	s15, [r3]
- 80056e4:	eeba 7a00 	vmov.f32	s14, #160	; 0xc1000000 -8.0
- 80056e8:	eef4 7ac7 	vcmpe.f32	s15, s14
- 80056ec:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 80056f0:	d503      	bpl.n	80056fa <control+0x2ca>
+ 80056aa:	4a32      	ldr	r2, [pc, #200]	; (8005774 <control+0x344>)
+ 80056ac:	693b      	ldr	r3, [r7, #16]
+ 80056ae:	3322      	adds	r3, #34	; 0x22
+ 80056b0:	009b      	lsls	r3, r3, #2
+ 80056b2:	4413      	add	r3, r2
+ 80056b4:	edd3 7a00 	vldr	s15, [r3]
+ 80056b8:	eeb2 7a00 	vmov.f32	s14, #32	; 0x41000000  8.0
+ 80056bc:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80056c0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80056c4:	dc0d      	bgt.n	80056e2 <control+0x2b2>
+ 80056c6:	4a2b      	ldr	r2, [pc, #172]	; (8005774 <control+0x344>)
+ 80056c8:	693b      	ldr	r3, [r7, #16]
+ 80056ca:	3322      	adds	r3, #34	; 0x22
+ 80056cc:	009b      	lsls	r3, r3, #2
+ 80056ce:	4413      	add	r3, r2
+ 80056d0:	edd3 7a00 	vldr	s15, [r3]
+ 80056d4:	eeba 7a00 	vmov.f32	s14, #160	; 0xc1000000 -8.0
+ 80056d8:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 80056dc:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 80056e0:	d503      	bpl.n	80056ea <control+0x2ba>
 		  {
 			  vel.detect_recta = 0;
- 80056f2:	4b24      	ldr	r3, [pc, #144]	; (8005784 <control+0x354>)
- 80056f4:	2200      	movs	r2, #0
- 80056f6:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
+ 80056e2:	4b24      	ldr	r3, [pc, #144]	; (8005774 <control+0x344>)
+ 80056e4:	2200      	movs	r2, #0
+ 80056e6:	f8c3 2080 	str.w	r2, [r3, #128]	; 0x80
 		for(int i=0 ; i<20; i++)
- 80056fa:	693b      	ldr	r3, [r7, #16]
- 80056fc:	3301      	adds	r3, #1
- 80056fe:	613b      	str	r3, [r7, #16]
- 8005700:	693b      	ldr	r3, [r7, #16]
- 8005702:	2b13      	cmp	r3, #19
- 8005704:	ddd9      	ble.n	80056ba <control+0x28a>
+ 80056ea:	693b      	ldr	r3, [r7, #16]
+ 80056ec:	3301      	adds	r3, #1
+ 80056ee:	613b      	str	r3, [r7, #16]
+ 80056f0:	693b      	ldr	r3, [r7, #16]
+ 80056f2:	2b13      	cmp	r3, #19
+ 80056f4:	ddd9      	ble.n	80056aa <control+0x27a>
 			}
 
 		}
 
 
 		if(vel.detect_recta)
- 8005706:	4b1f      	ldr	r3, [pc, #124]	; (8005784 <control+0x354>)
- 8005708:	f8d3 3080 	ldr.w	r3, [r3, #128]	; 0x80
- 800570c:	2b00      	cmp	r3, #0
- 800570e:	d004      	beq.n	800571a <control+0x2ea>
+ 80056f6:	4b1f      	ldr	r3, [pc, #124]	; (8005774 <control+0x344>)
+ 80056f8:	f8d3 3080 	ldr.w	r3, [r3, #128]	; 0x80
+ 80056fc:	2b00      	cmp	r3, #0
+ 80056fe:	d004      	beq.n	800570a <control+0x2da>
 		{
 		   leds(0, 0);
- 8005710:	2100      	movs	r1, #0
- 8005712:	2000      	movs	r0, #0
- 8005714:	f000 f8aa 	bl	800586c <leds>
- 8005718:	e003      	b.n	8005722 <control+0x2f2>
+ 8005700:	2100      	movs	r1, #0
+ 8005702:	2000      	movs	r0, #0
+ 8005704:	f000 f8aa 	bl	800585c <leds>
+ 8005708:	e003      	b.n	8005712 <control+0x2e2>
 			 {
 //					 vel.pmw_d = (int) -100;
 //				   vel.pmw_i = (int) -100;
 //					 osDelay(20);
 			 }
 		     leds(1,1);
- 800571a:	2101      	movs	r1, #1
- 800571c:	2001      	movs	r0, #1
- 800571e:	f000 f8a5 	bl	800586c <leds>
+ 800570a:	2101      	movs	r1, #1
+ 800570c:	2001      	movs	r0, #1
+ 800570e:	f000 f8a5 	bl	800585c <leds>
 		}
 
 
-		vel.pwmd = (vel.teta_b[0]*vel_setup.kpg) +  (vel_setup.kdg*(vel.teta_b[0] - vel.teta_b[8]));
- 8005722:	4b18      	ldr	r3, [pc, #96]	; (8005784 <control+0x354>)
- 8005724:	ed93 7a22 	vldr	s14, [r3, #136]	; 0x88
- 8005728:	4b19      	ldr	r3, [pc, #100]	; (8005790 <control+0x360>)
- 800572a:	edd3 7a02 	vldr	s15, [r3, #8]
- 800572e:	ee27 7a27 	vmul.f32	s14, s14, s15
- 8005732:	4b17      	ldr	r3, [pc, #92]	; (8005790 <control+0x360>)
- 8005734:	edd3 6a03 	vldr	s13, [r3, #12]
- 8005738:	4b12      	ldr	r3, [pc, #72]	; (8005784 <control+0x354>)
- 800573a:	ed93 6a22 	vldr	s12, [r3, #136]	; 0x88
- 800573e:	4b11      	ldr	r3, [pc, #68]	; (8005784 <control+0x354>)
- 8005740:	edd3 7a2a 	vldr	s15, [r3, #168]	; 0xa8
- 8005744:	ee76 7a67 	vsub.f32	s15, s12, s15
- 8005748:	ee66 7aa7 	vmul.f32	s15, s13, s15
- 800574c:	ee77 7a27 	vadd.f32	s15, s14, s15
- 8005750:	4b0c      	ldr	r3, [pc, #48]	; (8005784 <control+0x354>)
- 8005752:	edc3 7a0c 	vstr	s15, [r3, #48]	; 0x30
+		vel.pwmd = (vel.teta_b[0]*vel_setup.kpg) +  (vel_setup.kdg*(vel.teta_b[0] - vel.teta_b[8]));//PID
+ 8005712:	4b18      	ldr	r3, [pc, #96]	; (8005774 <control+0x344>)
+ 8005714:	ed93 7a22 	vldr	s14, [r3, #136]	; 0x88
+ 8005718:	4b19      	ldr	r3, [pc, #100]	; (8005780 <control+0x350>)
+ 800571a:	edd3 7a02 	vldr	s15, [r3, #8]
+ 800571e:	ee27 7a27 	vmul.f32	s14, s14, s15
+ 8005722:	4b17      	ldr	r3, [pc, #92]	; (8005780 <control+0x350>)
+ 8005724:	edd3 6a03 	vldr	s13, [r3, #12]
+ 8005728:	4b12      	ldr	r3, [pc, #72]	; (8005774 <control+0x344>)
+ 800572a:	ed93 6a22 	vldr	s12, [r3, #136]	; 0x88
+ 800572e:	4b11      	ldr	r3, [pc, #68]	; (8005774 <control+0x344>)
+ 8005730:	edd3 7a2a 	vldr	s15, [r3, #168]	; 0xa8
+ 8005734:	ee76 7a67 	vsub.f32	s15, s12, s15
+ 8005738:	ee66 7aa7 	vmul.f32	s15, s13, s15
+ 800573c:	ee77 7a27 	vadd.f32	s15, s14, s15
+ 8005740:	4b0c      	ldr	r3, [pc, #48]	; (8005774 <control+0x344>)
+ 8005742:	edc3 7a0c 	vstr	s15, [r3, #48]	; 0x30
 
 				    if(vel.pwmd >= 0)
- 8005756:	4b0b      	ldr	r3, [pc, #44]	; (8005784 <control+0x354>)
- 8005758:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 800575c:	eef5 7ac0 	vcmpe.f32	s15, #0.0
- 8005760:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8005764:	db1a      	blt.n	800579c <control+0x36c>
+ 8005746:	4b0b      	ldr	r3, [pc, #44]	; (8005774 <control+0x344>)
+ 8005748:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 800574c:	eef5 7ac0 	vcmpe.f32	s15, #0.0
+ 8005750:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 8005754:	db1a      	blt.n	800578c <control+0x35c>
 						{//la diferencia es positiva
 		          pwml = vel_setup.vavg;//0 + (vel.pwmd*0.2);
- 8005766:	4b0a      	ldr	r3, [pc, #40]	; (8005790 <control+0x360>)
- 8005768:	685b      	ldr	r3, [r3, #4]
- 800576a:	61fb      	str	r3, [r7, #28]
+ 8005756:	4b0a      	ldr	r3, [pc, #40]	; (8005780 <control+0x350>)
+ 8005758:	685b      	ldr	r3, [r3, #4]
+ 800575a:	61fb      	str	r3, [r7, #28]
 					    pwmr = vel_setup.vavg - vel.pwmd;
- 800576c:	4b08      	ldr	r3, [pc, #32]	; (8005790 <control+0x360>)
- 800576e:	ed93 7a01 	vldr	s14, [r3, #4]
- 8005772:	4b04      	ldr	r3, [pc, #16]	; (8005784 <control+0x354>)
- 8005774:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 8005778:	ee77 7a67 	vsub.f32	s15, s14, s15
- 800577c:	edc7 7a06 	vstr	s15, [r7, #24]
- 8005780:	e019      	b.n	80057b6 <control+0x386>
- 8005782:	bf00      	nop
- 8005784:	200010fc 	.word	0x200010fc
- 8005788:	ffffc569 	.word	0xffffc569
- 800578c:	ffffc568 	.word	0xffffc568
- 8005790:	200011dc 	.word	0x200011dc
- 8005794:	41a00000 	.word	0x41a00000
- 8005798:	c1a00000 	.word	0xc1a00000
+ 800575c:	4b08      	ldr	r3, [pc, #32]	; (8005780 <control+0x350>)
+ 800575e:	ed93 7a01 	vldr	s14, [r3, #4]
+ 8005762:	4b04      	ldr	r3, [pc, #16]	; (8005774 <control+0x344>)
+ 8005764:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 8005768:	ee77 7a67 	vsub.f32	s15, s14, s15
+ 800576c:	edc7 7a06 	vstr	s15, [r7, #24]
+ 8005770:	e019      	b.n	80057a6 <control+0x376>
+ 8005772:	bf00      	nop
+ 8005774:	200010fc 	.word	0x200010fc
+ 8005778:	ffffc569 	.word	0xffffc569
+ 800577c:	ffffc568 	.word	0xffffc568
+ 8005780:	200011dc 	.word	0x200011dc
+ 8005784:	41a00000 	.word	0x41a00000
+ 8005788:	c1a00000 	.word	0xc1a00000
 						}
 						else
 						{//la diferencia es negativa
 		           pwml = vel_setup.vavg  + vel.pwmd;
- 800579c:	4b16      	ldr	r3, [pc, #88]	; (80057f8 <control+0x3c8>)
- 800579e:	ed93 7a01 	vldr	s14, [r3, #4]
- 80057a2:	4b16      	ldr	r3, [pc, #88]	; (80057fc <control+0x3cc>)
- 80057a4:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
- 80057a8:	ee77 7a27 	vadd.f32	s15, s14, s15
- 80057ac:	edc7 7a07 	vstr	s15, [r7, #28]
+ 800578c:	4b16      	ldr	r3, [pc, #88]	; (80057e8 <control+0x3b8>)
+ 800578e:	ed93 7a01 	vldr	s14, [r3, #4]
+ 8005792:	4b16      	ldr	r3, [pc, #88]	; (80057ec <control+0x3bc>)
+ 8005794:	edd3 7a0c 	vldr	s15, [r3, #48]	; 0x30
+ 8005798:	ee77 7a27 	vadd.f32	s15, s14, s15
+ 800579c:	edc7 7a07 	vstr	s15, [r7, #28]
 					     pwmr = vel_setup.vavg;// - (vel.pwmd*0.2);
- 80057b0:	4b11      	ldr	r3, [pc, #68]	; (80057f8 <control+0x3c8>)
- 80057b2:	685b      	ldr	r3, [r3, #4]
- 80057b4:	61bb      	str	r3, [r7, #24]
+ 80057a0:	4b11      	ldr	r3, [pc, #68]	; (80057e8 <control+0x3b8>)
+ 80057a2:	685b      	ldr	r3, [r3, #4]
+ 80057a4:	61bb      	str	r3, [r7, #24]
 						}
 
 		//			    pwmr = vel_setup.vavg - vel.pwmd;
 		//			    pwml = vel_setup.vavg  + vel.pwmd;
 
 						vel.pmw_d = (int) pwmr;
- 80057b6:	edd7 7a06 	vldr	s15, [r7, #24]
+ 80057a6:	edd7 7a06 	vldr	s15, [r7, #24]
+ 80057aa:	eefd 7ae7 	vcvt.s32.f32	s15, s15
+ 80057ae:	ee17 2a90 	vmov	r2, s15
+ 80057b2:	4b0e      	ldr	r3, [pc, #56]	; (80057ec <control+0x3bc>)
+ 80057b4:	629a      	str	r2, [r3, #40]	; 0x28
+						vel.pmw_i = (int) pwml;
+ 80057b6:	edd7 7a07 	vldr	s15, [r7, #28]
  80057ba:	eefd 7ae7 	vcvt.s32.f32	s15, s15
  80057be:	ee17 2a90 	vmov	r2, s15
- 80057c2:	4b0e      	ldr	r3, [pc, #56]	; (80057fc <control+0x3cc>)
- 80057c4:	629a      	str	r2, [r3, #40]	; 0x28
-						vel.pmw_i = (int) pwml;
- 80057c6:	edd7 7a07 	vldr	s15, [r7, #28]
- 80057ca:	eefd 7ae7 	vcvt.s32.f32	s15, s15
- 80057ce:	ee17 2a90 	vmov	r2, s15
- 80057d2:	4b0a      	ldr	r3, [pc, #40]	; (80057fc <control+0x3cc>)
- 80057d4:	62da      	str	r2, [r3, #44]	; 0x2c
+ 80057c2:	4b0a      	ldr	r3, [pc, #40]	; (80057ec <control+0x3bc>)
+ 80057c4:	62da      	str	r2, [r3, #44]	; 0x2c
 
 						motores(vel.pmw_i,vel.pmw_d);
- 80057d6:	4b09      	ldr	r3, [pc, #36]	; (80057fc <control+0x3cc>)
- 80057d8:	6ada      	ldr	r2, [r3, #44]	; 0x2c
- 80057da:	4b08      	ldr	r3, [pc, #32]	; (80057fc <control+0x3cc>)
- 80057dc:	6a9b      	ldr	r3, [r3, #40]	; 0x28
- 80057de:	4619      	mov	r1, r3
- 80057e0:	4610      	mov	r0, r2
- 80057e2:	f000 f86d 	bl	80058c0 <motores>
+ 80057c6:	4b09      	ldr	r3, [pc, #36]	; (80057ec <control+0x3bc>)
+ 80057c8:	6ada      	ldr	r2, [r3, #44]	; 0x2c
+ 80057ca:	4b08      	ldr	r3, [pc, #32]	; (80057ec <control+0x3bc>)
+ 80057cc:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 80057ce:	4619      	mov	r1, r3
+ 80057d0:	4610      	mov	r0, r2
+ 80057d2:	f000 f86d 	bl	80058b0 <motores>
 
 
 		leds(1,1);
- 80057e6:	2101      	movs	r1, #1
- 80057e8:	2001      	movs	r0, #1
- 80057ea:	f000 f83f 	bl	800586c <leds>
+ 80057d6:	2101      	movs	r1, #1
+ 80057d8:	2001      	movs	r0, #1
+ 80057da:	f000 f83f 	bl	800585c <leds>
 		osDelay(1);
- 80057ee:	2001      	movs	r0, #1
- 80057f0:	f7fe fc63 	bl	80040ba <osDelay>
+ 80057de:	2001      	movs	r0, #1
+ 80057e0:	f7fe fc6b 	bl	80040ba <osDelay>
 	{
- 80057f4:	e736      	b.n	8005664 <control+0x234>
- 80057f6:	bf00      	nop
- 80057f8:	200011dc 	.word	0x200011dc
- 80057fc:	200010fc 	.word	0x200010fc
+ 80057e4:	e736      	b.n	8005654 <control+0x224>
+ 80057e6:	bf00      	nop
+ 80057e8:	200011dc 	.word	0x200011dc
+ 80057ec:	200010fc 	.word	0x200010fc
 
-08005800 <Default_Setup>:
-}
-
-
+080057f0 <Default_Setup>:
+/*---------------------------------------------------------------------------*
+ *      				Valores iniciales									 *
+ *---------------------------------------------------------------------------*/
 
 void Default_Setup (void)
 {
- 8005800:	b480      	push	{r7}
- 8005802:	af00      	add	r7, sp, #0
+ 80057f0:	b480      	push	{r7}
+ 80057f2:	af00      	add	r7, sp, #0
 
 		vel_setup.tipopista = 2; //SET MANUAL
- 8005804:	4b14      	ldr	r3, [pc, #80]	; (8005858 <Default_Setup+0x58>)
- 8005806:	2202      	movs	r2, #2
- 8005808:	619a      	str	r2, [r3, #24]
+ 80057f4:	4b14      	ldr	r3, [pc, #80]	; (8005848 <Default_Setup+0x58>)
+ 80057f6:	2202      	movs	r2, #2
+ 80057f8:	619a      	str	r2, [r3, #24]
 
 		vel_setup.kpg     = 2.0;   //2.0  en test noche y vuelta
- 800580a:	4b13      	ldr	r3, [pc, #76]	; (8005858 <Default_Setup+0x58>)
- 800580c:	f04f 4280 	mov.w	r2, #1073741824	; 0x40000000
- 8005810:	609a      	str	r2, [r3, #8]
+ 80057fa:	4b13      	ldr	r3, [pc, #76]	; (8005848 <Default_Setup+0x58>)
+ 80057fc:	f04f 4280 	mov.w	r2, #1073741824	; 0x40000000
+ 8005800:	609a      	str	r2, [r3, #8]
 		vel_setup.kdg     = 7.2;   //3.0 EN PRIMERA
- 8005812:	4b11      	ldr	r3, [pc, #68]	; (8005858 <Default_Setup+0x58>)
- 8005814:	4a11      	ldr	r2, [pc, #68]	; (800585c <Default_Setup+0x5c>)
- 8005816:	60da      	str	r2, [r3, #12]
+ 8005802:	4b11      	ldr	r3, [pc, #68]	; (8005848 <Default_Setup+0x58>)
+ 8005804:	4a11      	ldr	r2, [pc, #68]	; (800584c <Default_Setup+0x5c>)
+ 8005806:	60da      	str	r2, [r3, #12]
 		vel_setup.kig     = 0.0005;
- 8005818:	4b0f      	ldr	r3, [pc, #60]	; (8005858 <Default_Setup+0x58>)
- 800581a:	4a11      	ldr	r2, [pc, #68]	; (8005860 <Default_Setup+0x60>)
- 800581c:	611a      	str	r2, [r3, #16]
+ 8005808:	4b0f      	ldr	r3, [pc, #60]	; (8005848 <Default_Setup+0x58>)
+ 800580a:	4a11      	ldr	r2, [pc, #68]	; (8005850 <Default_Setup+0x60>)
+ 800580c:	611a      	str	r2, [r3, #16]
 
-		vel_setup.vavg    =  60;     //Control de velocidad - MINIMO 65
- 800581e:	4b0e      	ldr	r3, [pc, #56]	; (8005858 <Default_Setup+0x58>)
- 8005820:	4a10      	ldr	r2, [pc, #64]	; (8005864 <Default_Setup+0x64>)
- 8005822:	605a      	str	r2, [r3, #4]
+		vel_setup.vavg    =  80;     //Control de velocidad - MINIMO 65
+ 800580e:	4b0e      	ldr	r3, [pc, #56]	; (8005848 <Default_Setup+0x58>)
+ 8005810:	4a10      	ldr	r2, [pc, #64]	; (8005854 <Default_Setup+0x64>)
+ 8005812:	605a      	str	r2, [r3, #4]
 
-		vel_setup.pmw_t   =  7;      //0 A 9
- 8005824:	4b0c      	ldr	r3, [pc, #48]	; (8005858 <Default_Setup+0x58>)
- 8005826:	2207      	movs	r2, #7
- 8005828:	615a      	str	r2, [r3, #20]
+		vel_setup.pmw_t   =  5;      //0 A 9
+ 8005814:	4b0c      	ldr	r3, [pc, #48]	; (8005848 <Default_Setup+0x58>)
+ 8005816:	2205      	movs	r2, #5
+ 8005818:	615a      	str	r2, [r3, #20]
 
 		vel.sensores = 0;
- 800582a:	4b0f      	ldr	r3, [pc, #60]	; (8005868 <Default_Setup+0x68>)
- 800582c:	2200      	movs	r2, #0
- 800582e:	635a      	str	r2, [r3, #52]	; 0x34
+ 800581a:	4b0f      	ldr	r3, [pc, #60]	; (8005858 <Default_Setup+0x68>)
+ 800581c:	2200      	movs	r2, #0
+ 800581e:	635a      	str	r2, [r3, #52]	; 0x34
 		vel.pmw_d =  0;
- 8005830:	4b0d      	ldr	r3, [pc, #52]	; (8005868 <Default_Setup+0x68>)
- 8005832:	2200      	movs	r2, #0
- 8005834:	629a      	str	r2, [r3, #40]	; 0x28
+ 8005820:	4b0d      	ldr	r3, [pc, #52]	; (8005858 <Default_Setup+0x68>)
+ 8005822:	2200      	movs	r2, #0
+ 8005824:	629a      	str	r2, [r3, #40]	; 0x28
 		vel.pmw_i =  0;
- 8005836:	4b0c      	ldr	r3, [pc, #48]	; (8005868 <Default_Setup+0x68>)
- 8005838:	2200      	movs	r2, #0
- 800583a:	62da      	str	r2, [r3, #44]	; 0x2c
+ 8005826:	4b0c      	ldr	r3, [pc, #48]	; (8005858 <Default_Setup+0x68>)
+ 8005828:	2200      	movs	r2, #0
+ 800582a:	62da      	str	r2, [r3, #44]	; 0x2c
 
 		vel_setup.remoto_enable = 1;
- 800583c:	4b06      	ldr	r3, [pc, #24]	; (8005858 <Default_Setup+0x58>)
- 800583e:	2201      	movs	r2, #1
- 8005840:	61da      	str	r2, [r3, #28]
+ 800582c:	4b06      	ldr	r3, [pc, #24]	; (8005848 <Default_Setup+0x58>)
+ 800582e:	2201      	movs	r2, #1
+ 8005830:	61da      	str	r2, [r3, #28]
 		vel_setup.sw_enable = 0;
- 8005842:	4b05      	ldr	r3, [pc, #20]	; (8005858 <Default_Setup+0x58>)
- 8005844:	2200      	movs	r2, #0
- 8005846:	621a      	str	r2, [r3, #32]
+ 8005832:	4b05      	ldr	r3, [pc, #20]	; (8005848 <Default_Setup+0x58>)
+ 8005834:	2200      	movs	r2, #0
+ 8005836:	621a      	str	r2, [r3, #32]
 		vel.start = 0XFF;
- 8005848:	4b07      	ldr	r3, [pc, #28]	; (8005868 <Default_Setup+0x68>)
- 800584a:	22ff      	movs	r2, #255	; 0xff
- 800584c:	601a      	str	r2, [r3, #0]
+ 8005838:	4b07      	ldr	r3, [pc, #28]	; (8005858 <Default_Setup+0x68>)
+ 800583a:	22ff      	movs	r2, #255	; 0xff
+ 800583c:	601a      	str	r2, [r3, #0]
 }
- 800584e:	bf00      	nop
- 8005850:	46bd      	mov	sp, r7
- 8005852:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8005856:	4770      	bx	lr
- 8005858:	200011dc 	.word	0x200011dc
- 800585c:	40e66666 	.word	0x40e66666
- 8005860:	3a03126f 	.word	0x3a03126f
- 8005864:	42700000 	.word	0x42700000
- 8005868:	200010fc 	.word	0x200010fc
+ 800583e:	bf00      	nop
+ 8005840:	46bd      	mov	sp, r7
+ 8005842:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8005846:	4770      	bx	lr
+ 8005848:	200011dc 	.word	0x200011dc
+ 800584c:	40e66666 	.word	0x40e66666
+ 8005850:	3a03126f 	.word	0x3a03126f
+ 8005854:	42a00000 	.word	0x42a00000
+ 8005858:	200010fc 	.word	0x200010fc
 
-0800586c <leds>:
-// includes
+0800585c <leds>:
+
 #include "cmsis_os.h"
 #include "leds.h"
 #include "main.h"
 
 void leds(int LD1, int LD2){
- 800586c:	b580      	push	{r7, lr}
- 800586e:	b082      	sub	sp, #8
- 8005870:	af00      	add	r7, sp, #0
- 8005872:	6078      	str	r0, [r7, #4]
- 8005874:	6039      	str	r1, [r7, #0]
+ 800585c:	b580      	push	{r7, lr}
+ 800585e:	b082      	sub	sp, #8
+ 8005860:	af00      	add	r7, sp, #0
+ 8005862:	6078      	str	r0, [r7, #4]
+ 8005864:	6039      	str	r1, [r7, #0]
 
 		if(LD1==1){
- 8005876:	687b      	ldr	r3, [r7, #4]
- 8005878:	2b01      	cmp	r3, #1
- 800587a:	d106      	bne.n	800588a <leds+0x1e>
+ 8005866:	687b      	ldr	r3, [r7, #4]
+ 8005868:	2b01      	cmp	r3, #1
+ 800586a:	d106      	bne.n	800587a <leds+0x1e>
 			HAL_GPIO_WritePin(LD1_GPIO_Port,LD1_Pin,GPIO_PIN_SET);
- 800587c:	2201      	movs	r2, #1
- 800587e:	2110      	movs	r1, #16
- 8005880:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005884:	f7fb fd4e 	bl	8001324 <HAL_GPIO_WritePin>
- 8005888:	e005      	b.n	8005896 <leds+0x2a>
+ 800586c:	2201      	movs	r2, #1
+ 800586e:	2110      	movs	r1, #16
+ 8005870:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005874:	f7fb fd56 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005878:	e005      	b.n	8005886 <leds+0x2a>
 		}
 		else{
 			HAL_GPIO_WritePin(LD1_GPIO_Port,LD1_Pin,GPIO_PIN_RESET);
- 800588a:	2200      	movs	r2, #0
- 800588c:	2110      	movs	r1, #16
- 800588e:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005892:	f7fb fd47 	bl	8001324 <HAL_GPIO_WritePin>
+ 800587a:	2200      	movs	r2, #0
+ 800587c:	2110      	movs	r1, #16
+ 800587e:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005882:	f7fb fd4f 	bl	8001324 <HAL_GPIO_WritePin>
 		}
 		if(LD2==1){
- 8005896:	683b      	ldr	r3, [r7, #0]
- 8005898:	2b01      	cmp	r3, #1
- 800589a:	d106      	bne.n	80058aa <leds+0x3e>
+ 8005886:	683b      	ldr	r3, [r7, #0]
+ 8005888:	2b01      	cmp	r3, #1
+ 800588a:	d106      	bne.n	800589a <leds+0x3e>
 			HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_SET);
- 800589c:	2201      	movs	r2, #1
- 800589e:	2120      	movs	r1, #32
- 80058a0:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 80058a4:	f7fb fd3e 	bl	8001324 <HAL_GPIO_WritePin>
+ 800588c:	2201      	movs	r2, #1
+ 800588e:	2120      	movs	r1, #32
+ 8005890:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005894:	f7fb fd46 	bl	8001324 <HAL_GPIO_WritePin>
 		}
 		else{
 			HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_RESET);
 		}
 
 }
- 80058a8:	e005      	b.n	80058b6 <leds+0x4a>
+ 8005898:	e005      	b.n	80058a6 <leds+0x4a>
 			HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,GPIO_PIN_RESET);
- 80058aa:	2200      	movs	r2, #0
- 80058ac:	2120      	movs	r1, #32
- 80058ae:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 80058b2:	f7fb fd37 	bl	8001324 <HAL_GPIO_WritePin>
+ 800589a:	2200      	movs	r2, #0
+ 800589c:	2120      	movs	r1, #32
+ 800589e:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 80058a2:	f7fb fd3f 	bl	8001324 <HAL_GPIO_WritePin>
 }
- 80058b6:	bf00      	nop
- 80058b8:	3708      	adds	r7, #8
- 80058ba:	46bd      	mov	sp, r7
- 80058bc:	bd80      	pop	{r7, pc}
+ 80058a6:	bf00      	nop
+ 80058a8:	3708      	adds	r7, #8
+ 80058aa:	46bd      	mov	sp, r7
+ 80058ac:	bd80      	pop	{r7, pc}
 	...
 
-080058c0 <motores>:
+080058b0 <motores>:
+/*---------------------------------------------------------------------------*
+ *      		FUNCION PRINCIPAL: motores									 *
  *---------------------------------------------------------------------------*/
-
-/*Funcion principal*/
 
 void motores (int mi, int md)
 {
- 80058c0:	b580      	push	{r7, lr}
- 80058c2:	b086      	sub	sp, #24
- 80058c4:	af00      	add	r7, sp, #0
- 80058c6:	6078      	str	r0, [r7, #4]
- 80058c8:	6039      	str	r1, [r7, #0]
+ 80058b0:	b580      	push	{r7, lr}
+ 80058b2:	b086      	sub	sp, #24
+ 80058b4:	af00      	add	r7, sp, #0
+ 80058b6:	6078      	str	r0, [r7, #4]
+ 80058b8:	6039      	str	r1, [r7, #0]
 	int duty_md2;
 	int duty_mi1;
 	int duty_mi2;
 
 	//izquierda
 	motor(mi, &duty_mi1, &duty_mi2);
- 80058ca:	f107 0208 	add.w	r2, r7, #8
- 80058ce:	f107 030c 	add.w	r3, r7, #12
- 80058d2:	4619      	mov	r1, r3
- 80058d4:	6878      	ldr	r0, [r7, #4]
- 80058d6:	f000 f843 	bl	8005960 <motor>
+ 80058ba:	f107 0208 	add.w	r2, r7, #8
+ 80058be:	f107 030c 	add.w	r3, r7, #12
+ 80058c2:	4619      	mov	r1, r3
+ 80058c4:	6878      	ldr	r0, [r7, #4]
+ 80058c6:	f000 f843 	bl	8005950 <motor>
 	TIM1->CCR1 = duty_mi1;
- 80058da:	68fa      	ldr	r2, [r7, #12]
- 80058dc:	4b0b      	ldr	r3, [pc, #44]	; (800590c <motores+0x4c>)
- 80058de:	635a      	str	r2, [r3, #52]	; 0x34
+ 80058ca:	68fa      	ldr	r2, [r7, #12]
+ 80058cc:	4b0b      	ldr	r3, [pc, #44]	; (80058fc <motores+0x4c>)
+ 80058ce:	635a      	str	r2, [r3, #52]	; 0x34
 	TIM1->CCR2 = duty_mi2;
- 80058e0:	68ba      	ldr	r2, [r7, #8]
- 80058e2:	4b0a      	ldr	r3, [pc, #40]	; (800590c <motores+0x4c>)
- 80058e4:	639a      	str	r2, [r3, #56]	; 0x38
+ 80058d0:	68ba      	ldr	r2, [r7, #8]
+ 80058d2:	4b0a      	ldr	r3, [pc, #40]	; (80058fc <motores+0x4c>)
+ 80058d4:	639a      	str	r2, [r3, #56]	; 0x38
 
 	//derecha
 	motor(md, &duty_md1, &duty_md2);
- 80058e6:	f107 0210 	add.w	r2, r7, #16
- 80058ea:	f107 0314 	add.w	r3, r7, #20
- 80058ee:	4619      	mov	r1, r3
- 80058f0:	6838      	ldr	r0, [r7, #0]
- 80058f2:	f000 f835 	bl	8005960 <motor>
+ 80058d6:	f107 0210 	add.w	r2, r7, #16
+ 80058da:	f107 0314 	add.w	r3, r7, #20
+ 80058de:	4619      	mov	r1, r3
+ 80058e0:	6838      	ldr	r0, [r7, #0]
+ 80058e2:	f000 f835 	bl	8005950 <motor>
 	TIM1->CCR4 = duty_md1;
- 80058f6:	697a      	ldr	r2, [r7, #20]
- 80058f8:	4b04      	ldr	r3, [pc, #16]	; (800590c <motores+0x4c>)
- 80058fa:	641a      	str	r2, [r3, #64]	; 0x40
+ 80058e6:	697a      	ldr	r2, [r7, #20]
+ 80058e8:	4b04      	ldr	r3, [pc, #16]	; (80058fc <motores+0x4c>)
+ 80058ea:	641a      	str	r2, [r3, #64]	; 0x40
 	TIM1->CCR3 = duty_md2;
- 80058fc:	693a      	ldr	r2, [r7, #16]
- 80058fe:	4b03      	ldr	r3, [pc, #12]	; (800590c <motores+0x4c>)
- 8005900:	63da      	str	r2, [r3, #60]	; 0x3c
+ 80058ec:	693a      	ldr	r2, [r7, #16]
+ 80058ee:	4b03      	ldr	r3, [pc, #12]	; (80058fc <motores+0x4c>)
+ 80058f0:	63da      	str	r2, [r3, #60]	; 0x3c
 
 
 }
- 8005902:	bf00      	nop
- 8005904:	3718      	adds	r7, #24
- 8005906:	46bd      	mov	sp, r7
- 8005908:	bd80      	pop	{r7, pc}
- 800590a:	bf00      	nop
- 800590c:	40012c00 	.word	0x40012c00
+ 80058f2:	bf00      	nop
+ 80058f4:	3718      	adds	r7, #24
+ 80058f6:	46bd      	mov	sp, r7
+ 80058f8:	bd80      	pop	{r7, pc}
+ 80058fa:	bf00      	nop
+ 80058fc:	40012c00 	.word	0x40012c00
 
-08005910 <motores_Init>:
-
-/*Inicicializar motores*/
+08005900 <motores_Init>:
+/*---------------------------------------------------------------------------*
+ *      		FUNCION : Inicializacion de motores							 *
+ *---------------------------------------------------------------------------*/
 
 void motores_Init (void)
 {
- 8005910:	b580      	push	{r7, lr}
- 8005912:	af00      	add	r7, sp, #0
-	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_1);
- 8005914:	2100      	movs	r1, #0
- 8005916:	4810      	ldr	r0, [pc, #64]	; (8005958 <motores_Init+0x48>)
- 8005918:	f7fc fe58 	bl	80025cc <HAL_TIM_PWM_Start_IT>
+ 8005900:	b580      	push	{r7, lr}
+ 8005902:	af00      	add	r7, sp, #0
+	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_1);// activar pwm motores
+ 8005904:	2100      	movs	r1, #0
+ 8005906:	4810      	ldr	r0, [pc, #64]	; (8005948 <motores_Init+0x48>)
+ 8005908:	f7fc fe60 	bl	80025cc <HAL_TIM_PWM_Start_IT>
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_2);
- 800591c:	2104      	movs	r1, #4
- 800591e:	480e      	ldr	r0, [pc, #56]	; (8005958 <motores_Init+0x48>)
- 8005920:	f7fc fe54 	bl	80025cc <HAL_TIM_PWM_Start_IT>
+ 800590c:	2104      	movs	r1, #4
+ 800590e:	480e      	ldr	r0, [pc, #56]	; (8005948 <motores_Init+0x48>)
+ 8005910:	f7fc fe5c 	bl	80025cc <HAL_TIM_PWM_Start_IT>
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_3);
- 8005924:	2108      	movs	r1, #8
- 8005926:	480c      	ldr	r0, [pc, #48]	; (8005958 <motores_Init+0x48>)
- 8005928:	f7fc fe50 	bl	80025cc <HAL_TIM_PWM_Start_IT>
+ 8005914:	2108      	movs	r1, #8
+ 8005916:	480c      	ldr	r0, [pc, #48]	; (8005948 <motores_Init+0x48>)
+ 8005918:	f7fc fe58 	bl	80025cc <HAL_TIM_PWM_Start_IT>
 	HAL_TIM_PWM_Start_IT(&htim1,TIM_CHANNEL_4);
- 800592c:	210c      	movs	r1, #12
- 800592e:	480a      	ldr	r0, [pc, #40]	; (8005958 <motores_Init+0x48>)
- 8005930:	f7fc fe4c 	bl	80025cc <HAL_TIM_PWM_Start_IT>
+ 800591c:	210c      	movs	r1, #12
+ 800591e:	480a      	ldr	r0, [pc, #40]	; (8005948 <motores_Init+0x48>)
+ 8005920:	f7fc fe54 	bl	80025cc <HAL_TIM_PWM_Start_IT>
 
 	TIM1->CCR1 = 0;//duty1 0 motor izquierdo
- 8005934:	4b09      	ldr	r3, [pc, #36]	; (800595c <motores_Init+0x4c>)
- 8005936:	2200      	movs	r2, #0
- 8005938:	635a      	str	r2, [r3, #52]	; 0x34
+ 8005924:	4b09      	ldr	r3, [pc, #36]	; (800594c <motores_Init+0x4c>)
+ 8005926:	2200      	movs	r2, #0
+ 8005928:	635a      	str	r2, [r3, #52]	; 0x34
 	TIM1->CCR2 = 0;//duty2 0 motor izquierdo
- 800593a:	4b08      	ldr	r3, [pc, #32]	; (800595c <motores_Init+0x4c>)
- 800593c:	2200      	movs	r2, #0
- 800593e:	639a      	str	r2, [r3, #56]	; 0x38
-	TIM1->CCR3 = 0;
- 8005940:	4b06      	ldr	r3, [pc, #24]	; (800595c <motores_Init+0x4c>)
- 8005942:	2200      	movs	r2, #0
- 8005944:	63da      	str	r2, [r3, #60]	; 0x3c
-	TIM1->CCR4 = 0;
- 8005946:	4b05      	ldr	r3, [pc, #20]	; (800595c <motores_Init+0x4c>)
- 8005948:	2200      	movs	r2, #0
- 800594a:	641a      	str	r2, [r3, #64]	; 0x40
+ 800592a:	4b08      	ldr	r3, [pc, #32]	; (800594c <motores_Init+0x4c>)
+ 800592c:	2200      	movs	r2, #0
+ 800592e:	639a      	str	r2, [r3, #56]	; 0x38
+	TIM1->CCR3 = 0;//duty2 0 motor derecho
+ 8005930:	4b06      	ldr	r3, [pc, #24]	; (800594c <motores_Init+0x4c>)
+ 8005932:	2200      	movs	r2, #0
+ 8005934:	63da      	str	r2, [r3, #60]	; 0x3c
+	TIM1->CCR4 = 0;//duty1 0 motor derecho
+ 8005936:	4b05      	ldr	r3, [pc, #20]	; (800594c <motores_Init+0x4c>)
+ 8005938:	2200      	movs	r2, #0
+ 800593a:	641a      	str	r2, [r3, #64]	; 0x40
     osDelay(1);
- 800594c:	2001      	movs	r0, #1
- 800594e:	f7fe fbb4 	bl	80040ba <osDelay>
+ 800593c:	2001      	movs	r0, #1
+ 800593e:	f7fe fbbc 	bl	80040ba <osDelay>
 
 }
- 8005952:	bf00      	nop
- 8005954:	bd80      	pop	{r7, pc}
- 8005956:	bf00      	nop
- 8005958:	20001070 	.word	0x20001070
- 800595c:	40012c00 	.word	0x40012c00
+ 8005942:	bf00      	nop
+ 8005944:	bd80      	pop	{r7, pc}
+ 8005946:	bf00      	nop
+ 8005948:	20001070 	.word	0x20001070
+ 800594c:	40012c00 	.word	0x40012c00
 
-08005960 <motor>:
+08005950 <motor>:
 
-/*Funcion por motor*/
+/*---------------------------------------------------------------------------*
+ *      		FUNCION : linealizar pwm pr motor 							 *
+ *---------------------------------------------------------------------------*/
 
 void motor(int pwm_motor,int *duty1,int *duty2){
- 8005960:	b580      	push	{r7, lr}
- 8005962:	b084      	sub	sp, #16
- 8005964:	af00      	add	r7, sp, #0
- 8005966:	60f8      	str	r0, [r7, #12]
- 8005968:	60b9      	str	r1, [r7, #8]
- 800596a:	607a      	str	r2, [r7, #4]
+ 8005950:	b580      	push	{r7, lr}
+ 8005952:	b084      	sub	sp, #16
+ 8005954:	af00      	add	r7, sp, #0
+ 8005956:	60f8      	str	r0, [r7, #12]
+ 8005958:	60b9      	str	r1, [r7, #8]
+ 800595a:	607a      	str	r2, [r7, #4]
 
 	if( pwm_motor >= 100)
- 800596c:	68fb      	ldr	r3, [r7, #12]
- 800596e:	2b63      	cmp	r3, #99	; 0x63
- 8005970:	dd02      	ble.n	8005978 <motor+0x18>
+ 800595c:	68fb      	ldr	r3, [r7, #12]
+ 800595e:	2b63      	cmp	r3, #99	; 0x63
+ 8005960:	dd02      	ble.n	8005968 <motor+0x18>
 		{
 		pwm_motor = 99;
- 8005972:	2363      	movs	r3, #99	; 0x63
- 8005974:	60fb      	str	r3, [r7, #12]
- 8005976:	e006      	b.n	8005986 <motor+0x26>
+ 8005962:	2363      	movs	r3, #99	; 0x63
+ 8005964:	60fb      	str	r3, [r7, #12]
+ 8005966:	e006      	b.n	8005976 <motor+0x26>
 		}
 		else if(pwm_motor <= -100)
- 8005978:	68fb      	ldr	r3, [r7, #12]
- 800597a:	f113 0f63 	cmn.w	r3, #99	; 0x63
- 800597e:	da02      	bge.n	8005986 <motor+0x26>
+ 8005968:	68fb      	ldr	r3, [r7, #12]
+ 800596a:	f113 0f63 	cmn.w	r3, #99	; 0x63
+ 800596e:	da02      	bge.n	8005976 <motor+0x26>
 		{
 		   pwm_motor = -99;
- 8005980:	f06f 0362 	mvn.w	r3, #98	; 0x62
- 8005984:	60fb      	str	r3, [r7, #12]
+ 8005970:	f06f 0362 	mvn.w	r3, #98	; 0x62
+ 8005974:	60fb      	str	r3, [r7, #12]
 		}
 
 		if(pwm_motor > 0)
- 8005986:	68fb      	ldr	r3, [r7, #12]
- 8005988:	2b00      	cmp	r3, #0
- 800598a:	dd10      	ble.n	80059ae <motor+0x4e>
+ 8005976:	68fb      	ldr	r3, [r7, #12]
+ 8005978:	2b00      	cmp	r3, #0
+ 800597a:	dd10      	ble.n	800599e <motor+0x4e>
 		{
 		  *duty2 = MAXPWM - abs(pwm_motor)*10;
- 800598c:	68fb      	ldr	r3, [r7, #12]
- 800598e:	2b00      	cmp	r3, #0
- 8005990:	bfb8      	it	lt
- 8005992:	425b      	neglt	r3, r3
- 8005994:	f06f 0209 	mvn.w	r2, #9
- 8005998:	fb02 f303 	mul.w	r3, r2, r3
- 800599c:	f203 32e9 	addw	r2, r3, #1001	; 0x3e9
- 80059a0:	687b      	ldr	r3, [r7, #4]
- 80059a2:	601a      	str	r2, [r3, #0]
+ 800597c:	68fb      	ldr	r3, [r7, #12]
+ 800597e:	2b00      	cmp	r3, #0
+ 8005980:	bfb8      	it	lt
+ 8005982:	425b      	neglt	r3, r3
+ 8005984:	f06f 0209 	mvn.w	r2, #9
+ 8005988:	fb02 f303 	mul.w	r3, r2, r3
+ 800598c:	f203 32e9 	addw	r2, r3, #1001	; 0x3e9
+ 8005990:	687b      	ldr	r3, [r7, #4]
+ 8005992:	601a      	str	r2, [r3, #0]
 		  *duty1 = MAXPWM;
- 80059a4:	68bb      	ldr	r3, [r7, #8]
- 80059a6:	f240 32e9 	movw	r2, #1001	; 0x3e9
- 80059aa:	601a      	str	r2, [r3, #0]
- 80059ac:	e01b      	b.n	80059e6 <motor+0x86>
+ 8005994:	68bb      	ldr	r3, [r7, #8]
+ 8005996:	f240 32e9 	movw	r2, #1001	; 0x3e9
+ 800599a:	601a      	str	r2, [r3, #0]
+ 800599c:	e01b      	b.n	80059d6 <motor+0x86>
 		}
 		else if ( pwm_motor < 0   )
- 80059ae:	68fb      	ldr	r3, [r7, #12]
- 80059b0:	2b00      	cmp	r3, #0
- 80059b2:	da10      	bge.n	80059d6 <motor+0x76>
+ 800599e:	68fb      	ldr	r3, [r7, #12]
+ 80059a0:	2b00      	cmp	r3, #0
+ 80059a2:	da10      	bge.n	80059c6 <motor+0x76>
 		{
 		  *duty2 = MAXPWM;
- 80059b4:	687b      	ldr	r3, [r7, #4]
- 80059b6:	f240 32e9 	movw	r2, #1001	; 0x3e9
- 80059ba:	601a      	str	r2, [r3, #0]
+ 80059a4:	687b      	ldr	r3, [r7, #4]
+ 80059a6:	f240 32e9 	movw	r2, #1001	; 0x3e9
+ 80059aa:	601a      	str	r2, [r3, #0]
 		  *duty1 = MAXPWM - abs(pwm_motor)*10;
- 80059bc:	68fb      	ldr	r3, [r7, #12]
- 80059be:	2b00      	cmp	r3, #0
- 80059c0:	bfb8      	it	lt
- 80059c2:	425b      	neglt	r3, r3
- 80059c4:	f06f 0209 	mvn.w	r2, #9
- 80059c8:	fb02 f303 	mul.w	r3, r2, r3
- 80059cc:	f203 32e9 	addw	r2, r3, #1001	; 0x3e9
- 80059d0:	68bb      	ldr	r3, [r7, #8]
- 80059d2:	601a      	str	r2, [r3, #0]
- 80059d4:	e007      	b.n	80059e6 <motor+0x86>
+ 80059ac:	68fb      	ldr	r3, [r7, #12]
+ 80059ae:	2b00      	cmp	r3, #0
+ 80059b0:	bfb8      	it	lt
+ 80059b2:	425b      	neglt	r3, r3
+ 80059b4:	f06f 0209 	mvn.w	r2, #9
+ 80059b8:	fb02 f303 	mul.w	r3, r2, r3
+ 80059bc:	f203 32e9 	addw	r2, r3, #1001	; 0x3e9
+ 80059c0:	68bb      	ldr	r3, [r7, #8]
+ 80059c2:	601a      	str	r2, [r3, #0]
+ 80059c4:	e007      	b.n	80059d6 <motor+0x86>
 
 		}
 		else
          {
 		  *duty2 = MAXPWM;
- 80059d6:	687b      	ldr	r3, [r7, #4]
- 80059d8:	f240 32e9 	movw	r2, #1001	; 0x3e9
- 80059dc:	601a      	str	r2, [r3, #0]
+ 80059c6:	687b      	ldr	r3, [r7, #4]
+ 80059c8:	f240 32e9 	movw	r2, #1001	; 0x3e9
+ 80059cc:	601a      	str	r2, [r3, #0]
 		  *duty1 = MAXPWM;
- 80059de:	68bb      	ldr	r3, [r7, #8]
- 80059e0:	f240 32e9 	movw	r2, #1001	; 0x3e9
- 80059e4:	601a      	str	r2, [r3, #0]
+ 80059ce:	68bb      	ldr	r3, [r7, #8]
+ 80059d0:	f240 32e9 	movw	r2, #1001	; 0x3e9
+ 80059d4:	601a      	str	r2, [r3, #0]
 		}
 	    osDelay(1);
- 80059e6:	2001      	movs	r0, #1
- 80059e8:	f7fe fb67 	bl	80040ba <osDelay>
+ 80059d6:	2001      	movs	r0, #1
+ 80059d8:	f7fe fb6f 	bl	80040ba <osDelay>
 }
- 80059ec:	bf00      	nop
- 80059ee:	3710      	adds	r7, #16
- 80059f0:	46bd      	mov	sp, r7
- 80059f2:	bd80      	pop	{r7, pc}
+ 80059dc:	bf00      	nop
+ 80059de:	3710      	adds	r7, #16
+ 80059e0:	46bd      	mov	sp, r7
+ 80059e2:	bd80      	pop	{r7, pc}
 
-080059f4 <sensores>:
+080059e4 <sensores>:
 //CALIBRACION
 uint32_t max_sens[NUM_SENSORES];
 uint32_t min_sens[NUM_SENSORES];
 
 void sensores(void const * argument)
 {
- 80059f4:	b580      	push	{r7, lr}
- 80059f6:	b08c      	sub	sp, #48	; 0x30
- 80059f8:	af00      	add	r7, sp, #0
- 80059fa:	6078      	str	r0, [r7, #4]
+ 80059e4:	b580      	push	{r7, lr}
+ 80059e6:	b08c      	sub	sp, #48	; 0x30
+ 80059e8:	af00      	add	r7, sp, #0
+ 80059ea:	6078      	str	r0, [r7, #4]
 
 	  GPIO_InitTypeDef GPIO_InitStruct = {0};
- 80059fc:	f107 030c 	add.w	r3, r7, #12
- 8005a00:	2200      	movs	r2, #0
- 8005a02:	601a      	str	r2, [r3, #0]
- 8005a04:	605a      	str	r2, [r3, #4]
- 8005a06:	609a      	str	r2, [r3, #8]
- 8005a08:	60da      	str	r2, [r3, #12]
- 8005a0a:	611a      	str	r2, [r3, #16]
+ 80059ec:	f107 030c 	add.w	r3, r7, #12
+ 80059f0:	2200      	movs	r2, #0
+ 80059f2:	601a      	str	r2, [r3, #0]
+ 80059f4:	605a      	str	r2, [r3, #4]
+ 80059f6:	609a      	str	r2, [r3, #8]
+ 80059f8:	60da      	str	r2, [r3, #12]
+ 80059fa:	611a      	str	r2, [r3, #16]
 
 	HAL_TIM_Base_Start(&htim15);
- 8005a0c:	4849      	ldr	r0, [pc, #292]	; (8005b34 <sensores+0x140>)
- 8005a0e:	f7fc fd53 	bl	80024b8 <HAL_TIM_Base_Start>
+ 80059fc:	4849      	ldr	r0, [pc, #292]	; (8005b24 <sensores+0x140>)
+ 80059fe:	f7fc fd5b 	bl	80024b8 <HAL_TIM_Base_Start>
 	vel.sensores = 0;
- 8005a12:	4b49      	ldr	r3, [pc, #292]	; (8005b38 <sensores+0x144>)
- 8005a14:	2200      	movs	r2, #0
- 8005a16:	635a      	str	r2, [r3, #52]	; 0x34
+ 8005a02:	4b49      	ldr	r3, [pc, #292]	; (8005b28 <sensores+0x144>)
+ 8005a04:	2200      	movs	r2, #0
+ 8005a06:	635a      	str	r2, [r3, #52]	; 0x34
 
 		for(int is=0; is < NUM_SENSORES ; is ++)
- 8005a18:	2300      	movs	r3, #0
- 8005a1a:	62fb      	str	r3, [r7, #44]	; 0x2c
- 8005a1c:	e009      	b.n	8005a32 <sensores+0x3e>
+ 8005a08:	2300      	movs	r3, #0
+ 8005a0a:	62fb      	str	r3, [r7, #44]	; 0x2c
+ 8005a0c:	e009      	b.n	8005a22 <sensores+0x3e>
 			{
 				vel.tr_sens[is]  = 1000; //Default Value
- 8005a1e:	4a46      	ldr	r2, [pc, #280]	; (8005b38 <sensores+0x144>)
- 8005a20:	6afb      	ldr	r3, [r7, #44]	; 0x2c
- 8005a22:	330e      	adds	r3, #14
- 8005a24:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
- 8005a28:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005a0e:	4a46      	ldr	r2, [pc, #280]	; (8005b28 <sensores+0x144>)
+ 8005a10:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+ 8005a12:	330e      	adds	r3, #14
+ 8005a14:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+ 8005a18:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for(int is=0; is < NUM_SENSORES ; is ++)
- 8005a2c:	6afb      	ldr	r3, [r7, #44]	; 0x2c
- 8005a2e:	3301      	adds	r3, #1
- 8005a30:	62fb      	str	r3, [r7, #44]	; 0x2c
- 8005a32:	6afb      	ldr	r3, [r7, #44]	; 0x2c
- 8005a34:	2b07      	cmp	r3, #7
- 8005a36:	ddf2      	ble.n	8005a1e <sensores+0x2a>
+ 8005a1c:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+ 8005a1e:	3301      	adds	r3, #1
+ 8005a20:	62fb      	str	r3, [r7, #44]	; 0x2c
+ 8005a22:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+ 8005a24:	2b07      	cmp	r3, #7
+ 8005a26:	ddf2      	ble.n	8005a0e <sensores+0x2a>
 
   /* Infinite loop */
   for(;;)
   {
 	  /*Configure GPIO OUTPUT pin : S8_Pin */
 	    GPIO_InitStruct.Pin = S8_Pin;
- 8005a38:	2340      	movs	r3, #64	; 0x40
- 8005a3a:	60fb      	str	r3, [r7, #12]
+ 8005a28:	2340      	movs	r3, #64	; 0x40
+ 8005a2a:	60fb      	str	r3, [r7, #12]
 	    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 8005a3c:	2301      	movs	r3, #1
- 8005a3e:	613b      	str	r3, [r7, #16]
+ 8005a2c:	2301      	movs	r3, #1
+ 8005a2e:	613b      	str	r3, [r7, #16]
 	    GPIO_InitStruct.Pull = GPIO_NOPULL;
- 8005a40:	2300      	movs	r3, #0
- 8005a42:	617b      	str	r3, [r7, #20]
+ 8005a30:	2300      	movs	r3, #0
+ 8005a32:	617b      	str	r3, [r7, #20]
 	    HAL_GPIO_Init(S8_GPIO_Port, &GPIO_InitStruct);
- 8005a44:	f107 030c 	add.w	r3, r7, #12
- 8005a48:	4619      	mov	r1, r3
- 8005a4a:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005a4e:	f7fb fadf 	bl	8001010 <HAL_GPIO_Init>
+ 8005a34:	f107 030c 	add.w	r3, r7, #12
+ 8005a38:	4619      	mov	r1, r3
+ 8005a3a:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005a3e:	f7fb fae7 	bl	8001010 <HAL_GPIO_Init>
 
 	    /*Configure GPIO  OUTPUT pins : S7_Pin S6_Pin S5_Pin S4_Pin
 	                             S3_Pin S2_Pin S1_Pin */
 	    GPIO_InitStruct.Pin = S7_Pin|S6_Pin|S5_Pin|S4_Pin
- 8005a52:	f24f 0307 	movw	r3, #61447	; 0xf007
- 8005a56:	60fb      	str	r3, [r7, #12]
+ 8005a42:	f24f 0307 	movw	r3, #61447	; 0xf007
+ 8005a46:	60fb      	str	r3, [r7, #12]
 	                            |S3_Pin|S2_Pin|S1_Pin;
 	    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 8005a58:	2301      	movs	r3, #1
- 8005a5a:	613b      	str	r3, [r7, #16]
+ 8005a48:	2301      	movs	r3, #1
+ 8005a4a:	613b      	str	r3, [r7, #16]
 	    GPIO_InitStruct.Pull = GPIO_NOPULL;
- 8005a5c:	2300      	movs	r3, #0
- 8005a5e:	617b      	str	r3, [r7, #20]
+ 8005a4c:	2300      	movs	r3, #0
+ 8005a4e:	617b      	str	r3, [r7, #20]
 	    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
- 8005a60:	f107 030c 	add.w	r3, r7, #12
- 8005a64:	4619      	mov	r1, r3
- 8005a66:	4835      	ldr	r0, [pc, #212]	; (8005b3c <sensores+0x148>)
- 8005a68:	f7fb fad2 	bl	8001010 <HAL_GPIO_Init>
+ 8005a50:	f107 030c 	add.w	r3, r7, #12
+ 8005a54:	4619      	mov	r1, r3
+ 8005a56:	4835      	ldr	r0, [pc, #212]	; (8005b2c <sensores+0x148>)
+ 8005a58:	f7fb fada 	bl	8001010 <HAL_GPIO_Init>
 	    //SENSORES EN ALTO
 	    HAL_GPIO_WritePin(GPIOB, S1_Pin, GPIO_PIN_SET);
- 8005a6c:	2201      	movs	r2, #1
- 8005a6e:	f44f 4100 	mov.w	r1, #32768	; 0x8000
- 8005a72:	4832      	ldr	r0, [pc, #200]	; (8005b3c <sensores+0x148>)
- 8005a74:	f7fb fc56 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a5c:	2201      	movs	r2, #1
+ 8005a5e:	f44f 4100 	mov.w	r1, #32768	; 0x8000
+ 8005a62:	4832      	ldr	r0, [pc, #200]	; (8005b2c <sensores+0x148>)
+ 8005a64:	f7fb fc5e 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S2_Pin, GPIO_PIN_SET);
- 8005a78:	2201      	movs	r2, #1
- 8005a7a:	f44f 4180 	mov.w	r1, #16384	; 0x4000
- 8005a7e:	482f      	ldr	r0, [pc, #188]	; (8005b3c <sensores+0x148>)
- 8005a80:	f7fb fc50 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a68:	2201      	movs	r2, #1
+ 8005a6a:	f44f 4180 	mov.w	r1, #16384	; 0x4000
+ 8005a6e:	482f      	ldr	r0, [pc, #188]	; (8005b2c <sensores+0x148>)
+ 8005a70:	f7fb fc58 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S3_Pin, GPIO_PIN_SET);
- 8005a84:	2201      	movs	r2, #1
- 8005a86:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 8005a8a:	482c      	ldr	r0, [pc, #176]	; (8005b3c <sensores+0x148>)
- 8005a8c:	f7fb fc4a 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a74:	2201      	movs	r2, #1
+ 8005a76:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 8005a7a:	482c      	ldr	r0, [pc, #176]	; (8005b2c <sensores+0x148>)
+ 8005a7c:	f7fb fc52 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S4_Pin, GPIO_PIN_SET);
- 8005a90:	2201      	movs	r2, #1
- 8005a92:	f44f 5180 	mov.w	r1, #4096	; 0x1000
- 8005a96:	4829      	ldr	r0, [pc, #164]	; (8005b3c <sensores+0x148>)
- 8005a98:	f7fb fc44 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a80:	2201      	movs	r2, #1
+ 8005a82:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 8005a86:	4829      	ldr	r0, [pc, #164]	; (8005b2c <sensores+0x148>)
+ 8005a88:	f7fb fc4c 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S5_Pin, GPIO_PIN_SET);
- 8005a9c:	2201      	movs	r2, #1
- 8005a9e:	2104      	movs	r1, #4
- 8005aa0:	4826      	ldr	r0, [pc, #152]	; (8005b3c <sensores+0x148>)
- 8005aa2:	f7fb fc3f 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a8c:	2201      	movs	r2, #1
+ 8005a8e:	2104      	movs	r1, #4
+ 8005a90:	4826      	ldr	r0, [pc, #152]	; (8005b2c <sensores+0x148>)
+ 8005a92:	f7fb fc47 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S6_Pin, GPIO_PIN_SET);
- 8005aa6:	2201      	movs	r2, #1
- 8005aa8:	2102      	movs	r1, #2
- 8005aaa:	4824      	ldr	r0, [pc, #144]	; (8005b3c <sensores+0x148>)
- 8005aac:	f7fb fc3a 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005a96:	2201      	movs	r2, #1
+ 8005a98:	2102      	movs	r1, #2
+ 8005a9a:	4824      	ldr	r0, [pc, #144]	; (8005b2c <sensores+0x148>)
+ 8005a9c:	f7fb fc42 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(GPIOB, S7_Pin, GPIO_PIN_SET);
- 8005ab0:	2201      	movs	r2, #1
- 8005ab2:	2101      	movs	r1, #1
- 8005ab4:	4821      	ldr	r0, [pc, #132]	; (8005b3c <sensores+0x148>)
- 8005ab6:	f7fb fc35 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005aa0:	2201      	movs	r2, #1
+ 8005aa2:	2101      	movs	r1, #1
+ 8005aa4:	4821      	ldr	r0, [pc, #132]	; (8005b2c <sensores+0x148>)
+ 8005aa6:	f7fb fc3d 	bl	8001324 <HAL_GPIO_WritePin>
 	    HAL_GPIO_WritePin(S8_GPIO_Port, S8_Pin, GPIO_PIN_SET);
- 8005aba:	2201      	movs	r2, #1
- 8005abc:	2140      	movs	r1, #64	; 0x40
- 8005abe:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005ac2:	f7fb fc2f 	bl	8001324 <HAL_GPIO_WritePin>
+ 8005aaa:	2201      	movs	r2, #1
+ 8005aac:	2140      	movs	r1, #64	; 0x40
+ 8005aae:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005ab2:	f7fb fc37 	bl	8001324 <HAL_GPIO_WritePin>
 
 	    /*Configure GPIO INPUT pin : S8_Pin */
 	    GPIO_InitStruct.Pin = S8_Pin;
- 8005ac6:	2340      	movs	r3, #64	; 0x40
- 8005ac8:	60fb      	str	r3, [r7, #12]
+ 8005ab6:	2340      	movs	r3, #64	; 0x40
+ 8005ab8:	60fb      	str	r3, [r7, #12]
 	    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 8005aca:	2300      	movs	r3, #0
- 8005acc:	613b      	str	r3, [r7, #16]
+ 8005aba:	2300      	movs	r3, #0
+ 8005abc:	613b      	str	r3, [r7, #16]
 	    GPIO_InitStruct.Pull = GPIO_NOPULL;
- 8005ace:	2300      	movs	r3, #0
- 8005ad0:	617b      	str	r3, [r7, #20]
+ 8005abe:	2300      	movs	r3, #0
+ 8005ac0:	617b      	str	r3, [r7, #20]
 	    HAL_GPIO_Init(S8_GPIO_Port, &GPIO_InitStruct);
- 8005ad2:	f107 030c 	add.w	r3, r7, #12
- 8005ad6:	4619      	mov	r1, r3
- 8005ad8:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005adc:	f7fb fa98 	bl	8001010 <HAL_GPIO_Init>
+ 8005ac2:	f107 030c 	add.w	r3, r7, #12
+ 8005ac6:	4619      	mov	r1, r3
+ 8005ac8:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005acc:	f7fb faa0 	bl	8001010 <HAL_GPIO_Init>
 
 	    /*Configure GPIO INPUT pins : S7_Pin S6_Pin S5_Pin S4_Pin
 	                             S3_Pin S2_Pin S1_Pin */
 	    GPIO_InitStruct.Pin = S7_Pin|S6_Pin|S5_Pin|S4_Pin
- 8005ae0:	f24f 0307 	movw	r3, #61447	; 0xf007
- 8005ae4:	60fb      	str	r3, [r7, #12]
+ 8005ad0:	f24f 0307 	movw	r3, #61447	; 0xf007
+ 8005ad4:	60fb      	str	r3, [r7, #12]
 	                            |S3_Pin|S2_Pin|S1_Pin;
 	    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
- 8005ae6:	2300      	movs	r3, #0
- 8005ae8:	613b      	str	r3, [r7, #16]
+ 8005ad6:	2300      	movs	r3, #0
+ 8005ad8:	613b      	str	r3, [r7, #16]
 	    GPIO_InitStruct.Pull = GPIO_NOPULL;
- 8005aea:	2300      	movs	r3, #0
- 8005aec:	617b      	str	r3, [r7, #20]
+ 8005ada:	2300      	movs	r3, #0
+ 8005adc:	617b      	str	r3, [r7, #20]
 	    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
- 8005aee:	f107 030c 	add.w	r3, r7, #12
- 8005af2:	4619      	mov	r1, r3
- 8005af4:	4811      	ldr	r0, [pc, #68]	; (8005b3c <sensores+0x148>)
- 8005af6:	f7fb fa8b 	bl	8001010 <HAL_GPIO_Init>
+ 8005ade:	f107 030c 	add.w	r3, r7, #12
+ 8005ae2:	4619      	mov	r1, r3
+ 8005ae4:	4811      	ldr	r0, [pc, #68]	; (8005b2c <sensores+0x148>)
+ 8005ae6:	f7fb fa93 	bl	8001010 <HAL_GPIO_Init>
 
 		//LEER SENSORES
 		for(int i=0; i<NUM_SENSORES ; i++)
- 8005afa:	2300      	movs	r3, #0
- 8005afc:	62bb      	str	r3, [r7, #40]	; 0x28
- 8005afe:	e012      	b.n	8005b26 <sensores+0x132>
+ 8005aea:	2300      	movs	r3, #0
+ 8005aec:	62bb      	str	r3, [r7, #40]	; 0x28
+ 8005aee:	e012      	b.n	8005b16 <sensores+0x132>
 		{
 			sensores_leidos[i] = 1;
- 8005b00:	4a0f      	ldr	r2, [pc, #60]	; (8005b40 <sensores+0x14c>)
- 8005b02:	6abb      	ldr	r3, [r7, #40]	; 0x28
- 8005b04:	2101      	movs	r1, #1
- 8005b06:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005af0:	4a0f      	ldr	r2, [pc, #60]	; (8005b30 <sensores+0x14c>)
+ 8005af2:	6abb      	ldr	r3, [r7, #40]	; 0x28
+ 8005af4:	2101      	movs	r1, #1
+ 8005af6:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 			sensor_timing[i] = TIME_OUT_BLANCO; //frecuencia 1M -- 500 es 0.5ms
- 8005b0a:	4a0e      	ldr	r2, [pc, #56]	; (8005b44 <sensores+0x150>)
- 8005b0c:	6abb      	ldr	r3, [r7, #40]	; 0x28
- 8005b0e:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
- 8005b12:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005afa:	4a0e      	ldr	r2, [pc, #56]	; (8005b34 <sensores+0x150>)
+ 8005afc:	6abb      	ldr	r3, [r7, #40]	; 0x28
+ 8005afe:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
+ 8005b02:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 																//PERO SE DESCARGA EN LINEA A 0.25ms
 			sensores_estado[i] = 1; //LINEA NEGRA
- 8005b16:	4a0c      	ldr	r2, [pc, #48]	; (8005b48 <sensores+0x154>)
- 8005b18:	6abb      	ldr	r3, [r7, #40]	; 0x28
- 8005b1a:	2101      	movs	r1, #1
- 8005b1c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005b06:	4a0c      	ldr	r2, [pc, #48]	; (8005b38 <sensores+0x154>)
+ 8005b08:	6abb      	ldr	r3, [r7, #40]	; 0x28
+ 8005b0a:	2101      	movs	r1, #1
+ 8005b0c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for(int i=0; i<NUM_SENSORES ; i++)
- 8005b20:	6abb      	ldr	r3, [r7, #40]	; 0x28
- 8005b22:	3301      	adds	r3, #1
- 8005b24:	62bb      	str	r3, [r7, #40]	; 0x28
- 8005b26:	6abb      	ldr	r3, [r7, #40]	; 0x28
- 8005b28:	2b07      	cmp	r3, #7
- 8005b2a:	dde9      	ble.n	8005b00 <sensores+0x10c>
+ 8005b10:	6abb      	ldr	r3, [r7, #40]	; 0x28
+ 8005b12:	3301      	adds	r3, #1
+ 8005b14:	62bb      	str	r3, [r7, #40]	; 0x28
+ 8005b16:	6abb      	ldr	r3, [r7, #40]	; 0x28
+ 8005b18:	2b07      	cmp	r3, #7
+ 8005b1a:	dde9      	ble.n	8005af0 <sensores+0x10c>
 
 		}
 		TIM15->CNT = 0;
- 8005b2c:	4b07      	ldr	r3, [pc, #28]	; (8005b4c <sensores+0x158>)
- 8005b2e:	2200      	movs	r2, #0
- 8005b30:	625a      	str	r2, [r3, #36]	; 0x24
+ 8005b1c:	4b07      	ldr	r3, [pc, #28]	; (8005b3c <sensores+0x158>)
+ 8005b1e:	2200      	movs	r2, #0
+ 8005b20:	625a      	str	r2, [r3, #36]	; 0x24
 
 		while(( sensores_leidos[0] ||
- 8005b32:	e0ba      	b.n	8005caa <sensores+0x2b6>
- 8005b34:	20001030 	.word	0x20001030
- 8005b38:	200010fc 	.word	0x200010fc
- 8005b3c:	48000400 	.word	0x48000400
- 8005b40:	200012b0 	.word	0x200012b0
- 8005b44:	20001270 	.word	0x20001270
- 8005b48:	20001250 	.word	0x20001250
- 8005b4c:	40014000 	.word	0x40014000
+ 8005b22:	e0ba      	b.n	8005c9a <sensores+0x2b6>
+ 8005b24:	20001030 	.word	0x20001030
+ 8005b28:	200010fc 	.word	0x200010fc
+ 8005b2c:	48000400 	.word	0x48000400
+ 8005b30:	200012b0 	.word	0x200012b0
+ 8005b34:	20001270 	.word	0x20001270
+ 8005b38:	20001250 	.word	0x20001250
+ 8005b3c:	40014000 	.word	0x40014000
 								sensores_leidos[2] ||
 								sensores_leidos[3] ||
 								sensores_leidos[4] ||
 								sensores_leidos[5]	) && TIM15->CNT < TIME_OUT_BLANCO)
 				{
 							if(!HAL_GPIO_ReadPin(GPIOB, S1_Pin) && sensores_leidos[0])
- 8005b50:	f44f 4100 	mov.w	r1, #32768	; 0x8000
- 8005b54:	4899      	ldr	r0, [pc, #612]	; (8005dbc <sensores+0x3c8>)
- 8005b56:	f7fb fbcd 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005b5a:	4603      	mov	r3, r0
- 8005b5c:	2b00      	cmp	r3, #0
- 8005b5e:	d10d      	bne.n	8005b7c <sensores+0x188>
- 8005b60:	4b97      	ldr	r3, [pc, #604]	; (8005dc0 <sensores+0x3cc>)
- 8005b62:	681b      	ldr	r3, [r3, #0]
- 8005b64:	2b00      	cmp	r3, #0
- 8005b66:	d009      	beq.n	8005b7c <sensores+0x188>
+ 8005b40:	f44f 4100 	mov.w	r1, #32768	; 0x8000
+ 8005b44:	4899      	ldr	r0, [pc, #612]	; (8005dac <sensores+0x3c8>)
+ 8005b46:	f7fb fbd5 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005b4a:	4603      	mov	r3, r0
+ 8005b4c:	2b00      	cmp	r3, #0
+ 8005b4e:	d10d      	bne.n	8005b6c <sensores+0x188>
+ 8005b50:	4b97      	ldr	r3, [pc, #604]	; (8005db0 <sensores+0x3cc>)
+ 8005b52:	681b      	ldr	r3, [r3, #0]
+ 8005b54:	2b00      	cmp	r3, #0
+ 8005b56:	d009      	beq.n	8005b6c <sensores+0x188>
 							{
 								 sensor_timing[0] = TIM15->CNT;
- 8005b68:	4b96      	ldr	r3, [pc, #600]	; (8005dc4 <sensores+0x3d0>)
- 8005b6a:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005b6c:	4a96      	ldr	r2, [pc, #600]	; (8005dc8 <sensores+0x3d4>)
- 8005b6e:	6013      	str	r3, [r2, #0]
+ 8005b58:	4b96      	ldr	r3, [pc, #600]	; (8005db4 <sensores+0x3d0>)
+ 8005b5a:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005b5c:	4a96      	ldr	r2, [pc, #600]	; (8005db8 <sensores+0x3d4>)
+ 8005b5e:	6013      	str	r3, [r2, #0]
 								 sensores_leidos[0] = 0;
- 8005b70:	4b93      	ldr	r3, [pc, #588]	; (8005dc0 <sensores+0x3cc>)
- 8005b72:	2200      	movs	r2, #0
- 8005b74:	601a      	str	r2, [r3, #0]
+ 8005b60:	4b93      	ldr	r3, [pc, #588]	; (8005db0 <sensores+0x3cc>)
+ 8005b62:	2200      	movs	r2, #0
+ 8005b64:	601a      	str	r2, [r3, #0]
 								 sensores_estado[0] = 0;
- 8005b76:	4b95      	ldr	r3, [pc, #596]	; (8005dcc <sensores+0x3d8>)
- 8005b78:	2200      	movs	r2, #0
- 8005b7a:	601a      	str	r2, [r3, #0]
+ 8005b66:	4b95      	ldr	r3, [pc, #596]	; (8005dbc <sensores+0x3d8>)
+ 8005b68:	2200      	movs	r2, #0
+ 8005b6a:	601a      	str	r2, [r3, #0]
 							}
 
 							if(!HAL_GPIO_ReadPin(GPIOB, S2_Pin) && sensores_leidos[1])
- 8005b7c:	f44f 4180 	mov.w	r1, #16384	; 0x4000
- 8005b80:	488e      	ldr	r0, [pc, #568]	; (8005dbc <sensores+0x3c8>)
- 8005b82:	f7fb fbb7 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005b86:	4603      	mov	r3, r0
- 8005b88:	2b00      	cmp	r3, #0
- 8005b8a:	d10d      	bne.n	8005ba8 <sensores+0x1b4>
- 8005b8c:	4b8c      	ldr	r3, [pc, #560]	; (8005dc0 <sensores+0x3cc>)
- 8005b8e:	685b      	ldr	r3, [r3, #4]
- 8005b90:	2b00      	cmp	r3, #0
- 8005b92:	d009      	beq.n	8005ba8 <sensores+0x1b4>
+ 8005b6c:	f44f 4180 	mov.w	r1, #16384	; 0x4000
+ 8005b70:	488e      	ldr	r0, [pc, #568]	; (8005dac <sensores+0x3c8>)
+ 8005b72:	f7fb fbbf 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005b76:	4603      	mov	r3, r0
+ 8005b78:	2b00      	cmp	r3, #0
+ 8005b7a:	d10d      	bne.n	8005b98 <sensores+0x1b4>
+ 8005b7c:	4b8c      	ldr	r3, [pc, #560]	; (8005db0 <sensores+0x3cc>)
+ 8005b7e:	685b      	ldr	r3, [r3, #4]
+ 8005b80:	2b00      	cmp	r3, #0
+ 8005b82:	d009      	beq.n	8005b98 <sensores+0x1b4>
 							{
 								 sensor_timing[1] = TIM15->CNT;
- 8005b94:	4b8b      	ldr	r3, [pc, #556]	; (8005dc4 <sensores+0x3d0>)
- 8005b96:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005b98:	4a8b      	ldr	r2, [pc, #556]	; (8005dc8 <sensores+0x3d4>)
- 8005b9a:	6053      	str	r3, [r2, #4]
+ 8005b84:	4b8b      	ldr	r3, [pc, #556]	; (8005db4 <sensores+0x3d0>)
+ 8005b86:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005b88:	4a8b      	ldr	r2, [pc, #556]	; (8005db8 <sensores+0x3d4>)
+ 8005b8a:	6053      	str	r3, [r2, #4]
 								 sensores_leidos[1] = 0;
- 8005b9c:	4b88      	ldr	r3, [pc, #544]	; (8005dc0 <sensores+0x3cc>)
- 8005b9e:	2200      	movs	r2, #0
- 8005ba0:	605a      	str	r2, [r3, #4]
+ 8005b8c:	4b88      	ldr	r3, [pc, #544]	; (8005db0 <sensores+0x3cc>)
+ 8005b8e:	2200      	movs	r2, #0
+ 8005b90:	605a      	str	r2, [r3, #4]
 								 sensores_estado[1] = 0;
- 8005ba2:	4b8a      	ldr	r3, [pc, #552]	; (8005dcc <sensores+0x3d8>)
- 8005ba4:	2200      	movs	r2, #0
- 8005ba6:	605a      	str	r2, [r3, #4]
+ 8005b92:	4b8a      	ldr	r3, [pc, #552]	; (8005dbc <sensores+0x3d8>)
+ 8005b94:	2200      	movs	r2, #0
+ 8005b96:	605a      	str	r2, [r3, #4]
 
 							}
 
 								if(!HAL_GPIO_ReadPin(GPIOB, S3_Pin) && sensores_leidos[2])
- 8005ba8:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 8005bac:	4883      	ldr	r0, [pc, #524]	; (8005dbc <sensores+0x3c8>)
- 8005bae:	f7fb fba1 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005bb2:	4603      	mov	r3, r0
- 8005bb4:	2b00      	cmp	r3, #0
- 8005bb6:	d10d      	bne.n	8005bd4 <sensores+0x1e0>
- 8005bb8:	4b81      	ldr	r3, [pc, #516]	; (8005dc0 <sensores+0x3cc>)
- 8005bba:	689b      	ldr	r3, [r3, #8]
- 8005bbc:	2b00      	cmp	r3, #0
- 8005bbe:	d009      	beq.n	8005bd4 <sensores+0x1e0>
+ 8005b98:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 8005b9c:	4883      	ldr	r0, [pc, #524]	; (8005dac <sensores+0x3c8>)
+ 8005b9e:	f7fb fba9 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005ba2:	4603      	mov	r3, r0
+ 8005ba4:	2b00      	cmp	r3, #0
+ 8005ba6:	d10d      	bne.n	8005bc4 <sensores+0x1e0>
+ 8005ba8:	4b81      	ldr	r3, [pc, #516]	; (8005db0 <sensores+0x3cc>)
+ 8005baa:	689b      	ldr	r3, [r3, #8]
+ 8005bac:	2b00      	cmp	r3, #0
+ 8005bae:	d009      	beq.n	8005bc4 <sensores+0x1e0>
 							{
 								 sensor_timing[2] = TIM15->CNT;
- 8005bc0:	4b80      	ldr	r3, [pc, #512]	; (8005dc4 <sensores+0x3d0>)
- 8005bc2:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005bc4:	4a80      	ldr	r2, [pc, #512]	; (8005dc8 <sensores+0x3d4>)
- 8005bc6:	6093      	str	r3, [r2, #8]
+ 8005bb0:	4b80      	ldr	r3, [pc, #512]	; (8005db4 <sensores+0x3d0>)
+ 8005bb2:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005bb4:	4a80      	ldr	r2, [pc, #512]	; (8005db8 <sensores+0x3d4>)
+ 8005bb6:	6093      	str	r3, [r2, #8]
 								 sensores_leidos[2] = 0;
- 8005bc8:	4b7d      	ldr	r3, [pc, #500]	; (8005dc0 <sensores+0x3cc>)
- 8005bca:	2200      	movs	r2, #0
- 8005bcc:	609a      	str	r2, [r3, #8]
+ 8005bb8:	4b7d      	ldr	r3, [pc, #500]	; (8005db0 <sensores+0x3cc>)
+ 8005bba:	2200      	movs	r2, #0
+ 8005bbc:	609a      	str	r2, [r3, #8]
 								 sensores_estado[2] = 0;
- 8005bce:	4b7f      	ldr	r3, [pc, #508]	; (8005dcc <sensores+0x3d8>)
- 8005bd0:	2200      	movs	r2, #0
- 8005bd2:	609a      	str	r2, [r3, #8]
+ 8005bbe:	4b7f      	ldr	r3, [pc, #508]	; (8005dbc <sensores+0x3d8>)
+ 8005bc0:	2200      	movs	r2, #0
+ 8005bc2:	609a      	str	r2, [r3, #8]
 
 							}
 
 							if(!HAL_GPIO_ReadPin(GPIOB, S4_Pin) && sensores_leidos[3])
- 8005bd4:	f44f 5180 	mov.w	r1, #4096	; 0x1000
- 8005bd8:	4878      	ldr	r0, [pc, #480]	; (8005dbc <sensores+0x3c8>)
- 8005bda:	f7fb fb8b 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005bde:	4603      	mov	r3, r0
- 8005be0:	2b00      	cmp	r3, #0
- 8005be2:	d10d      	bne.n	8005c00 <sensores+0x20c>
- 8005be4:	4b76      	ldr	r3, [pc, #472]	; (8005dc0 <sensores+0x3cc>)
- 8005be6:	68db      	ldr	r3, [r3, #12]
- 8005be8:	2b00      	cmp	r3, #0
- 8005bea:	d009      	beq.n	8005c00 <sensores+0x20c>
+ 8005bc4:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 8005bc8:	4878      	ldr	r0, [pc, #480]	; (8005dac <sensores+0x3c8>)
+ 8005bca:	f7fb fb93 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005bce:	4603      	mov	r3, r0
+ 8005bd0:	2b00      	cmp	r3, #0
+ 8005bd2:	d10d      	bne.n	8005bf0 <sensores+0x20c>
+ 8005bd4:	4b76      	ldr	r3, [pc, #472]	; (8005db0 <sensores+0x3cc>)
+ 8005bd6:	68db      	ldr	r3, [r3, #12]
+ 8005bd8:	2b00      	cmp	r3, #0
+ 8005bda:	d009      	beq.n	8005bf0 <sensores+0x20c>
 							{
 								 sensor_timing[3] = TIM15->CNT;
- 8005bec:	4b75      	ldr	r3, [pc, #468]	; (8005dc4 <sensores+0x3d0>)
- 8005bee:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005bf0:	4a75      	ldr	r2, [pc, #468]	; (8005dc8 <sensores+0x3d4>)
- 8005bf2:	60d3      	str	r3, [r2, #12]
+ 8005bdc:	4b75      	ldr	r3, [pc, #468]	; (8005db4 <sensores+0x3d0>)
+ 8005bde:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005be0:	4a75      	ldr	r2, [pc, #468]	; (8005db8 <sensores+0x3d4>)
+ 8005be2:	60d3      	str	r3, [r2, #12]
 								 sensores_leidos[3] = 0;
- 8005bf4:	4b72      	ldr	r3, [pc, #456]	; (8005dc0 <sensores+0x3cc>)
- 8005bf6:	2200      	movs	r2, #0
- 8005bf8:	60da      	str	r2, [r3, #12]
+ 8005be4:	4b72      	ldr	r3, [pc, #456]	; (8005db0 <sensores+0x3cc>)
+ 8005be6:	2200      	movs	r2, #0
+ 8005be8:	60da      	str	r2, [r3, #12]
 								 sensores_estado[3] = 0;
- 8005bfa:	4b74      	ldr	r3, [pc, #464]	; (8005dcc <sensores+0x3d8>)
- 8005bfc:	2200      	movs	r2, #0
- 8005bfe:	60da      	str	r2, [r3, #12]
+ 8005bea:	4b74      	ldr	r3, [pc, #464]	; (8005dbc <sensores+0x3d8>)
+ 8005bec:	2200      	movs	r2, #0
+ 8005bee:	60da      	str	r2, [r3, #12]
 							}
 
 							if(!HAL_GPIO_ReadPin(GPIOB, S5_Pin) && sensores_leidos[4])
- 8005c00:	2104      	movs	r1, #4
- 8005c02:	486e      	ldr	r0, [pc, #440]	; (8005dbc <sensores+0x3c8>)
- 8005c04:	f7fb fb76 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005c08:	4603      	mov	r3, r0
- 8005c0a:	2b00      	cmp	r3, #0
- 8005c0c:	d10d      	bne.n	8005c2a <sensores+0x236>
- 8005c0e:	4b6c      	ldr	r3, [pc, #432]	; (8005dc0 <sensores+0x3cc>)
- 8005c10:	691b      	ldr	r3, [r3, #16]
- 8005c12:	2b00      	cmp	r3, #0
- 8005c14:	d009      	beq.n	8005c2a <sensores+0x236>
+ 8005bf0:	2104      	movs	r1, #4
+ 8005bf2:	486e      	ldr	r0, [pc, #440]	; (8005dac <sensores+0x3c8>)
+ 8005bf4:	f7fb fb7e 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005bf8:	4603      	mov	r3, r0
+ 8005bfa:	2b00      	cmp	r3, #0
+ 8005bfc:	d10d      	bne.n	8005c1a <sensores+0x236>
+ 8005bfe:	4b6c      	ldr	r3, [pc, #432]	; (8005db0 <sensores+0x3cc>)
+ 8005c00:	691b      	ldr	r3, [r3, #16]
+ 8005c02:	2b00      	cmp	r3, #0
+ 8005c04:	d009      	beq.n	8005c1a <sensores+0x236>
 							{
 								 sensor_timing[4] = TIM15->CNT;
- 8005c16:	4b6b      	ldr	r3, [pc, #428]	; (8005dc4 <sensores+0x3d0>)
- 8005c18:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005c1a:	4a6b      	ldr	r2, [pc, #428]	; (8005dc8 <sensores+0x3d4>)
- 8005c1c:	6113      	str	r3, [r2, #16]
+ 8005c06:	4b6b      	ldr	r3, [pc, #428]	; (8005db4 <sensores+0x3d0>)
+ 8005c08:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005c0a:	4a6b      	ldr	r2, [pc, #428]	; (8005db8 <sensores+0x3d4>)
+ 8005c0c:	6113      	str	r3, [r2, #16]
 								 sensores_leidos[4] = 0;
- 8005c1e:	4b68      	ldr	r3, [pc, #416]	; (8005dc0 <sensores+0x3cc>)
- 8005c20:	2200      	movs	r2, #0
- 8005c22:	611a      	str	r2, [r3, #16]
+ 8005c0e:	4b68      	ldr	r3, [pc, #416]	; (8005db0 <sensores+0x3cc>)
+ 8005c10:	2200      	movs	r2, #0
+ 8005c12:	611a      	str	r2, [r3, #16]
 								 sensores_estado[4] = 0;
- 8005c24:	4b69      	ldr	r3, [pc, #420]	; (8005dcc <sensores+0x3d8>)
- 8005c26:	2200      	movs	r2, #0
- 8005c28:	611a      	str	r2, [r3, #16]
+ 8005c14:	4b69      	ldr	r3, [pc, #420]	; (8005dbc <sensores+0x3d8>)
+ 8005c16:	2200      	movs	r2, #0
+ 8005c18:	611a      	str	r2, [r3, #16]
 							}
 
 							if(!HAL_GPIO_ReadPin(GPIOB, S6_Pin) && sensores_leidos[5])
- 8005c2a:	2102      	movs	r1, #2
- 8005c2c:	4863      	ldr	r0, [pc, #396]	; (8005dbc <sensores+0x3c8>)
- 8005c2e:	f7fb fb61 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005c32:	4603      	mov	r3, r0
- 8005c34:	2b00      	cmp	r3, #0
- 8005c36:	d10d      	bne.n	8005c54 <sensores+0x260>
- 8005c38:	4b61      	ldr	r3, [pc, #388]	; (8005dc0 <sensores+0x3cc>)
- 8005c3a:	695b      	ldr	r3, [r3, #20]
- 8005c3c:	2b00      	cmp	r3, #0
- 8005c3e:	d009      	beq.n	8005c54 <sensores+0x260>
+ 8005c1a:	2102      	movs	r1, #2
+ 8005c1c:	4863      	ldr	r0, [pc, #396]	; (8005dac <sensores+0x3c8>)
+ 8005c1e:	f7fb fb69 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005c22:	4603      	mov	r3, r0
+ 8005c24:	2b00      	cmp	r3, #0
+ 8005c26:	d10d      	bne.n	8005c44 <sensores+0x260>
+ 8005c28:	4b61      	ldr	r3, [pc, #388]	; (8005db0 <sensores+0x3cc>)
+ 8005c2a:	695b      	ldr	r3, [r3, #20]
+ 8005c2c:	2b00      	cmp	r3, #0
+ 8005c2e:	d009      	beq.n	8005c44 <sensores+0x260>
 							{
 								 sensor_timing[5] = TIM15->CNT;
- 8005c40:	4b60      	ldr	r3, [pc, #384]	; (8005dc4 <sensores+0x3d0>)
- 8005c42:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005c44:	4a60      	ldr	r2, [pc, #384]	; (8005dc8 <sensores+0x3d4>)
- 8005c46:	6153      	str	r3, [r2, #20]
+ 8005c30:	4b60      	ldr	r3, [pc, #384]	; (8005db4 <sensores+0x3d0>)
+ 8005c32:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005c34:	4a60      	ldr	r2, [pc, #384]	; (8005db8 <sensores+0x3d4>)
+ 8005c36:	6153      	str	r3, [r2, #20]
 								 sensores_leidos[5] = 0;
- 8005c48:	4b5d      	ldr	r3, [pc, #372]	; (8005dc0 <sensores+0x3cc>)
- 8005c4a:	2200      	movs	r2, #0
- 8005c4c:	615a      	str	r2, [r3, #20]
+ 8005c38:	4b5d      	ldr	r3, [pc, #372]	; (8005db0 <sensores+0x3cc>)
+ 8005c3a:	2200      	movs	r2, #0
+ 8005c3c:	615a      	str	r2, [r3, #20]
 								 sensores_estado[5] = 0;
- 8005c4e:	4b5f      	ldr	r3, [pc, #380]	; (8005dcc <sensores+0x3d8>)
- 8005c50:	2200      	movs	r2, #0
- 8005c52:	615a      	str	r2, [r3, #20]
+ 8005c3e:	4b5f      	ldr	r3, [pc, #380]	; (8005dbc <sensores+0x3d8>)
+ 8005c40:	2200      	movs	r2, #0
+ 8005c42:	615a      	str	r2, [r3, #20]
 
 							}
 
 							if(!HAL_GPIO_ReadPin(GPIOB, S7_Pin) && sensores_leidos[6])
- 8005c54:	2101      	movs	r1, #1
- 8005c56:	4859      	ldr	r0, [pc, #356]	; (8005dbc <sensores+0x3c8>)
- 8005c58:	f7fb fb4c 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005c5c:	4603      	mov	r3, r0
- 8005c5e:	2b00      	cmp	r3, #0
- 8005c60:	d10d      	bne.n	8005c7e <sensores+0x28a>
- 8005c62:	4b57      	ldr	r3, [pc, #348]	; (8005dc0 <sensores+0x3cc>)
- 8005c64:	699b      	ldr	r3, [r3, #24]
- 8005c66:	2b00      	cmp	r3, #0
- 8005c68:	d009      	beq.n	8005c7e <sensores+0x28a>
+ 8005c44:	2101      	movs	r1, #1
+ 8005c46:	4859      	ldr	r0, [pc, #356]	; (8005dac <sensores+0x3c8>)
+ 8005c48:	f7fb fb54 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005c4c:	4603      	mov	r3, r0
+ 8005c4e:	2b00      	cmp	r3, #0
+ 8005c50:	d10d      	bne.n	8005c6e <sensores+0x28a>
+ 8005c52:	4b57      	ldr	r3, [pc, #348]	; (8005db0 <sensores+0x3cc>)
+ 8005c54:	699b      	ldr	r3, [r3, #24]
+ 8005c56:	2b00      	cmp	r3, #0
+ 8005c58:	d009      	beq.n	8005c6e <sensores+0x28a>
 							{
 								 sensor_timing[6] = TIM15->CNT;
- 8005c6a:	4b56      	ldr	r3, [pc, #344]	; (8005dc4 <sensores+0x3d0>)
- 8005c6c:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005c6e:	4a56      	ldr	r2, [pc, #344]	; (8005dc8 <sensores+0x3d4>)
- 8005c70:	6193      	str	r3, [r2, #24]
+ 8005c5a:	4b56      	ldr	r3, [pc, #344]	; (8005db4 <sensores+0x3d0>)
+ 8005c5c:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005c5e:	4a56      	ldr	r2, [pc, #344]	; (8005db8 <sensores+0x3d4>)
+ 8005c60:	6193      	str	r3, [r2, #24]
 								 sensores_leidos[6] = 0;
- 8005c72:	4b53      	ldr	r3, [pc, #332]	; (8005dc0 <sensores+0x3cc>)
- 8005c74:	2200      	movs	r2, #0
- 8005c76:	619a      	str	r2, [r3, #24]
+ 8005c62:	4b53      	ldr	r3, [pc, #332]	; (8005db0 <sensores+0x3cc>)
+ 8005c64:	2200      	movs	r2, #0
+ 8005c66:	619a      	str	r2, [r3, #24]
 								 sensores_estado[6] = 0;
- 8005c78:	4b54      	ldr	r3, [pc, #336]	; (8005dcc <sensores+0x3d8>)
- 8005c7a:	2200      	movs	r2, #0
- 8005c7c:	619a      	str	r2, [r3, #24]
+ 8005c68:	4b54      	ldr	r3, [pc, #336]	; (8005dbc <sensores+0x3d8>)
+ 8005c6a:	2200      	movs	r2, #0
+ 8005c6c:	619a      	str	r2, [r3, #24]
 
 							}
 
 							if(!HAL_GPIO_ReadPin(S8_GPIO_Port, S8_Pin) && sensores_leidos[7])
- 8005c7e:	2140      	movs	r1, #64	; 0x40
- 8005c80:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
- 8005c84:	f7fb fb36 	bl	80012f4 <HAL_GPIO_ReadPin>
- 8005c88:	4603      	mov	r3, r0
- 8005c8a:	2b00      	cmp	r3, #0
- 8005c8c:	d10d      	bne.n	8005caa <sensores+0x2b6>
- 8005c8e:	4b4c      	ldr	r3, [pc, #304]	; (8005dc0 <sensores+0x3cc>)
- 8005c90:	69db      	ldr	r3, [r3, #28]
- 8005c92:	2b00      	cmp	r3, #0
- 8005c94:	d009      	beq.n	8005caa <sensores+0x2b6>
+ 8005c6e:	2140      	movs	r1, #64	; 0x40
+ 8005c70:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
+ 8005c74:	f7fb fb3e 	bl	80012f4 <HAL_GPIO_ReadPin>
+ 8005c78:	4603      	mov	r3, r0
+ 8005c7a:	2b00      	cmp	r3, #0
+ 8005c7c:	d10d      	bne.n	8005c9a <sensores+0x2b6>
+ 8005c7e:	4b4c      	ldr	r3, [pc, #304]	; (8005db0 <sensores+0x3cc>)
+ 8005c80:	69db      	ldr	r3, [r3, #28]
+ 8005c82:	2b00      	cmp	r3, #0
+ 8005c84:	d009      	beq.n	8005c9a <sensores+0x2b6>
 							{
 								 sensor_timing[7] = TIM15->CNT;
- 8005c96:	4b4b      	ldr	r3, [pc, #300]	; (8005dc4 <sensores+0x3d0>)
- 8005c98:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005c9a:	4a4b      	ldr	r2, [pc, #300]	; (8005dc8 <sensores+0x3d4>)
- 8005c9c:	61d3      	str	r3, [r2, #28]
+ 8005c86:	4b4b      	ldr	r3, [pc, #300]	; (8005db4 <sensores+0x3d0>)
+ 8005c88:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005c8a:	4a4b      	ldr	r2, [pc, #300]	; (8005db8 <sensores+0x3d4>)
+ 8005c8c:	61d3      	str	r3, [r2, #28]
 								 sensores_leidos[7] = 0;
- 8005c9e:	4b48      	ldr	r3, [pc, #288]	; (8005dc0 <sensores+0x3cc>)
- 8005ca0:	2200      	movs	r2, #0
- 8005ca2:	61da      	str	r2, [r3, #28]
+ 8005c8e:	4b48      	ldr	r3, [pc, #288]	; (8005db0 <sensores+0x3cc>)
+ 8005c90:	2200      	movs	r2, #0
+ 8005c92:	61da      	str	r2, [r3, #28]
 								 sensores_estado[7] = 0;
- 8005ca4:	4b49      	ldr	r3, [pc, #292]	; (8005dcc <sensores+0x3d8>)
- 8005ca6:	2200      	movs	r2, #0
- 8005ca8:	61da      	str	r2, [r3, #28]
+ 8005c94:	4b49      	ldr	r3, [pc, #292]	; (8005dbc <sensores+0x3d8>)
+ 8005c96:	2200      	movs	r2, #0
+ 8005c98:	61da      	str	r2, [r3, #28]
 		while(( sensores_leidos[0] ||
- 8005caa:	4b45      	ldr	r3, [pc, #276]	; (8005dc0 <sensores+0x3cc>)
- 8005cac:	681b      	ldr	r3, [r3, #0]
+ 8005c9a:	4b45      	ldr	r3, [pc, #276]	; (8005db0 <sensores+0x3cc>)
+ 8005c9c:	681b      	ldr	r3, [r3, #0]
+ 8005c9e:	2b00      	cmp	r3, #0
+ 8005ca0:	d113      	bne.n	8005cca <sensores+0x2e6>
+								sensores_leidos[1] ||
+ 8005ca2:	4b43      	ldr	r3, [pc, #268]	; (8005db0 <sensores+0x3cc>)
+ 8005ca4:	685b      	ldr	r3, [r3, #4]
+		while(( sensores_leidos[0] ||
+ 8005ca6:	2b00      	cmp	r3, #0
+ 8005ca8:	d10f      	bne.n	8005cca <sensores+0x2e6>
+								sensores_leidos[2] ||
+ 8005caa:	4b41      	ldr	r3, [pc, #260]	; (8005db0 <sensores+0x3cc>)
+ 8005cac:	689b      	ldr	r3, [r3, #8]
+								sensores_leidos[1] ||
  8005cae:	2b00      	cmp	r3, #0
- 8005cb0:	d113      	bne.n	8005cda <sensores+0x2e6>
-								sensores_leidos[1] ||
- 8005cb2:	4b43      	ldr	r3, [pc, #268]	; (8005dc0 <sensores+0x3cc>)
- 8005cb4:	685b      	ldr	r3, [r3, #4]
-		while(( sensores_leidos[0] ||
+ 8005cb0:	d10b      	bne.n	8005cca <sensores+0x2e6>
+								sensores_leidos[3] ||
+ 8005cb2:	4b3f      	ldr	r3, [pc, #252]	; (8005db0 <sensores+0x3cc>)
+ 8005cb4:	68db      	ldr	r3, [r3, #12]
+								sensores_leidos[2] ||
  8005cb6:	2b00      	cmp	r3, #0
- 8005cb8:	d10f      	bne.n	8005cda <sensores+0x2e6>
-								sensores_leidos[2] ||
- 8005cba:	4b41      	ldr	r3, [pc, #260]	; (8005dc0 <sensores+0x3cc>)
- 8005cbc:	689b      	ldr	r3, [r3, #8]
-								sensores_leidos[1] ||
+ 8005cb8:	d107      	bne.n	8005cca <sensores+0x2e6>
+								sensores_leidos[4] ||
+ 8005cba:	4b3d      	ldr	r3, [pc, #244]	; (8005db0 <sensores+0x3cc>)
+ 8005cbc:	691b      	ldr	r3, [r3, #16]
+								sensores_leidos[3] ||
  8005cbe:	2b00      	cmp	r3, #0
- 8005cc0:	d10b      	bne.n	8005cda <sensores+0x2e6>
-								sensores_leidos[3] ||
- 8005cc2:	4b3f      	ldr	r3, [pc, #252]	; (8005dc0 <sensores+0x3cc>)
- 8005cc4:	68db      	ldr	r3, [r3, #12]
-								sensores_leidos[2] ||
+ 8005cc0:	d103      	bne.n	8005cca <sensores+0x2e6>
+								sensores_leidos[5]	) && TIM15->CNT < TIME_OUT_BLANCO)
+ 8005cc2:	4b3b      	ldr	r3, [pc, #236]	; (8005db0 <sensores+0x3cc>)
+ 8005cc4:	695b      	ldr	r3, [r3, #20]
+								sensores_leidos[4] ||
  8005cc6:	2b00      	cmp	r3, #0
- 8005cc8:	d107      	bne.n	8005cda <sensores+0x2e6>
-								sensores_leidos[4] ||
- 8005cca:	4b3d      	ldr	r3, [pc, #244]	; (8005dc0 <sensores+0x3cc>)
- 8005ccc:	691b      	ldr	r3, [r3, #16]
-								sensores_leidos[3] ||
- 8005cce:	2b00      	cmp	r3, #0
- 8005cd0:	d103      	bne.n	8005cda <sensores+0x2e6>
+ 8005cc8:	d005      	beq.n	8005cd6 <sensores+0x2f2>
 								sensores_leidos[5]	) && TIM15->CNT < TIME_OUT_BLANCO)
- 8005cd2:	4b3b      	ldr	r3, [pc, #236]	; (8005dc0 <sensores+0x3cc>)
- 8005cd4:	695b      	ldr	r3, [r3, #20]
-								sensores_leidos[4] ||
- 8005cd6:	2b00      	cmp	r3, #0
- 8005cd8:	d005      	beq.n	8005ce6 <sensores+0x2f2>
-								sensores_leidos[5]	) && TIM15->CNT < TIME_OUT_BLANCO)
- 8005cda:	4b3a      	ldr	r3, [pc, #232]	; (8005dc4 <sensores+0x3d0>)
- 8005cdc:	6a5b      	ldr	r3, [r3, #36]	; 0x24
- 8005cde:	f5b3 7ffa 	cmp.w	r3, #500	; 0x1f4
- 8005ce2:	f4ff af35 	bcc.w	8005b50 <sensores+0x15c>
+ 8005cca:	4b3a      	ldr	r3, [pc, #232]	; (8005db4 <sensores+0x3d0>)
+ 8005ccc:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8005cce:	f5b3 7ffa 	cmp.w	r3, #500	; 0x1f4
+ 8005cd2:	f4ff af35 	bcc.w	8005b40 <sensores+0x15c>
 
 							}
 					}
 
 					vel_setup.tipopista = 2; //PISTA BLANCA
- 8005ce6:	4b3a      	ldr	r3, [pc, #232]	; (8005dd0 <sensores+0x3dc>)
- 8005ce8:	2202      	movs	r2, #2
- 8005cea:	619a      	str	r2, [r3, #24]
+ 8005cd6:	4b3a      	ldr	r3, [pc, #232]	; (8005dc0 <sensores+0x3dc>)
+ 8005cd8:	2202      	movs	r2, #2
+ 8005cda:	619a      	str	r2, [r3, #24]
 
 
 					if(vel_setup.tipopista == 1) //LINEA
- 8005cec:	4b38      	ldr	r3, [pc, #224]	; (8005dd0 <sensores+0x3dc>)
- 8005cee:	699b      	ldr	r3, [r3, #24]
- 8005cf0:	2b01      	cmp	r3, #1
- 8005cf2:	d119      	bne.n	8005d28 <sensores+0x334>
+ 8005cdc:	4b38      	ldr	r3, [pc, #224]	; (8005dc0 <sensores+0x3dc>)
+ 8005cde:	699b      	ldr	r3, [r3, #24]
+ 8005ce0:	2b01      	cmp	r3, #1
+ 8005ce2:	d119      	bne.n	8005d18 <sensores+0x334>
 					{
 						for(int i=0; i<NUM_SENSORES ; i++)
- 8005cf4:	2300      	movs	r3, #0
- 8005cf6:	627b      	str	r3, [r7, #36]	; 0x24
- 8005cf8:	e013      	b.n	8005d22 <sensores+0x32e>
+ 8005ce4:	2300      	movs	r3, #0
+ 8005ce6:	627b      	str	r3, [r7, #36]	; 0x24
+ 8005ce8:	e013      	b.n	8005d12 <sensores+0x32e>
 							{
 								if(sensores_estado[i] == 1)
- 8005cfa:	4a34      	ldr	r2, [pc, #208]	; (8005dcc <sensores+0x3d8>)
- 8005cfc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 8005cfe:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8005d02:	2b01      	cmp	r3, #1
- 8005d04:	d105      	bne.n	8005d12 <sensores+0x31e>
+ 8005cea:	4a34      	ldr	r2, [pc, #208]	; (8005dbc <sensores+0x3d8>)
+ 8005cec:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005cee:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8005cf2:	2b01      	cmp	r3, #1
+ 8005cf4:	d105      	bne.n	8005d02 <sensores+0x31e>
 								   sensores_estado[i] = 0;
- 8005d06:	4a31      	ldr	r2, [pc, #196]	; (8005dcc <sensores+0x3d8>)
- 8005d08:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 8005d0a:	2100      	movs	r1, #0
- 8005d0c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
- 8005d10:	e004      	b.n	8005d1c <sensores+0x328>
+ 8005cf6:	4a31      	ldr	r2, [pc, #196]	; (8005dbc <sensores+0x3d8>)
+ 8005cf8:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005cfa:	2100      	movs	r1, #0
+ 8005cfc:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005d00:	e004      	b.n	8005d0c <sensores+0x328>
 								else
 								   sensores_estado[i] = 1;
- 8005d12:	4a2e      	ldr	r2, [pc, #184]	; (8005dcc <sensores+0x3d8>)
- 8005d14:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 8005d16:	2101      	movs	r1, #1
- 8005d18:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005d02:	4a2e      	ldr	r2, [pc, #184]	; (8005dbc <sensores+0x3d8>)
+ 8005d04:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005d06:	2101      	movs	r1, #1
+ 8005d08:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 						for(int i=0; i<NUM_SENSORES ; i++)
- 8005d1c:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 8005d1e:	3301      	adds	r3, #1
- 8005d20:	627b      	str	r3, [r7, #36]	; 0x24
- 8005d22:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 8005d24:	2b07      	cmp	r3, #7
- 8005d26:	dde8      	ble.n	8005cfa <sensores+0x306>
+ 8005d0c:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005d0e:	3301      	adds	r3, #1
+ 8005d10:	627b      	str	r3, [r7, #36]	; 0x24
+ 8005d12:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8005d14:	2b07      	cmp	r3, #7
+ 8005d16:	dde8      	ble.n	8005cea <sensores+0x306>
 							}
 					}
 					 suma = 0;
- 8005d28:	4b2a      	ldr	r3, [pc, #168]	; (8005dd4 <sensores+0x3e0>)
- 8005d2a:	2200      	movs	r2, #0
- 8005d2c:	601a      	str	r2, [r3, #0]
+ 8005d18:	4b2a      	ldr	r3, [pc, #168]	; (8005dc4 <sensores+0x3e0>)
+ 8005d1a:	2200      	movs	r2, #0
+ 8005d1c:	601a      	str	r2, [r3, #0]
 					 num_sensors = 0;
- 8005d2e:	4b2a      	ldr	r3, [pc, #168]	; (8005dd8 <sensores+0x3e4>)
- 8005d30:	2200      	movs	r2, #0
- 8005d32:	601a      	str	r2, [r3, #0]
+ 8005d1e:	4b2a      	ldr	r3, [pc, #168]	; (8005dc8 <sensores+0x3e4>)
+ 8005d20:	2200      	movs	r2, #0
+ 8005d22:	601a      	str	r2, [r3, #0]
 
 					for(int i=0; i<NUM_SENSORES ; i++)
- 8005d34:	2300      	movs	r3, #0
- 8005d36:	623b      	str	r3, [r7, #32]
- 8005d38:	e016      	b.n	8005d68 <sensores+0x374>
+ 8005d24:	2300      	movs	r3, #0
+ 8005d26:	623b      	str	r3, [r7, #32]
+ 8005d28:	e016      	b.n	8005d58 <sensores+0x374>
 						{
 							if(sensores_estado[i] == 1)
- 8005d3a:	4a24      	ldr	r2, [pc, #144]	; (8005dcc <sensores+0x3d8>)
- 8005d3c:	6a3b      	ldr	r3, [r7, #32]
- 8005d3e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8005d42:	2b01      	cmp	r3, #1
- 8005d44:	d10d      	bne.n	8005d62 <sensores+0x36e>
+ 8005d2a:	4a24      	ldr	r2, [pc, #144]	; (8005dbc <sensores+0x3d8>)
+ 8005d2c:	6a3b      	ldr	r3, [r7, #32]
+ 8005d2e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8005d32:	2b01      	cmp	r3, #1
+ 8005d34:	d10d      	bne.n	8005d52 <sensores+0x36e>
 								{
 									suma += Sensores_peso[i];
- 8005d46:	4a25      	ldr	r2, [pc, #148]	; (8005ddc <sensores+0x3e8>)
- 8005d48:	6a3b      	ldr	r3, [r7, #32]
- 8005d4a:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005d4e:	4b21      	ldr	r3, [pc, #132]	; (8005dd4 <sensores+0x3e0>)
- 8005d50:	681b      	ldr	r3, [r3, #0]
- 8005d52:	4413      	add	r3, r2
- 8005d54:	4a1f      	ldr	r2, [pc, #124]	; (8005dd4 <sensores+0x3e0>)
- 8005d56:	6013      	str	r3, [r2, #0]
+ 8005d36:	4a25      	ldr	r2, [pc, #148]	; (8005dcc <sensores+0x3e8>)
+ 8005d38:	6a3b      	ldr	r3, [r7, #32]
+ 8005d3a:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005d3e:	4b21      	ldr	r3, [pc, #132]	; (8005dc4 <sensores+0x3e0>)
+ 8005d40:	681b      	ldr	r3, [r3, #0]
+ 8005d42:	4413      	add	r3, r2
+ 8005d44:	4a1f      	ldr	r2, [pc, #124]	; (8005dc4 <sensores+0x3e0>)
+ 8005d46:	6013      	str	r3, [r2, #0]
 									num_sensors++;
- 8005d58:	4b1f      	ldr	r3, [pc, #124]	; (8005dd8 <sensores+0x3e4>)
- 8005d5a:	681b      	ldr	r3, [r3, #0]
- 8005d5c:	3301      	adds	r3, #1
- 8005d5e:	4a1e      	ldr	r2, [pc, #120]	; (8005dd8 <sensores+0x3e4>)
- 8005d60:	6013      	str	r3, [r2, #0]
+ 8005d48:	4b1f      	ldr	r3, [pc, #124]	; (8005dc8 <sensores+0x3e4>)
+ 8005d4a:	681b      	ldr	r3, [r3, #0]
+ 8005d4c:	3301      	adds	r3, #1
+ 8005d4e:	4a1e      	ldr	r2, [pc, #120]	; (8005dc8 <sensores+0x3e4>)
+ 8005d50:	6013      	str	r3, [r2, #0]
 					for(int i=0; i<NUM_SENSORES ; i++)
- 8005d62:	6a3b      	ldr	r3, [r7, #32]
- 8005d64:	3301      	adds	r3, #1
- 8005d66:	623b      	str	r3, [r7, #32]
- 8005d68:	6a3b      	ldr	r3, [r7, #32]
- 8005d6a:	2b07      	cmp	r3, #7
- 8005d6c:	dde5      	ble.n	8005d3a <sensores+0x346>
+ 8005d52:	6a3b      	ldr	r3, [r7, #32]
+ 8005d54:	3301      	adds	r3, #1
+ 8005d56:	623b      	str	r3, [r7, #32]
+ 8005d58:	6a3b      	ldr	r3, [r7, #32]
+ 8005d5a:	2b07      	cmp	r3, #7
+ 8005d5c:	dde5      	ble.n	8005d2a <sensores+0x346>
 								 }
 						}
 
 					if(num_sensors == 0) //Si no lee ningun mantiene el anterior
- 8005d6e:	4b1a      	ldr	r3, [pc, #104]	; (8005dd8 <sensores+0x3e4>)
- 8005d70:	681b      	ldr	r3, [r3, #0]
- 8005d72:	2b00      	cmp	r3, #0
- 8005d74:	d115      	bne.n	8005da2 <sensores+0x3ae>
+ 8005d5e:	4b1a      	ldr	r3, [pc, #104]	; (8005dc8 <sensores+0x3e4>)
+ 8005d60:	681b      	ldr	r3, [r3, #0]
+ 8005d62:	2b00      	cmp	r3, #0
+ 8005d64:	d115      	bne.n	8005d92 <sensores+0x3ae>
 						{
 							if(vel.sensores > 10)
- 8005d76:	4b1a      	ldr	r3, [pc, #104]	; (8005de0 <sensores+0x3ec>)
- 8005d78:	6b5b      	ldr	r3, [r3, #52]	; 0x34
- 8005d7a:	2b0a      	cmp	r3, #10
- 8005d7c:	dd03      	ble.n	8005d86 <sensores+0x392>
+ 8005d66:	4b1a      	ldr	r3, [pc, #104]	; (8005dd0 <sensores+0x3ec>)
+ 8005d68:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+ 8005d6a:	2b0a      	cmp	r3, #10
+ 8005d6c:	dd03      	ble.n	8005d76 <sensores+0x392>
 								{
 									vel.sensores = 45; //MAXIMO ERROR
- 8005d7e:	4b18      	ldr	r3, [pc, #96]	; (8005de0 <sensores+0x3ec>)
- 8005d80:	222d      	movs	r2, #45	; 0x2d
- 8005d82:	635a      	str	r2, [r3, #52]	; 0x34
- 8005d84:	e015      	b.n	8005db2 <sensores+0x3be>
+ 8005d6e:	4b18      	ldr	r3, [pc, #96]	; (8005dd0 <sensores+0x3ec>)
+ 8005d70:	222d      	movs	r2, #45	; 0x2d
+ 8005d72:	635a      	str	r2, [r3, #52]	; 0x34
+ 8005d74:	e015      	b.n	8005da2 <sensores+0x3be>
 								}
 							else if(vel.sensores < -10)
- 8005d86:	4b16      	ldr	r3, [pc, #88]	; (8005de0 <sensores+0x3ec>)
- 8005d88:	6b5b      	ldr	r3, [r3, #52]	; 0x34
- 8005d8a:	f113 0f0a 	cmn.w	r3, #10
- 8005d8e:	da04      	bge.n	8005d9a <sensores+0x3a6>
+ 8005d76:	4b16      	ldr	r3, [pc, #88]	; (8005dd0 <sensores+0x3ec>)
+ 8005d78:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+ 8005d7a:	f113 0f0a 	cmn.w	r3, #10
+ 8005d7e:	da04      	bge.n	8005d8a <sensores+0x3a6>
 								{
 									vel.sensores = -45;
- 8005d90:	4b13      	ldr	r3, [pc, #76]	; (8005de0 <sensores+0x3ec>)
- 8005d92:	f06f 022c 	mvn.w	r2, #44	; 0x2c
- 8005d96:	635a      	str	r2, [r3, #52]	; 0x34
- 8005d98:	e00b      	b.n	8005db2 <sensores+0x3be>
+ 8005d80:	4b13      	ldr	r3, [pc, #76]	; (8005dd0 <sensores+0x3ec>)
+ 8005d82:	f06f 022c 	mvn.w	r2, #44	; 0x2c
+ 8005d86:	635a      	str	r2, [r3, #52]	; 0x34
+ 8005d88:	e00b      	b.n	8005da2 <sensores+0x3be>
 								}
 							else //PERDIDA DE LINEA DE FRENTE
 								{
 									vel.sensores = 0;
- 8005d9a:	4b11      	ldr	r3, [pc, #68]	; (8005de0 <sensores+0x3ec>)
- 8005d9c:	2200      	movs	r2, #0
- 8005d9e:	635a      	str	r2, [r3, #52]	; 0x34
- 8005da0:	e007      	b.n	8005db2 <sensores+0x3be>
+ 8005d8a:	4b11      	ldr	r3, [pc, #68]	; (8005dd0 <sensores+0x3ec>)
+ 8005d8c:	2200      	movs	r2, #0
+ 8005d8e:	635a      	str	r2, [r3, #52]	; 0x34
+ 8005d90:	e007      	b.n	8005da2 <sensores+0x3be>
 								}
 						  }
 					else
 						{
 							vel.sensores = suma/num_sensors;
- 8005da2:	4b0c      	ldr	r3, [pc, #48]	; (8005dd4 <sensores+0x3e0>)
- 8005da4:	681a      	ldr	r2, [r3, #0]
- 8005da6:	4b0c      	ldr	r3, [pc, #48]	; (8005dd8 <sensores+0x3e4>)
- 8005da8:	681b      	ldr	r3, [r3, #0]
- 8005daa:	fb92 f3f3 	sdiv	r3, r2, r3
- 8005dae:	4a0c      	ldr	r2, [pc, #48]	; (8005de0 <sensores+0x3ec>)
- 8005db0:	6353      	str	r3, [r2, #52]	; 0x34
+ 8005d92:	4b0c      	ldr	r3, [pc, #48]	; (8005dc4 <sensores+0x3e0>)
+ 8005d94:	681a      	ldr	r2, [r3, #0]
+ 8005d96:	4b0c      	ldr	r3, [pc, #48]	; (8005dc8 <sensores+0x3e4>)
+ 8005d98:	681b      	ldr	r3, [r3, #0]
+ 8005d9a:	fb92 f3f3 	sdiv	r3, r2, r3
+ 8005d9e:	4a0c      	ldr	r2, [pc, #48]	; (8005dd0 <sensores+0x3ec>)
+ 8005da0:	6353      	str	r3, [r2, #52]	; 0x34
 						}
 
 
 
 
     osDelay(1);
- 8005db2:	2001      	movs	r0, #1
- 8005db4:	f7fe f981 	bl	80040ba <osDelay>
+ 8005da2:	2001      	movs	r0, #1
+ 8005da4:	f7fe f989 	bl	80040ba <osDelay>
 	    GPIO_InitStruct.Pin = S8_Pin;
- 8005db8:	e63e      	b.n	8005a38 <sensores+0x44>
- 8005dba:	bf00      	nop
- 8005dbc:	48000400 	.word	0x48000400
- 8005dc0:	200012b0 	.word	0x200012b0
- 8005dc4:	40014000 	.word	0x40014000
- 8005dc8:	20001270 	.word	0x20001270
- 8005dcc:	20001250 	.word	0x20001250
- 8005dd0:	200011dc 	.word	0x200011dc
- 8005dd4:	20000fa4 	.word	0x20000fa4
- 8005dd8:	20000fa8 	.word	0x20000fa8
- 8005ddc:	20000010 	.word	0x20000010
- 8005de0:	200010fc 	.word	0x200010fc
+ 8005da8:	e63e      	b.n	8005a28 <sensores+0x44>
+ 8005daa:	bf00      	nop
+ 8005dac:	48000400 	.word	0x48000400
+ 8005db0:	200012b0 	.word	0x200012b0
+ 8005db4:	40014000 	.word	0x40014000
+ 8005db8:	20001270 	.word	0x20001270
+ 8005dbc:	20001250 	.word	0x20001250
+ 8005dc0:	200011dc 	.word	0x200011dc
+ 8005dc4:	20000fa4 	.word	0x20000fa4
+ 8005dc8:	20000fa8 	.word	0x20000fa8
+ 8005dcc:	20000010 	.word	0x20000010
+ 8005dd0:	200010fc 	.word	0x200010fc
 
-08005de4 <Sensores_Calibracion_Backgound>:
-  /* USER CODE END sensores */
-}
-
+08005dd4 <Sensores_Calibracion_Backgound>:
+/*---------------------------------------------------------------------------*
+ *      			Funcion	Calibracion: FONDO PISTA  						 *
+ *---------------------------------------------------------------------------*/
 
 void Sensores_Calibracion_Backgound(void)
 {
- 8005de4:	b580      	push	{r7, lr}
- 8005de6:	b084      	sub	sp, #16
- 8005de8:	af00      	add	r7, sp, #0
+ 8005dd4:	b580      	push	{r7, lr}
+ 8005dd6:	b084      	sub	sp, #16
+ 8005dd8:	af00      	add	r7, sp, #0
 
 for(int ind=0; ind < 100 ; ind ++)
- 8005dea:	2300      	movs	r3, #0
- 8005dec:	60fb      	str	r3, [r7, #12]
- 8005dee:	e01d      	b.n	8005e2c <Sensores_Calibracion_Backgound+0x48>
+ 8005dda:	2300      	movs	r3, #0
+ 8005ddc:	60fb      	str	r3, [r7, #12]
+ 8005dde:	e01d      	b.n	8005e1c <Sensores_Calibracion_Backgound+0x48>
 			{
 				for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar los valores iniciales
- 8005df0:	2300      	movs	r3, #0
- 8005df2:	60bb      	str	r3, [r7, #8]
- 8005df4:	e011      	b.n	8005e1a <Sensores_Calibracion_Backgound+0x36>
+ 8005de0:	2300      	movs	r3, #0
+ 8005de2:	60bb      	str	r3, [r7, #8]
+ 8005de4:	e011      	b.n	8005e0a <Sensores_Calibracion_Backgound+0x36>
 					{
 						 vel.fondo_pista[is] += sensor_timing[is];
- 8005df6:	4a1c      	ldr	r2, [pc, #112]	; (8005e68 <Sensores_Calibracion_Backgound+0x84>)
- 8005df8:	68bb      	ldr	r3, [r7, #8]
- 8005dfa:	3316      	adds	r3, #22
- 8005dfc:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005e00:	491a      	ldr	r1, [pc, #104]	; (8005e6c <Sensores_Calibracion_Backgound+0x88>)
- 8005e02:	68bb      	ldr	r3, [r7, #8]
- 8005e04:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
- 8005e08:	441a      	add	r2, r3
- 8005e0a:	4917      	ldr	r1, [pc, #92]	; (8005e68 <Sensores_Calibracion_Backgound+0x84>)
- 8005e0c:	68bb      	ldr	r3, [r7, #8]
- 8005e0e:	3316      	adds	r3, #22
- 8005e10:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8005de6:	4a1c      	ldr	r2, [pc, #112]	; (8005e58 <Sensores_Calibracion_Backgound+0x84>)
+ 8005de8:	68bb      	ldr	r3, [r7, #8]
+ 8005dea:	3316      	adds	r3, #22
+ 8005dec:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005df0:	491a      	ldr	r1, [pc, #104]	; (8005e5c <Sensores_Calibracion_Backgound+0x88>)
+ 8005df2:	68bb      	ldr	r3, [r7, #8]
+ 8005df4:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
+ 8005df8:	441a      	add	r2, r3
+ 8005dfa:	4917      	ldr	r1, [pc, #92]	; (8005e58 <Sensores_Calibracion_Backgound+0x84>)
+ 8005dfc:	68bb      	ldr	r3, [r7, #8]
+ 8005dfe:	3316      	adds	r3, #22
+ 8005e00:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 				for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar los valores iniciales
- 8005e14:	68bb      	ldr	r3, [r7, #8]
- 8005e16:	3301      	adds	r3, #1
- 8005e18:	60bb      	str	r3, [r7, #8]
- 8005e1a:	68bb      	ldr	r3, [r7, #8]
- 8005e1c:	2b07      	cmp	r3, #7
- 8005e1e:	ddea      	ble.n	8005df6 <Sensores_Calibracion_Backgound+0x12>
+ 8005e04:	68bb      	ldr	r3, [r7, #8]
+ 8005e06:	3301      	adds	r3, #1
+ 8005e08:	60bb      	str	r3, [r7, #8]
+ 8005e0a:	68bb      	ldr	r3, [r7, #8]
+ 8005e0c:	2b07      	cmp	r3, #7
+ 8005e0e:	ddea      	ble.n	8005de6 <Sensores_Calibracion_Backgound+0x12>
 					}
 					osDelay(5);
- 8005e20:	2005      	movs	r0, #5
- 8005e22:	f7fe f94a 	bl	80040ba <osDelay>
+ 8005e10:	2005      	movs	r0, #5
+ 8005e12:	f7fe f952 	bl	80040ba <osDelay>
 for(int ind=0; ind < 100 ; ind ++)
- 8005e26:	68fb      	ldr	r3, [r7, #12]
- 8005e28:	3301      	adds	r3, #1
- 8005e2a:	60fb      	str	r3, [r7, #12]
- 8005e2c:	68fb      	ldr	r3, [r7, #12]
- 8005e2e:	2b63      	cmp	r3, #99	; 0x63
- 8005e30:	ddde      	ble.n	8005df0 <Sensores_Calibracion_Backgound+0xc>
+ 8005e16:	68fb      	ldr	r3, [r7, #12]
+ 8005e18:	3301      	adds	r3, #1
+ 8005e1a:	60fb      	str	r3, [r7, #12]
+ 8005e1c:	68fb      	ldr	r3, [r7, #12]
+ 8005e1e:	2b63      	cmp	r3, #99	; 0x63
+ 8005e20:	ddde      	ble.n	8005de0 <Sensores_Calibracion_Backgound+0xc>
 			}
 
 	for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar los valores promedio de fondo de pista
- 8005e32:	2300      	movs	r3, #0
- 8005e34:	607b      	str	r3, [r7, #4]
- 8005e36:	e010      	b.n	8005e5a <Sensores_Calibracion_Backgound+0x76>
+ 8005e22:	2300      	movs	r3, #0
+ 8005e24:	607b      	str	r3, [r7, #4]
+ 8005e26:	e010      	b.n	8005e4a <Sensores_Calibracion_Backgound+0x76>
 		{
 			 vel.fondo_pista[is] = vel.fondo_pista[is]/100;
- 8005e38:	4a0b      	ldr	r2, [pc, #44]	; (8005e68 <Sensores_Calibracion_Backgound+0x84>)
- 8005e3a:	687b      	ldr	r3, [r7, #4]
- 8005e3c:	3316      	adds	r3, #22
- 8005e3e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
- 8005e42:	4a0b      	ldr	r2, [pc, #44]	; (8005e70 <Sensores_Calibracion_Backgound+0x8c>)
- 8005e44:	fba2 2303 	umull	r2, r3, r2, r3
- 8005e48:	095a      	lsrs	r2, r3, #5
- 8005e4a:	4907      	ldr	r1, [pc, #28]	; (8005e68 <Sensores_Calibracion_Backgound+0x84>)
- 8005e4c:	687b      	ldr	r3, [r7, #4]
- 8005e4e:	3316      	adds	r3, #22
- 8005e50:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8005e28:	4a0b      	ldr	r2, [pc, #44]	; (8005e58 <Sensores_Calibracion_Backgound+0x84>)
+ 8005e2a:	687b      	ldr	r3, [r7, #4]
+ 8005e2c:	3316      	adds	r3, #22
+ 8005e2e:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 8005e32:	4a0b      	ldr	r2, [pc, #44]	; (8005e60 <Sensores_Calibracion_Backgound+0x8c>)
+ 8005e34:	fba2 2303 	umull	r2, r3, r2, r3
+ 8005e38:	095a      	lsrs	r2, r3, #5
+ 8005e3a:	4907      	ldr	r1, [pc, #28]	; (8005e58 <Sensores_Calibracion_Backgound+0x84>)
+ 8005e3c:	687b      	ldr	r3, [r7, #4]
+ 8005e3e:	3316      	adds	r3, #22
+ 8005e40:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 	for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar los valores promedio de fondo de pista
- 8005e54:	687b      	ldr	r3, [r7, #4]
- 8005e56:	3301      	adds	r3, #1
- 8005e58:	607b      	str	r3, [r7, #4]
- 8005e5a:	687b      	ldr	r3, [r7, #4]
- 8005e5c:	2b07      	cmp	r3, #7
- 8005e5e:	ddeb      	ble.n	8005e38 <Sensores_Calibracion_Backgound+0x54>
+ 8005e44:	687b      	ldr	r3, [r7, #4]
+ 8005e46:	3301      	adds	r3, #1
+ 8005e48:	607b      	str	r3, [r7, #4]
+ 8005e4a:	687b      	ldr	r3, [r7, #4]
+ 8005e4c:	2b07      	cmp	r3, #7
+ 8005e4e:	ddeb      	ble.n	8005e28 <Sensores_Calibracion_Backgound+0x54>
 	  }
 
 }
- 8005e60:	bf00      	nop
- 8005e62:	3710      	adds	r7, #16
- 8005e64:	46bd      	mov	sp, r7
- 8005e66:	bd80      	pop	{r7, pc}
- 8005e68:	200010fc 	.word	0x200010fc
- 8005e6c:	20001270 	.word	0x20001270
- 8005e70:	51eb851f 	.word	0x51eb851f
+ 8005e50:	bf00      	nop
+ 8005e52:	3710      	adds	r7, #16
+ 8005e54:	46bd      	mov	sp, r7
+ 8005e56:	bd80      	pop	{r7, pc}
+ 8005e58:	200010fc 	.word	0x200010fc
+ 8005e5c:	20001270 	.word	0x20001270
+ 8005e60:	51eb851f 	.word	0x51eb851f
 
-08005e74 <Sensores_Calibracion_Line>:
+08005e64 <Sensores_Calibracion_Line>:
+ *      			Funcion	Calibracion: LINEA		  						 *
+ *---------------------------------------------------------------------------*/
 
 
 void Sensores_Calibracion_Line(void)
 {
- 8005e74:	b580      	push	{r7, lr}
- 8005e76:	b084      	sub	sp, #16
- 8005e78:	af00      	add	r7, sp, #0
+ 8005e64:	b580      	push	{r7, lr}
+ 8005e66:	b084      	sub	sp, #16
+ 8005e68:	af00      	add	r7, sp, #0
 
 	for(int is=0; is < NUM_SENSORES ; is ++)
- 8005e7a:	2300      	movs	r3, #0
- 8005e7c:	60fb      	str	r3, [r7, #12]
- 8005e7e:	e013      	b.n	8005ea8 <Sensores_Calibracion_Line+0x34>
+ 8005e6a:	2300      	movs	r3, #0
+ 8005e6c:	60fb      	str	r3, [r7, #12]
+ 8005e6e:	e013      	b.n	8005e98 <Sensores_Calibracion_Line+0x34>
 		{
 			vel.tr_sens[is]  = 0;
- 8005e80:	4a3f      	ldr	r2, [pc, #252]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005e82:	68fb      	ldr	r3, [r7, #12]
- 8005e84:	330e      	adds	r3, #14
- 8005e86:	2100      	movs	r1, #0
- 8005e88:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005e70:	4a3f      	ldr	r2, [pc, #252]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005e72:	68fb      	ldr	r3, [r7, #12]
+ 8005e74:	330e      	adds	r3, #14
+ 8005e76:	2100      	movs	r1, #0
+ 8005e78:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 			max_sens[is]     = 0;
- 8005e8c:	4a3d      	ldr	r2, [pc, #244]	; (8005f84 <Sensores_Calibracion_Line+0x110>)
- 8005e8e:	68fb      	ldr	r3, [r7, #12]
- 8005e90:	2100      	movs	r1, #0
- 8005e92:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005e7c:	4a3d      	ldr	r2, [pc, #244]	; (8005f74 <Sensores_Calibracion_Line+0x110>)
+ 8005e7e:	68fb      	ldr	r3, [r7, #12]
+ 8005e80:	2100      	movs	r1, #0
+ 8005e82:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 			min_sens[is]     = 10000;
- 8005e96:	4a3c      	ldr	r2, [pc, #240]	; (8005f88 <Sensores_Calibracion_Line+0x114>)
- 8005e98:	68fb      	ldr	r3, [r7, #12]
- 8005e9a:	f242 7110 	movw	r1, #10000	; 0x2710
- 8005e9e:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005e86:	4a3c      	ldr	r2, [pc, #240]	; (8005f78 <Sensores_Calibracion_Line+0x114>)
+ 8005e88:	68fb      	ldr	r3, [r7, #12]
+ 8005e8a:	f242 7110 	movw	r1, #10000	; 0x2710
+ 8005e8e:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 	for(int is=0; is < NUM_SENSORES ; is ++)
- 8005ea2:	68fb      	ldr	r3, [r7, #12]
- 8005ea4:	3301      	adds	r3, #1
- 8005ea6:	60fb      	str	r3, [r7, #12]
- 8005ea8:	68fb      	ldr	r3, [r7, #12]
- 8005eaa:	2b07      	cmp	r3, #7
- 8005eac:	dde8      	ble.n	8005e80 <Sensores_Calibracion_Line+0xc>
+ 8005e92:	68fb      	ldr	r3, [r7, #12]
+ 8005e94:	3301      	adds	r3, #1
+ 8005e96:	60fb      	str	r3, [r7, #12]
+ 8005e98:	68fb      	ldr	r3, [r7, #12]
+ 8005e9a:	2b07      	cmp	r3, #7
+ 8005e9c:	dde8      	ble.n	8005e70 <Sensores_Calibracion_Line+0xc>
 		}
 
 	 for(int ind=0; ind < 1500 ; ind ++)
- 8005eae:	2300      	movs	r3, #0
- 8005eb0:	60bb      	str	r3, [r7, #8]
- 8005eb2:	e039      	b.n	8005f28 <Sensores_Calibracion_Line+0xb4>
+ 8005e9e:	2300      	movs	r3, #0
+ 8005ea0:	60bb      	str	r3, [r7, #8]
+ 8005ea2:	e039      	b.n	8005f18 <Sensores_Calibracion_Line+0xb4>
 				 {
 					  for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar el maximo, el minimo y promedio
- 8005eb4:	2300      	movs	r3, #0
- 8005eb6:	607b      	str	r3, [r7, #4]
- 8005eb8:	e02d      	b.n	8005f16 <Sensores_Calibracion_Line+0xa2>
+ 8005ea4:	2300      	movs	r3, #0
+ 8005ea6:	607b      	str	r3, [r7, #4]
+ 8005ea8:	e02d      	b.n	8005f06 <Sensores_Calibracion_Line+0xa2>
 				      {
 								  if(sensor_timing[is] > max_sens[is])
- 8005eba:	4a34      	ldr	r2, [pc, #208]	; (8005f8c <Sensores_Calibracion_Line+0x118>)
- 8005ebc:	687b      	ldr	r3, [r7, #4]
- 8005ebe:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005ec2:	4930      	ldr	r1, [pc, #192]	; (8005f84 <Sensores_Calibracion_Line+0x110>)
- 8005ec4:	687b      	ldr	r3, [r7, #4]
- 8005ec6:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
- 8005eca:	429a      	cmp	r2, r3
- 8005ecc:	d907      	bls.n	8005ede <Sensores_Calibracion_Line+0x6a>
+ 8005eaa:	4a34      	ldr	r2, [pc, #208]	; (8005f7c <Sensores_Calibracion_Line+0x118>)
+ 8005eac:	687b      	ldr	r3, [r7, #4]
+ 8005eae:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005eb2:	4930      	ldr	r1, [pc, #192]	; (8005f74 <Sensores_Calibracion_Line+0x110>)
+ 8005eb4:	687b      	ldr	r3, [r7, #4]
+ 8005eb6:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
+ 8005eba:	429a      	cmp	r2, r3
+ 8005ebc:	d907      	bls.n	8005ece <Sensores_Calibracion_Line+0x6a>
 										max_sens[is] = sensor_timing[is];
- 8005ece:	4a2f      	ldr	r2, [pc, #188]	; (8005f8c <Sensores_Calibracion_Line+0x118>)
- 8005ed0:	687b      	ldr	r3, [r7, #4]
- 8005ed2:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005ed6:	492b      	ldr	r1, [pc, #172]	; (8005f84 <Sensores_Calibracion_Line+0x110>)
- 8005ed8:	687b      	ldr	r3, [r7, #4]
- 8005eda:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8005ebe:	4a2f      	ldr	r2, [pc, #188]	; (8005f7c <Sensores_Calibracion_Line+0x118>)
+ 8005ec0:	687b      	ldr	r3, [r7, #4]
+ 8005ec2:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005ec6:	492b      	ldr	r1, [pc, #172]	; (8005f74 <Sensores_Calibracion_Line+0x110>)
+ 8005ec8:	687b      	ldr	r3, [r7, #4]
+ 8005eca:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 
 								  if(sensor_timing[is] < min_sens[is])
- 8005ede:	4a2b      	ldr	r2, [pc, #172]	; (8005f8c <Sensores_Calibracion_Line+0x118>)
- 8005ee0:	687b      	ldr	r3, [r7, #4]
- 8005ee2:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005ee6:	4928      	ldr	r1, [pc, #160]	; (8005f88 <Sensores_Calibracion_Line+0x114>)
- 8005ee8:	687b      	ldr	r3, [r7, #4]
- 8005eea:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
- 8005eee:	429a      	cmp	r2, r3
- 8005ef0:	d207      	bcs.n	8005f02 <Sensores_Calibracion_Line+0x8e>
+ 8005ece:	4a2b      	ldr	r2, [pc, #172]	; (8005f7c <Sensores_Calibracion_Line+0x118>)
+ 8005ed0:	687b      	ldr	r3, [r7, #4]
+ 8005ed2:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005ed6:	4928      	ldr	r1, [pc, #160]	; (8005f78 <Sensores_Calibracion_Line+0x114>)
+ 8005ed8:	687b      	ldr	r3, [r7, #4]
+ 8005eda:	f851 3023 	ldr.w	r3, [r1, r3, lsl #2]
+ 8005ede:	429a      	cmp	r2, r3
+ 8005ee0:	d207      	bcs.n	8005ef2 <Sensores_Calibracion_Line+0x8e>
 										 min_sens[is] = sensor_timing[is];
- 8005ef2:	4a26      	ldr	r2, [pc, #152]	; (8005f8c <Sensores_Calibracion_Line+0x118>)
- 8005ef4:	687b      	ldr	r3, [r7, #4]
- 8005ef6:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
- 8005efa:	4923      	ldr	r1, [pc, #140]	; (8005f88 <Sensores_Calibracion_Line+0x114>)
- 8005efc:	687b      	ldr	r3, [r7, #4]
- 8005efe:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8005ee2:	4a26      	ldr	r2, [pc, #152]	; (8005f7c <Sensores_Calibracion_Line+0x118>)
+ 8005ee4:	687b      	ldr	r3, [r7, #4]
+ 8005ee6:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8005eea:	4923      	ldr	r1, [pc, #140]	; (8005f78 <Sensores_Calibracion_Line+0x114>)
+ 8005eec:	687b      	ldr	r3, [r7, #4]
+ 8005eee:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 
 					              //vel.tr_sens[is] = (min_sens[is] + max_sens[is])/2;
 									      vel.tr_sens[is] = TIME_OUT_BLANCO - 10;
- 8005f02:	4a1f      	ldr	r2, [pc, #124]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f04:	687b      	ldr	r3, [r7, #4]
- 8005f06:	330e      	adds	r3, #14
- 8005f08:	f44f 71f5 	mov.w	r1, #490	; 0x1ea
- 8005f0c:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+ 8005ef2:	4a1f      	ldr	r2, [pc, #124]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005ef4:	687b      	ldr	r3, [r7, #4]
+ 8005ef6:	330e      	adds	r3, #14
+ 8005ef8:	f44f 71f5 	mov.w	r1, #490	; 0x1ea
+ 8005efc:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 					  for(int is=0; is < NUM_SENSORES ; is ++) //Leer los sensores y guardar el maximo, el minimo y promedio
- 8005f10:	687b      	ldr	r3, [r7, #4]
- 8005f12:	3301      	adds	r3, #1
- 8005f14:	607b      	str	r3, [r7, #4]
- 8005f16:	687b      	ldr	r3, [r7, #4]
- 8005f18:	2b07      	cmp	r3, #7
- 8005f1a:	ddce      	ble.n	8005eba <Sensores_Calibracion_Line+0x46>
+ 8005f00:	687b      	ldr	r3, [r7, #4]
+ 8005f02:	3301      	adds	r3, #1
+ 8005f04:	607b      	str	r3, [r7, #4]
+ 8005f06:	687b      	ldr	r3, [r7, #4]
+ 8005f08:	2b07      	cmp	r3, #7
+ 8005f0a:	ddce      	ble.n	8005eaa <Sensores_Calibracion_Line+0x46>
 				      }
 
 						 osDelay(2);
- 8005f1c:	2002      	movs	r0, #2
- 8005f1e:	f7fe f8cc 	bl	80040ba <osDelay>
+ 8005f0c:	2002      	movs	r0, #2
+ 8005f0e:	f7fe f8d4 	bl	80040ba <osDelay>
 	 for(int ind=0; ind < 1500 ; ind ++)
- 8005f22:	68bb      	ldr	r3, [r7, #8]
- 8005f24:	3301      	adds	r3, #1
- 8005f26:	60bb      	str	r3, [r7, #8]
- 8005f28:	68bb      	ldr	r3, [r7, #8]
- 8005f2a:	f240 52db 	movw	r2, #1499	; 0x5db
- 8005f2e:	4293      	cmp	r3, r2
- 8005f30:	ddc0      	ble.n	8005eb4 <Sensores_Calibracion_Line+0x40>
+ 8005f12:	68bb      	ldr	r3, [r7, #8]
+ 8005f14:	3301      	adds	r3, #1
+ 8005f16:	60bb      	str	r3, [r7, #8]
+ 8005f18:	68bb      	ldr	r3, [r7, #8]
+ 8005f1a:	f240 52db 	movw	r2, #1499	; 0x5db
+ 8005f1e:	4293      	cmp	r3, r2
+ 8005f20:	ddc0      	ble.n	8005ea4 <Sensores_Calibracion_Line+0x40>
 				}
 
 		//definir color de PISTA
 				if ((vel.fondo_pista[0] > vel.tr_sens[0]) && (vel.fondo_pista[NUM_SENSORES-1] > vel.tr_sens[NUM_SENSORES-1]))
- 8005f32:	4b13      	ldr	r3, [pc, #76]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f34:	6d9a      	ldr	r2, [r3, #88]	; 0x58
- 8005f36:	4b12      	ldr	r3, [pc, #72]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f38:	6b9b      	ldr	r3, [r3, #56]	; 0x38
- 8005f3a:	429a      	cmp	r2, r3
- 8005f3c:	d909      	bls.n	8005f52 <Sensores_Calibracion_Line+0xde>
- 8005f3e:	4b10      	ldr	r3, [pc, #64]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f40:	6f5a      	ldr	r2, [r3, #116]	; 0x74
- 8005f42:	4b0f      	ldr	r3, [pc, #60]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f44:	6d5b      	ldr	r3, [r3, #84]	; 0x54
- 8005f46:	429a      	cmp	r2, r3
- 8005f48:	d903      	bls.n	8005f52 <Sensores_Calibracion_Line+0xde>
+ 8005f22:	4b13      	ldr	r3, [pc, #76]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f24:	6d9a      	ldr	r2, [r3, #88]	; 0x58
+ 8005f26:	4b12      	ldr	r3, [pc, #72]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f28:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 8005f2a:	429a      	cmp	r2, r3
+ 8005f2c:	d909      	bls.n	8005f42 <Sensores_Calibracion_Line+0xde>
+ 8005f2e:	4b10      	ldr	r3, [pc, #64]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f30:	6f5a      	ldr	r2, [r3, #116]	; 0x74
+ 8005f32:	4b0f      	ldr	r3, [pc, #60]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f34:	6d5b      	ldr	r3, [r3, #84]	; 0x54
+ 8005f36:	429a      	cmp	r2, r3
+ 8005f38:	d903      	bls.n	8005f42 <Sensores_Calibracion_Line+0xde>
 				{
 				     vel_setup.tipopista = 1; // pista < negro
- 8005f4a:	4b11      	ldr	r3, [pc, #68]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f4c:	2201      	movs	r2, #1
- 8005f4e:	619a      	str	r2, [r3, #24]
- 8005f50:	e012      	b.n	8005f78 <Sensores_Calibracion_Line+0x104>
+ 8005f3a:	4b11      	ldr	r3, [pc, #68]	; (8005f80 <Sensores_Calibracion_Line+0x11c>)
+ 8005f3c:	2201      	movs	r2, #1
+ 8005f3e:	619a      	str	r2, [r3, #24]
+ 8005f40:	e012      	b.n	8005f68 <Sensores_Calibracion_Line+0x104>
 				}
 
 				else if ((vel.fondo_pista[0] < vel.tr_sens[0]) && (vel.fondo_pista[NUM_SENSORES-1] < vel.tr_sens[NUM_SENSORES-1]))
- 8005f52:	4b0b      	ldr	r3, [pc, #44]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f54:	6d9a      	ldr	r2, [r3, #88]	; 0x58
- 8005f56:	4b0a      	ldr	r3, [pc, #40]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f58:	6b9b      	ldr	r3, [r3, #56]	; 0x38
- 8005f5a:	429a      	cmp	r2, r3
- 8005f5c:	d209      	bcs.n	8005f72 <Sensores_Calibracion_Line+0xfe>
- 8005f5e:	4b08      	ldr	r3, [pc, #32]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f60:	6f5a      	ldr	r2, [r3, #116]	; 0x74
- 8005f62:	4b07      	ldr	r3, [pc, #28]	; (8005f80 <Sensores_Calibracion_Line+0x10c>)
- 8005f64:	6d5b      	ldr	r3, [r3, #84]	; 0x54
- 8005f66:	429a      	cmp	r2, r3
- 8005f68:	d203      	bcs.n	8005f72 <Sensores_Calibracion_Line+0xfe>
+ 8005f42:	4b0b      	ldr	r3, [pc, #44]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f44:	6d9a      	ldr	r2, [r3, #88]	; 0x58
+ 8005f46:	4b0a      	ldr	r3, [pc, #40]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f48:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 8005f4a:	429a      	cmp	r2, r3
+ 8005f4c:	d209      	bcs.n	8005f62 <Sensores_Calibracion_Line+0xfe>
+ 8005f4e:	4b08      	ldr	r3, [pc, #32]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f50:	6f5a      	ldr	r2, [r3, #116]	; 0x74
+ 8005f52:	4b07      	ldr	r3, [pc, #28]	; (8005f70 <Sensores_Calibracion_Line+0x10c>)
+ 8005f54:	6d5b      	ldr	r3, [r3, #84]	; 0x54
+ 8005f56:	429a      	cmp	r2, r3
+ 8005f58:	d203      	bcs.n	8005f62 <Sensores_Calibracion_Line+0xfe>
 				{
 				     vel_setup.tipopista = 2; // pista > Blanco
- 8005f6a:	4b09      	ldr	r3, [pc, #36]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f6c:	2202      	movs	r2, #2
- 8005f6e:	619a      	str	r2, [r3, #24]
- 8005f70:	e002      	b.n	8005f78 <Sensores_Calibracion_Line+0x104>
+ 8005f5a:	4b09      	ldr	r3, [pc, #36]	; (8005f80 <Sensores_Calibracion_Line+0x11c>)
+ 8005f5c:	2202      	movs	r2, #2
+ 8005f5e:	619a      	str	r2, [r3, #24]
+ 8005f60:	e002      	b.n	8005f68 <Sensores_Calibracion_Line+0x104>
 				}
 	      else
 				{
 					vel_setup.tipopista = 2; //SET MANUAL
- 8005f72:	4b07      	ldr	r3, [pc, #28]	; (8005f90 <Sensores_Calibracion_Line+0x11c>)
- 8005f74:	2202      	movs	r2, #2
- 8005f76:	619a      	str	r2, [r3, #24]
+ 8005f62:	4b07      	ldr	r3, [pc, #28]	; (8005f80 <Sensores_Calibracion_Line+0x11c>)
+ 8005f64:	2202      	movs	r2, #2
+ 8005f66:	619a      	str	r2, [r3, #24]
 				}
 
 }
- 8005f78:	bf00      	nop
- 8005f7a:	3710      	adds	r7, #16
- 8005f7c:	46bd      	mov	sp, r7
- 8005f7e:	bd80      	pop	{r7, pc}
- 8005f80:	200010fc 	.word	0x200010fc
- 8005f84:	20001210 	.word	0x20001210
- 8005f88:	20001290 	.word	0x20001290
- 8005f8c:	20001270 	.word	0x20001270
- 8005f90:	200011dc 	.word	0x200011dc
+ 8005f68:	bf00      	nop
+ 8005f6a:	3710      	adds	r7, #16
+ 8005f6c:	46bd      	mov	sp, r7
+ 8005f6e:	bd80      	pop	{r7, pc}
+ 8005f70:	200010fc 	.word	0x200010fc
+ 8005f74:	20001210 	.word	0x20001210
+ 8005f78:	20001290 	.word	0x20001290
+ 8005f7c:	20001270 	.word	0x20001270
+ 8005f80:	200011dc 	.word	0x200011dc
 
-08005f94 <__libc_init_array>:
- 8005f94:	b570      	push	{r4, r5, r6, lr}
- 8005f96:	4e0d      	ldr	r6, [pc, #52]	; (8005fcc <__libc_init_array+0x38>)
- 8005f98:	4c0d      	ldr	r4, [pc, #52]	; (8005fd0 <__libc_init_array+0x3c>)
- 8005f9a:	1ba4      	subs	r4, r4, r6
- 8005f9c:	10a4      	asrs	r4, r4, #2
- 8005f9e:	2500      	movs	r5, #0
- 8005fa0:	42a5      	cmp	r5, r4
- 8005fa2:	d109      	bne.n	8005fb8 <__libc_init_array+0x24>
- 8005fa4:	4e0b      	ldr	r6, [pc, #44]	; (8005fd4 <__libc_init_array+0x40>)
- 8005fa6:	4c0c      	ldr	r4, [pc, #48]	; (8005fd8 <__libc_init_array+0x44>)
- 8005fa8:	f000 f820 	bl	8005fec <_init>
- 8005fac:	1ba4      	subs	r4, r4, r6
- 8005fae:	10a4      	asrs	r4, r4, #2
- 8005fb0:	2500      	movs	r5, #0
- 8005fb2:	42a5      	cmp	r5, r4
- 8005fb4:	d105      	bne.n	8005fc2 <__libc_init_array+0x2e>
- 8005fb6:	bd70      	pop	{r4, r5, r6, pc}
- 8005fb8:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
- 8005fbc:	4798      	blx	r3
- 8005fbe:	3501      	adds	r5, #1
- 8005fc0:	e7ee      	b.n	8005fa0 <__libc_init_array+0xc>
- 8005fc2:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
- 8005fc6:	4798      	blx	r3
- 8005fc8:	3501      	adds	r5, #1
- 8005fca:	e7f2      	b.n	8005fb2 <__libc_init_array+0x1e>
- 8005fcc:	080060dc 	.word	0x080060dc
- 8005fd0:	080060dc 	.word	0x080060dc
- 8005fd4:	080060dc 	.word	0x080060dc
- 8005fd8:	080060e0 	.word	0x080060e0
+08005f84 <__libc_init_array>:
+ 8005f84:	b570      	push	{r4, r5, r6, lr}
+ 8005f86:	4e0d      	ldr	r6, [pc, #52]	; (8005fbc <__libc_init_array+0x38>)
+ 8005f88:	4c0d      	ldr	r4, [pc, #52]	; (8005fc0 <__libc_init_array+0x3c>)
+ 8005f8a:	1ba4      	subs	r4, r4, r6
+ 8005f8c:	10a4      	asrs	r4, r4, #2
+ 8005f8e:	2500      	movs	r5, #0
+ 8005f90:	42a5      	cmp	r5, r4
+ 8005f92:	d109      	bne.n	8005fa8 <__libc_init_array+0x24>
+ 8005f94:	4e0b      	ldr	r6, [pc, #44]	; (8005fc4 <__libc_init_array+0x40>)
+ 8005f96:	4c0c      	ldr	r4, [pc, #48]	; (8005fc8 <__libc_init_array+0x44>)
+ 8005f98:	f000 f820 	bl	8005fdc <_init>
+ 8005f9c:	1ba4      	subs	r4, r4, r6
+ 8005f9e:	10a4      	asrs	r4, r4, #2
+ 8005fa0:	2500      	movs	r5, #0
+ 8005fa2:	42a5      	cmp	r5, r4
+ 8005fa4:	d105      	bne.n	8005fb2 <__libc_init_array+0x2e>
+ 8005fa6:	bd70      	pop	{r4, r5, r6, pc}
+ 8005fa8:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 8005fac:	4798      	blx	r3
+ 8005fae:	3501      	adds	r5, #1
+ 8005fb0:	e7ee      	b.n	8005f90 <__libc_init_array+0xc>
+ 8005fb2:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 8005fb6:	4798      	blx	r3
+ 8005fb8:	3501      	adds	r5, #1
+ 8005fba:	e7f2      	b.n	8005fa2 <__libc_init_array+0x1e>
+ 8005fbc:	080060cc 	.word	0x080060cc
+ 8005fc0:	080060cc 	.word	0x080060cc
+ 8005fc4:	080060cc 	.word	0x080060cc
+ 8005fc8:	080060d0 	.word	0x080060d0
 
-08005fdc <memset>:
- 8005fdc:	4402      	add	r2, r0
- 8005fde:	4603      	mov	r3, r0
- 8005fe0:	4293      	cmp	r3, r2
- 8005fe2:	d100      	bne.n	8005fe6 <memset+0xa>
- 8005fe4:	4770      	bx	lr
- 8005fe6:	f803 1b01 	strb.w	r1, [r3], #1
- 8005fea:	e7f9      	b.n	8005fe0 <memset+0x4>
+08005fcc <memset>:
+ 8005fcc:	4402      	add	r2, r0
+ 8005fce:	4603      	mov	r3, r0
+ 8005fd0:	4293      	cmp	r3, r2
+ 8005fd2:	d100      	bne.n	8005fd6 <memset+0xa>
+ 8005fd4:	4770      	bx	lr
+ 8005fd6:	f803 1b01 	strb.w	r1, [r3], #1
+ 8005fda:	e7f9      	b.n	8005fd0 <memset+0x4>
 
-08005fec <_init>:
- 8005fec:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8005fee:	bf00      	nop
- 8005ff0:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8005ff2:	bc08      	pop	{r3}
- 8005ff4:	469e      	mov	lr, r3
- 8005ff6:	4770      	bx	lr
+08005fdc <_init>:
+ 8005fdc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8005fde:	bf00      	nop
+ 8005fe0:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8005fe2:	bc08      	pop	{r3}
+ 8005fe4:	469e      	mov	lr, r3
+ 8005fe6:	4770      	bx	lr
 
-08005ff8 <_fini>:
- 8005ff8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8005ffa:	bf00      	nop
- 8005ffc:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 8005ffe:	bc08      	pop	{r3}
- 8006000:	469e      	mov	lr, r3
- 8006002:	4770      	bx	lr
+08005fe8 <_fini>:
+ 8005fe8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8005fea:	bf00      	nop
+ 8005fec:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8005fee:	bc08      	pop	{r3}
+ 8005ff0:	469e      	mov	lr, r3
+ 8005ff2:	4770      	bx	lr

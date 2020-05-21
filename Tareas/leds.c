@@ -2,9 +2,10 @@
  * leds.c
  *
  *  Created on: May 11, 2020
- *      Author: Grupo 13 sistemas embebidos 2020 II
+ *  Author: Usuario
  */
-// includes
+
+
 #include "cmsis_os.h"
 #include "leds.h"
 #include "main.h"
